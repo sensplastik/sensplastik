@@ -1,0 +1,26 @@
+@import "@/styles/_variables";
+
+.section {
+  padding-left: 8.33vw;
+  padding-right: 8.33vw;
+
+  @include media(">=850px", "<1440px") {
+    padding-left: calc(17.6271vw - 133.8303px);
+    padding-right: calc(17.6271vw - 133.8303px);
+  }
+
+  @include media("<850px") {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  &--full {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  &__container {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

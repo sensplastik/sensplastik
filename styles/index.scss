@@ -1,2 +1,6 @@
 @import 'variables';
 @import 'base';
+
+.section--navbar {
+    border-bottom: 1px solid $color-lines;
+  }

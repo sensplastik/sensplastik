@@ -8,7 +8,7 @@ import { Suspense } from 'react'
 
 import { Footer } from '@/components/global/Footer'
 import { Navbar } from '@/components/global/Navbar'
-import IntroTemplate from '@/intro-template'
+import { Section } from '@/components/shared/Section'
 import { urlForOpenGraphImage } from '@/sanity/lib/utils'
 import { loadHomePage, loadSettings } from '@/sanity/loader/loadQuery'
 
@@ -50,20 +50,17 @@ export default async function IndexRoute({
 }) {
   return (
     <>
-      <div className="flex min-h-screen flex-col bg-white text-black">
+      <main>
         <Suspense>
-          <Navbar />
-        </Suspense>
-        <div className="mt-20 flex-grow px-4 md:px-16 lg:px-32">
+          <Section className='section--navbar'>
+            <Navbar />
+          </Section>
+        </Suspense>        
           <Suspense>{children}</Suspense>
-        </div>
-        <Suspense>
-          <Footer />
-        </Suspense>
-        <Suspense>
-          <IntroTemplate />
-        </Suspense>
-      </div>
+      </main>
+      <Suspense>
+        <Footer />
+      </Suspense>
       {draftMode().isEnabled && <LiveVisualEditing />}
     </>
   )

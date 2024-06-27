@@ -28,11 +28,19 @@ export interface ShowcaseProject {
   title?: string
 }
 
+export interface PageMessage {
+  _type: string
+  content?: PortableTextBlock[]
+  title?: string
+}
+
 // Page payloads
 
 export interface HomePagePayload {
   footer?: PortableTextBlock[]
   overview?: PortableTextBlock[]
+  message?: PageMessage
+  showStatusBar?: boolean
   showcaseProjects?: ShowcaseProject[]
   title?: string
 }

@@ -59,6 +59,31 @@ export default defineType({
       validation: (rule) => rule.max(155).required(),
     }),
     defineField({
+      name: 'message',
+      title: 'Message',
+      type: 'object',
+      fields: [
+        defineField({
+          name: 'title',
+          title: 'Title',
+          type: 'string',
+          // Uncomment the line below if you want to make the title required
+          // validation: (rule) => rule.required(),
+        }),
+        defineField({
+          name: 'content',
+          title: 'Content',
+          type: 'array',
+          of: [{ type: 'block' }],
+        }),
+      ],
+    }),
+    defineField({
+      name: 'showStatusBar',
+      title: 'Show Status Bar',
+      type: 'boolean',      
+    }),
+    defineField({
       name: 'showcaseProjects',
       title: 'Showcase projects',
       description:
