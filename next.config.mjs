@@ -22,6 +22,32 @@ const config = {
   experimental: {
     taint: true,
   },
+  webpack(config, options) {
+    config.module.rules.push({
+      test: /\.svg$/,
+      use: [
+        {
+          loader: '@svgr/webpack',
+          options: {
+            svgoConfig: {
+              plugins: [
+                {
+                  name: 'convertShapeToPath',
+                  active: false,
+                },
+                /*{
+                  name: 'removeViewBox',
+                  active: false,
+                },*/
+              ],
+            },
+          },
+        },
+      ],
+    });
+
+    return config;
+  },
 }
 
 export default config

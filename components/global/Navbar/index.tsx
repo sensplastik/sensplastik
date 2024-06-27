@@ -1,3 +1,5 @@
+import "./Navbar.scss"
+
 import dynamic from 'next/dynamic'
 import { draftMode } from 'next/headers'
 

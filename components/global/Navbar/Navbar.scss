@@ -1,0 +1,90 @@
+@import '@/styles/variables';
+
+.navbar {
+  height: 60px;
+  justify-content: space-between;
+  align-items: center;
+  color: $color-primary;
+
+  @include grid;
+
+  &__brand {
+    color: $color-primary;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    column-gap: 5px;
+    grid-column: span 3;
+
+    @include media('<=lg') {
+      grid-column: span 4;
+    }
+
+    @include media('<=md') {
+      grid-column: span 6;
+    }
+
+    @include media('<=sm') {
+      grid-column: span 10;
+    }
+    @include media('<=xs') {
+      grid-column: span 11;
+    }
+  }
+
+  &__slogan {
+    font-size: 0.5rem;
+    line-height: 0.625rem;
+    letter-spacing: -0.0125rem;
+    font-weight: $font-weight-medium;
+    //width: 41.67%;
+    @include media('<=md') {
+    }
+  }
+
+  &__logo {
+  }
+
+  &__nav {
+    grid-column-start: 7;
+    grid-column-end: 12;
+
+    @include media('<=md') {
+      display: none;
+    }
+  }
+
+  &__list {
+    display: flex;
+    column-gap: $space-2;
+  }
+
+  &__item {
+    font-size: $font-size-2;
+    line-height: $font-size-2;
+    font-weight: $font-weight-medium;
+    letter-spacing: $letter-spacing-2;
+  }
+
+  &__hamburger {
+    margin-left: auto;
+    margin-right: 0;
+    grid-column-start: 12;
+    @include media('<=sm') {
+      grid-column: span 2;
+    }
+    @include media('<=350px') {
+      overflow: hidden;
+      max-width: $space-2;
+    }
+    @include media('<=xs') {
+      grid-column: span 1;
+    }
+  }
+
+  .hamburger {
+    &__line {
+      stroke: $color-primary;
+    }
+  }
+}

@@ -1,7 +1,10 @@
+import Image from 'next/image'
 import Link from 'next/link'
 
 import { resolveHref } from '@/sanity/lib/utils'
 import type { MenuItem, SettingsPayload } from '@/types'
+
+import Hamburger from './Hamburger.svg'
 
 interface NavbarProps {
   data: SettingsPayload
@@ -9,28 +12,41 @@ interface NavbarProps {
 export default function Navbar(props: NavbarProps) {
   const { data } = props
   const menuItems = data?.menuItems || ([] as MenuItem[])
+  console.log(menuItems)
   return (
-    <div className="sticky top-0 z-10 flex flex-wrap items-center gap-x-5 bg-white/80 px-4 py-4 backdrop-blur md:px-16 md:py-5 lg:px-32">
-      {menuItems &&
-        menuItems.map((menuItem, key) => {
-          const href = resolveHref(menuItem?._type, menuItem?.slug)
-          if (!href) {
-            return null
-          }
-          return (
-            <Link
-              key={key}
-              className={`text-lg hover:text-black md:text-xl ${
-                menuItem?._type === 'home'
-                  ? 'font-extrabold text-black'
-                  : 'text-gray-600'
-              }`}
-              href={href}
-            >
-              {menuItem.title}
-            </Link>
-          )
-        })}
+    <div className="navbar">
+      <Link href="/" className="navbar__brand">
+        <Image
+          className="navbar__logo"
+          src="/logo.svg"
+          alt="Sensplastik®"
+          width={123}
+          height={22}
+        />
+      </Link>
+
+      <nav className="navbar__nav">
+        <ul className="navbar__list">
+          {menuItems &&
+            menuItems.map((menuItem, key) => {
+              const href = resolveHref(
+                menuItem?._type,
+                menuItem?._type === 'link' ? menuItem?.url : menuItem?.slug,
+              )
+              if (!href) {
+                return null
+              }
+              return (
+                <li className="navbar__item" key={key}>
+                  <Link href={href}>{menuItem.title}</Link>
+                </li>
+              )
+            })}
+        </ul>
+      </nav>
+      <Link href="#" className="navbar__hamburger">
+        <Hamburger />
+      </Link>
     </div>
   )
 }

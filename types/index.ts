@@ -4,6 +4,7 @@ import type { Image } from 'sanity'
 export interface MenuItem {
   _type: string
   slug?: string
+  url?: string
   title?: string
 }
 
