@@ -12,12 +12,12 @@ const sans = Inter({
   variable: '--font-sans',
   subsets: ['latin'],
   // @todo: understand why extrabold (800) isn't being respected when explicitly specified in this weight array
-  // weight: ['500', '700', '800'],
+  weight: ['400', '500'],
 })
 const mono = IBM_Plex_Mono({
   variable: '--font-mono',
   subsets: ['latin'],
-  weight: ['500', '700'],
+  weight: ['400', '500'],
 })
 
 export default async function RootLayout({
