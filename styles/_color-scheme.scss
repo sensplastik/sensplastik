@@ -1,0 +1,23 @@
+:root {
+  --color-primary: #1f1e1c;
+  --color-secondary: #7c7c7a;
+  --color-third: #8e8d86;
+  --color-fourth: #5f5a5a;
+  --color-lines: #e3e1dd;
+  --color-punchy: #ebd248;
+  --color-background: ffffff;
+  --color-background-iphone: ffffff;
+  --color-black:black;
+}
+
+[data-theme='dark'] {
+  --color-primary: #e3e1dd;
+  --color-secondary: #8e8d86;
+  --color-third: #8e8d86;
+  --color-fourth: #5f5a5a;
+  --color-lines: #5f5a5a;
+  --color-punchy: #ebd248;
+  --color-background: black;
+  --color-background-iphone: black;
+  --color-black:white;
+}

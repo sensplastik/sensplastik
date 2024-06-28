@@ -1,17 +1,17 @@
 //
 $font-primary: var(--font-sans);
-
 //
-$color-primary: #1f1e1c;
-$color-secondary: #7c7c7a;
-$color-third: #8e8d86;
-$color-fourth: #5f5a5a;
-$color-lines: #e3e1dd;
-$color-punchy: #ebd248;
-$color-background: #ffffff;
-$color-background-iphone: #ffffff;
+@import "_color-scheme";
 
-//
+$color-primary: var(--color-primary);
+$color-secondary: var(--color-secondary);
+$color-third: var(--color-third);
+$color-fourth: var(--color-fourth);
+$color-lines: var(--color-lines);
+$color-punchy: var(--color-punchy);
+$color-background: var(--color-background);
+$color-background-iphone: var(--color-background-iphone);
+$color-black: var(--color-black);
 
 $font-weight-regular: 400;
 $font-weight-medium: 500;
@@ -85,3 +85,5 @@ $breakpoints: (
 );
 
 @import "include-media";
+
+

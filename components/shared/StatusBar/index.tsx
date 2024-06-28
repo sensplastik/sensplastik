@@ -2,7 +2,12 @@
 import './StatusBar.scss'
 
 import moment from 'moment-timezone'
+import dynamic from "next/dynamic"
 import React, { useEffect, useState } from 'react'
+
+const DarkModeButton = dynamic(() => import("../DarkModeButton").then((mod) => mod.DarkModeButton), {
+  ssr: true
+})
 
 export function StatusBar() {
   const [parisTime, setParisTime] = useState('')
@@ -26,6 +31,8 @@ export function StatusBar() {
 
     return () => clearInterval(interval)
   }, [])
+
+  
 
   useEffect(() => {
     const getScreenResolution = () => {
@@ -76,7 +83,9 @@ export function StatusBar() {
       <div className="status-bar__time">Paris. {parisTime}</div>
       {/* Dark mode button */}
       <div className="status-bar__dark-mode-label">Dark Mode</div>
-      <div className="status-bar__dark-mode-toggle">[ON]</div>
+      <div className="status-bar__dark-mode-toggle">
+          <DarkModeButton/>
+      </div>
       {/* OSName & Resolution */}
       {osName && screenResolution.width && screenResolution.height && (
         <div className="status-bar__os">

@@ -1,0 +1,15 @@
+@import "@/styles/variables";
+
+.spacer {
+  padding-top: $space-6;
+  padding-bottom: $space-1;
+
+  &__line {
+    background-color: $color-primary;
+    height: 1px;
+    
+    &--custom {
+      background-color: inherit;
+    }
+  }
+}

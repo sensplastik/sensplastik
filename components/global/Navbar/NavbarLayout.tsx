@@ -1,5 +1,7 @@
+import dynamic from "next/dynamic"
 import Image from 'next/image'
 import Link from 'next/link'
+import { useTheme } from 'next-themes'
 
 import { resolveHref } from '@/sanity/lib/utils'
 import type { MenuItem, SettingsPayload } from '@/types'
@@ -9,6 +11,11 @@ import Hamburger from './Hamburger.svg'
 interface NavbarProps {
   data: SettingsPayload
 }
+
+const Logo = dynamic(() => import("./Logo").then((mod) => mod.Logo), {
+  ssr: true
+})
+
 export default function Navbar(props: NavbarProps) {
   const { data } = props
   const menuItems = data?.menuItems || ([] as MenuItem[])
@@ -16,13 +23,7 @@ export default function Navbar(props: NavbarProps) {
   return (
     <div className="navbar">
       <Link href="/" className="navbar__brand">
-        <Image
-          className="navbar__logo"
-          src="/logo.svg"
-          alt="Sensplastik®"
-          width={123}
-          height={22}
-        />
+        <Logo />
       </Link>
 
       <nav className="navbar__nav">

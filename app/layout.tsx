@@ -1,6 +1,7 @@
 import './globals.css'
 
 import { IBM_Plex_Mono, Inter, PT_Serif } from 'next/font/google'
+import { ThemeProvider } from 'next-themes'
 
 const serif = PT_Serif({
   variable: '--font-serif',
@@ -26,11 +27,13 @@ export default async function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html
+    <html suppressHydrationWarning
       lang="en"
       className={`${mono.variable} ${sans.variable} ${serif.variable}`}
     >
-      <body>{children}</body>
+      <body>
+        <ThemeProvider>{children}</ThemeProvider>
+      </body>
     </html>
   )
 }

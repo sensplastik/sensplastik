@@ -1,0 +1,35 @@
+@import "@/styles/variables";
+
+.picture {
+  @include grid;
+
+  &__img {
+    grid-column: span 12;
+    border-radius: 0.5rem;
+  }
+
+  &__placeholder {
+    
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-column: span 12;
+    min-height: 0; /* Reset min-height to allow padding-top to take effect */
+    color: white;
+    font-size: $font-size-4;
+    font-weight: bold;
+
+    // Calculate and apply aspect ratio padding
+    padding-top: 56.25%; // 16:9 aspect ratio (9 divided by 16 multiplied by 100)
+
+    // Ensure content within placeholder spans entire area
+    position: relative;
+    span {
+      position: absolute; /* Position title absolutely */
+      top: 50%; /* Center vertically */
+      left: 50%; /* Center horizontally */
+      transform: translate(-50%, -50%); /* Center using transform */
+    }
+  }
+}
