@@ -18,9 +18,15 @@
     padding-left: 0 !important;
     padding-right: 0 !important;
   }
-
+  
   &__container {
     margin-left: auto;
     margin-right: auto;
+  }
+
+  &--grid {
+    .section__container{
+      @include grid;
+    }
   }
 }

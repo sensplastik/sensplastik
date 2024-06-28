@@ -12,7 +12,7 @@
     color:$color-secondary;
 
     &__time{
-        grid-column: span 1;
+        grid-column: span 2;
     }
 
     &__dark-mode-label{
@@ -21,8 +21,8 @@
     }
 
     &__dark-mode-toggle{
-        grid-column-start: 9;
-        grid-column-end: 10;
+        grid-column-start: 8;
+        grid-column-end: 9;
     }
 
     &__os{

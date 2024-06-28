@@ -24,6 +24,7 @@ export default function Navbar(props: NavbarProps) {
     <div className="navbar">
       <Link href="/" className="navbar__brand">
         <Logo />
+        <p className="navbar__slogan">Corporate made Beautiful with <br/>Purpose and Simplicity.</p>
       </Link>
 
       <nav className="navbar__nav">

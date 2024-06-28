@@ -1,0 +1,50 @@
+@import "@/styles/variables";
+
+.card {
+    display: flex;
+    flex-direction: column;
+
+  &__picture {
+    
+    + .card__body{
+      margin-top:$space-1;
+    }
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+
+    color: $color-primary;
+    
+  }
+
+  &__title {
+    font-size: $font-size-3;    
+    line-height: 1.12rem;
+    letter-spacing: -0.02375rem;
+
+    font-weight: $font-weight-medium;    
+  }
+
+  &__description {
+
+   font-size: $font-size-3;   
+    line-height: $line-height-3;
+    letter-spacing: $letter-spacing-3;
+
+    font-weight:$font-weight-regular;
+
+  }
+
+  &__services {
+
+    font-size: $font-size-3;   
+    line-height: $line-height-3;
+    letter-spacing: $letter-spacing-3;
+
+    font-weight:$font-weight-regular;
+
+    color: $color-secondary;
+  }
+}

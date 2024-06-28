@@ -1,0 +1,62 @@
+@import "@/styles/variables";
+
+.intro {
+  
+  @include grid;
+  color: $color-primary;
+
+
+
+
+  &__heading{
+
+    grid-column-start: 4;
+    grid-column-end: 10;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+    + .intro__content{
+      margin-top: 55px;
+    }
+  }
+
+  &__content{
+    
+    grid-column-start: 7;
+    grid-column-end: 10;
+  }
+
+
+  &__title {
+    font-size: $h5;    
+    line-height:$line-height-6;
+    letter-spacing: $letter-spacing-6;
+    font-weight: $font-weight-medium;
+
+    + .intro__sub-title{
+      margin-top:$space-2;
+    }
+  }
+
+  &__sub-title {
+    font-size: $font-size-4;
+    line-height: $line-height-4;
+    letter-spacing: $letter-spacing-4;
+
+    font-weight:$font-weight-regular;
+  }
+
+  &__article {
+    font-size: $font-size-3;
+    line-height: $line-height-3;
+    letter-spacing: -0.02375rem;
+
+    font-weight:$font-weight-medium;
+
+    p:not(:last-child) {
+      margin-bottom: 1rem;
+      margin-bottom: 1lh;
+    }
+  }
+}
