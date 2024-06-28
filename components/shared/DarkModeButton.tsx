@@ -5,17 +5,17 @@ import { useEffect, useState } from 'react';
 
 export function DarkModeButton() {
 
-  const { theme, setTheme } = useTheme()
+  const { resolvedTheme, setTheme } = useTheme()
 
   const [mode, setMode] = useState('OFF');
 
   useEffect(() => {
 
-    setMode(theme =='light' ? 'OFF' : 'ON');
+    setMode(resolvedTheme =='light' ? 'OFF' : 'ON');
 
-  }, [theme]);
+  }, [resolvedTheme]);
   
   return (
-    <button onClick={() => setTheme(theme =='light' ? 'dark': 'light')}>[{mode}]</button>
+    <button onClick={() => setTheme(resolvedTheme =='light' ? 'dark': 'light')}>[{mode}]</button>
   )
 }

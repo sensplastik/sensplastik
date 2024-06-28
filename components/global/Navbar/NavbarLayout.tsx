@@ -19,7 +19,6 @@ const Logo = dynamic(() => import("./Logo").then((mod) => mod.Logo), {
 export default function Navbar(props: NavbarProps) {
   const { data } = props
   const menuItems = data?.menuItems || ([] as MenuItem[])
-  console.log(menuItems)
   return (
     <div className="navbar">
       <Link href="/" className="navbar__brand">

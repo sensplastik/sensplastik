@@ -8,16 +8,16 @@ interface LogoProps {
 }
 
 export function Logo({ color = '' }: LogoProps) {
-  const { theme } = useTheme()
+  const { theme, resolvedTheme } = useTheme()
 
   const [currentColor, setCurrentColor] = useState(color)
 
   useEffect(() => {
-      theme === 'light'
+    resolvedTheme === 'light'
         ? setCurrentColor('#1f1e1c')
         : setCurrentColor('#e3e1dd')
     
-  }, [theme])
+  }, [resolvedTheme])
 
   return (
     <>
