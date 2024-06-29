@@ -137,6 +137,12 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
          imageHeight={1500}  
          gridStart={1}       
          gridWidth={3}
+         title='Re-Store®'
+         description='Intelligent managment of renewable energy'
+         services={[
+          {title: 'Brand identity'},
+          {title:'Digital product'}
+         ]}
          />
         <Card
          image="https://cdn.sanity.io/images/m94ln1re/production/7bc1dbc594217e975e8f38a62f08aeb287cb93c5-2880x1500.jpg"
@@ -164,7 +170,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
          imageWidth={2880}
          imageHeight={1500}  
          gridStart={1}       
-         gridWidth={3}
+         gridWidth={3}         
          />
         <Card
          image="https://cdn.sanity.io/images/m94ln1re/production/7bc1dbc594217e975e8f38a62f08aeb287cb93c5-2880x1500.jpg"

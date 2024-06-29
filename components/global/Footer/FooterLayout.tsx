@@ -1,5 +1,5 @@
-import Link from 'next/link';
 import Head from 'next/head';
+import Link from 'next/link';
 import type { PortableTextBlock } from 'next-sanity';
 
 import { CustomPortableText } from '@/components/shared/CustomPortableText';
@@ -19,12 +19,14 @@ export default function Footer(props: FooterProps) {
   const email = footer?.email;
 
   const year = new Date().getFullYear();
+
+  const websiteUrl = process.env.NEXT_PUBLIC_WEBSITE_HOST
   
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Sensplastik",
-    "url": "https://www.sensplastik.com",
+    "url": websiteUrl,
     "sameAs": instagram ? [instagram] : [],
     "address": address ? {
       "@type": "PostalAddress",
@@ -40,6 +42,7 @@ export default function Footer(props: FooterProps) {
     <>
       <Head>
         <script
+          key="footer-ld"
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
