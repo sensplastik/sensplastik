@@ -5,18 +5,18 @@ import Link from 'next/link'
 
 import { ProjectListItem } from '@/components/pages/home/ProjectListItem'
 import { Brand } from '@/components/shared/Brand'
+import { Card } from '@/components/shared/Card'
 import { Content } from '@/components/shared/Content'
 import { Header } from '@/components/shared/Header'
+import { Intro } from '@/components/shared/Intro'
 import { Message } from '@/components/shared/Message'
 import { Picture } from '@/components/shared/Picture'
 import { Section } from '@/components/shared/Section'
 import { Spacer } from '@/components/shared/Spacer'
 import { StatusBar } from '@/components/shared/StatusBar'
+import { VerticalNav } from '@/components/shared/VerticalNav'
 import { resolveHref } from '@/sanity/lib/utils'
 import type { HomePagePayload } from '@/types'
-import { Intro } from '@/components/shared/Intro'
-import { VerticalNav } from '@/components/shared/VerticalNav'
-import { Card } from '@/components/shared/Card'
 
 export interface HomePageProps {
   data: HomePagePayload | null

@@ -70,12 +70,17 @@ export interface ProjectPayload {
 
 export interface FooterSettings{
   info?:PortableTextBlock[]
-  address?: string
-  instagram?: string
-  email?:string
+  showBrand?: boolean
+  showAddress?: boolean
+  showInstagram?: boolean
+  showEmail?:boolean
 }
 
 export interface SettingsPayload {
+  siteName?:string
+  address?:string
+  instagram?:string
+  email?:string
   footer?: FooterSettings
   menuItems?: MenuItem[]
   ogImage?: Image

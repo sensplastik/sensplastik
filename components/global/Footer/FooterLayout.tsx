@@ -1,98 +1,72 @@
-import Head from 'next/head';
+"use client"
 import Link from 'next/link';
-import type { PortableTextBlock } from 'next-sanity';
 
 import { CustomPortableText } from '@/components/shared/CustomPortableText';
-import type { FooterSettings, SettingsPayload } from '@/types';
+import { useSettings } from '@/context/SettingsContext';
 
-interface FooterProps {
-  data: SettingsPayload;
-}
+export default function Footer() {
+  const { settings } = useSettings();
+  const info = settings?.footer?.info;
+  const showBrand = settings?.footer?.showBrand;
+  const showAddress = settings?.footer?.showAddress;
+  const showInstagram = settings?.footer?.showInstagram;
+  const showEmail = settings?.footer?.showEmail;
 
-export default function Footer(props: FooterProps) {
-  const { data } = props;
-  const footer = data?.footer || ({} as FooterSettings);
-
-  const info = footer?.info;
-  const address = footer?.address;
-  const instagram = footer?.instagram;
-  const email = footer?.email;
+  const siteName = settings?.siteName;
+  const address = settings?.address;
+  const instagram = settings?.instagram;
+  const email = settings?.email;
 
   const year = new Date().getFullYear();
 
-  const websiteUrl = process.env.NEXT_PUBLIC_WEBSITE_HOST
-  
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Sensplastik",
-    "url": websiteUrl,
-    "sameAs": instagram ? [instagram] : [],
-    "address": address ? {
-      "@type": "PostalAddress",
-      "streetAddress": address
-    } : undefined,
-    "contactPoint": email ? {
-      "@type": "ContactPoint",
-      "email": email
-    } : undefined
-  };
-
   return (
-    <>
-      <Head>
-        <script
-          key="footer-ld"
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-      </Head>
-      <footer className="footer" aria-label="Footer">
+    <footer className="footer" aria-label="Footer">
+      {siteName && showBrand && (
         <div className="footer__brand" aria-label="Footer Brand">
-          <div className="footer__name">Sensplastik®</div>
+          <div className="footer__name">{siteName}</div>
           <div className="footer__copyright">©{year} All Rights Reserved</div>
         </div>
+      )}
 
-        {info && (
-          <div className="footer__content" aria-label="Footer Information">
-            <CustomPortableText value={info} />
-          </div>
-        )}
+      {info && (
+        <div className="footer__content" aria-label="Footer Information">
+          <CustomPortableText value={info} />
+        </div>
+      )}
 
-        {address && (
-          <address className="footer__address" aria-label="Footer Address">
-            {address}
-          </address>
-        )}
+      {address && showAddress && (
+        <address className="footer__address" aria-label="Footer Address">
+          {address}
+        </address>
+      )}
 
-        {instagram && (
-          <div className="footer__follow" aria-label="Follow Us">
-            <label className="footer__label" htmlFor="footer-instagram-link">Follow Us</label>
-            <Link
-              id="footer-instagram-link"
-              className="footer__link"
-              href={instagram}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Instagram
-            </Link>
-          </div>
-        )}
+      {instagram && showInstagram && (
+        <div className="footer__follow" aria-label="Follow Us">
+          <label className="footer__label" htmlFor="footer-instagram-link">
+            Follow Us
+          </label>
+          <Link
+            id="footer-instagram-link"
+            className="footer__link"
+            href={instagram}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Instagram
+          </Link>
+        </div>
+      )}
 
-        {email && (
-          <div className="footer__talk" aria-label="Talk to Us">
-            <label className="footer__label" htmlFor="footer-email-link">Talk to Us</label>
-            <Link
-              id="footer-email-link"
-              className="footer__link"
-              href={`mailto:${email}`}
-            >
-              {email}
-            </Link>
-          </div>
-        )}
-      </footer>
-    </>
+      {email && showEmail && (
+        <div className="footer__talk" aria-label="Talk to Us">
+          <label className="footer__label" htmlFor="footer-email-link">
+            Talk to Us
+          </label>
+          <Link id="footer-email-link" className="footer__link" href={`mailto:${email}`}>
+            {email}
+          </Link>
+        </div>
+      )}
+    </footer>
   );
 }
