@@ -68,8 +68,15 @@ export interface ProjectPayload {
   title?: string
 }
 
+export interface FooterSettings{
+  info?:PortableTextBlock[]
+  address?: string
+  instagram?: string
+  email?:string
+}
+
 export interface SettingsPayload {
-  footer?: PortableTextBlock[]
+  footer?: FooterSettings
   menuItems?: MenuItem[]
   ogImage?: Image
 }

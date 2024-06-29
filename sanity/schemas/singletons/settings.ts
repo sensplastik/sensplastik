@@ -39,28 +39,51 @@ export default defineType({
       name: 'footer',
       description:
         'This is a block of text that will be displayed at the bottom of the page.',
-      title: 'Footer Info',
-      type: 'array',
-      of: [
-        defineArrayMember({
-          type: 'block',
-          marks: {
-            annotations: [
-              {
-                name: 'link',
-                type: 'object',
-                title: 'Link',
-                fields: [
+      title: 'Footer',
+      type: 'object',
+      fields: [
+        defineField({
+          name: 'info',
+          title: 'Footer Info',
+          type: 'array',
+          of: [
+            defineArrayMember({
+              type: 'block',
+              marks: {
+                annotations: [
                   {
-                    name: 'href',
-                    type: 'url',
-                    title: 'Url',
+                    name: 'link',
+                    type: 'object',
+                    title: 'Link',
+                    fields: [
+                      {
+                        name: 'href',
+                        type: 'url',
+                        title: 'Url',
+                      },
+                    ],
                   },
                 ],
               },
-            ],
-          },
+            }),
+          ],
         }),
+        defineField({
+          name: 'address',
+          title: 'Address',
+          type: 'string',
+        }),
+        defineField({
+          name: 'instagram',
+          title: 'Instagram',
+          type: 'url',
+        }),
+        defineField({
+          name: 'email',
+          title: 'Email',
+          type: 'string',
+          validation: (rule) => rule.email(),
+        })
       ],
     }),
     defineField({

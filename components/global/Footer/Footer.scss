@@ -1,0 +1,58 @@
+@import '@/styles/variables';
+
+.footer{
+
+    @include grid;
+
+    margin-top:220px;
+
+    font-size: $font-size-1;
+    line-height:1rem;
+    letter-spacing: -0.03rem;
+
+    font-weight: $font-weight-medium;
+
+    color:$color-primary;
+
+    
+    &__brand{
+
+        grid-column: span 2;               
+    }
+    
+    &__content{
+        grid-column-start:  3;
+        grid-column-end:  6;
+    }
+
+    &__address{
+        grid-column-start:  7;
+        grid-column-end:  8;
+        font-style: normal;
+    }
+
+    &__follow{
+        grid-column-start:  8;
+        grid-column-end:  9;
+    }
+
+    &__talk{
+        grid-column-start:  9;
+        grid-column-end:  11;
+    }
+
+    &__name{
+        font-size: $font-size-2;
+        line-height:1rem;
+        letter-spacing: -0.03rem;
+    }
+
+    &__label{
+        display:block;
+    }
+    &__link{
+        color:$color-secondary;
+    }
+
+
+}

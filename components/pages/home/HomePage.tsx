@@ -164,6 +164,39 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
          imageWidth={2880}
          imageHeight={1500}  
          gridStart={1}       
+         gridWidth={3}
+         />
+        <Card
+         image="https://cdn.sanity.io/images/m94ln1re/production/7bc1dbc594217e975e8f38a62f08aeb287cb93c5-2880x1500.jpg"
+         imageWidth={2880}
+         imageHeight={1500}         
+         gridStart={4}
+         gridWidth={3}
+         />
+        <Card
+        isEmpty={true}    
+        gridStart={7}
+        gridWidth={3}
+        />
+        <Card
+        image="https://cdn.sanity.io/images/m94ln1re/production/7bc1dbc594217e975e8f38a62f08aeb287cb93c5-2880x1500.jpg"
+        imageWidth={2880}
+        imageHeight={1500}         
+        gridStart={10}
+        gridWidth={3}
+        />
+      </Section>
+      <Spacer
+        lineSize={{ default: '0' }}
+        paddingTop={{ default: '120px' }}
+        paddingBottom={{ default: '0' }}
+      />
+      <Section hasGrid={true}>
+        <Card
+         image="https://cdn.sanity.io/images/m94ln1re/production/7bc1dbc594217e975e8f38a62f08aeb287cb93c5-2880x1500.jpg"
+         imageWidth={2880}
+         imageHeight={1500}  
+         gridStart={1}       
          gridWidth={6}
          />
         <Card
@@ -211,13 +244,8 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
          gridWidth={3}
          isEmpty={true}
          />
-      </Section>
-      <Spacer
-        lineSize={{ default: '0' }}
-        paddingTop={{ default: '120px' }}
-        paddingBottom={{ default: '0' }}
-      />
-      {showcaseProjects && showcaseProjects.length > 0 && (
+      </Section>      
+      {/* {showcaseProjects && showcaseProjects.length > 0 && (
         <div className="mx-auto max-w-[100rem] rounded-md border">
           {showcaseProjects.map((project, key) => {
             const href = resolveHref(project?._type, project?.slug)
@@ -239,7 +267,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
             )
           })}
         </div>
-      )}
+      )} */}
     </>
   )
 }

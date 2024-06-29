@@ -52,14 +52,16 @@ export default async function IndexRoute({
     <>
       <main>
         <Suspense>
-          <Section className='section--navbar'>
+          <Section className="section--navbar">
             <Navbar />
           </Section>
-        </Suspense>        
-          <Suspense>{children}</Suspense>
+        </Suspense>
+        <Suspense>{children}</Suspense>
       </main>
       <Suspense>
-        <Footer />
+        <Section>
+          <Footer />
+        </Section>
       </Suspense>
       {draftMode().isEnabled && <LiveVisualEditing />}
     </>

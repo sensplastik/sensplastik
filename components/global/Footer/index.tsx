@@ -1,3 +1,5 @@
+import './Footer.scss'
+
 import dynamic from 'next/dynamic'
 import { draftMode } from 'next/headers'
 
