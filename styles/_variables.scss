@@ -3,6 +3,17 @@ $font-primary: var(--font-sans);
 //
 @import "_color-scheme";
 
+
+
+$section-padding-left: 8.33vw;
+$section-padding-right: $section-padding-left;
+
+$section-padding-left--tablet : calc(17.6271vw - 133.8303px);
+$section-padding-right--tablet : $section-padding-left--tablet;
+
+$section-padding-left--mobile : 1rem;
+$section-padding-right--mobile : $section-padding-left--mobile;
+
 $color-primary: var(--color-primary);
 $color-secondary: var(--color-secondary);
 $color-third: var(--color-third);
@@ -11,6 +22,7 @@ $color-lines: var(--color-lines);
 $color-punchy: var(--color-punchy);
 $color-background: var(--color-background);
 $color-background-iphone: var(--color-background-iphone);
+$color-white: var(--color-white);
 $color-black: var(--color-black);
 
 $font-weight-regular: 400;

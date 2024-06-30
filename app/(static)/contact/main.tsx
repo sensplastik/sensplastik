@@ -1,5 +1,9 @@
+"use client"
+import { useEffect } from 'react';
+
 import { Card } from '@/components/shared/Card'
 import { Content } from '@/components/shared/Content'
+import { ContentRows } from '@/components/shared/ContentRows'
 import { HorizontalMenu } from '@/components/shared/HorizontalMenu'
 import { Intro } from '@/components/shared/Intro'
 import { Message } from '@/components/shared/Message'
@@ -11,7 +15,24 @@ import { StatusBar } from '@/components/shared/StatusBar'
 import { Teaser } from '@/components/shared/Teaser'
 import { Title } from '@/components/shared/Title'
 
-export default async function MainContent() {
+// Replace with your desired background color
+const pageBackgroundColor = '#f5f5f5';
+
+export default  function MainContent() {
+
+  useEffect(() => {    
+    // Get the CSS custom property value
+    const originalBackgroundColor = getComputedStyle(document.documentElement).getPropertyValue('--color-background').trim();
+
+    // Set the new background color
+    document.body.style.backgroundColor = pageBackgroundColor; 
+
+    // Reset the background color when the component unmounts
+    return () => {
+      document.body.style.backgroundColor = originalBackgroundColor;
+    };
+  }, []);
+  
   return (
     <>
       {/* Message */}
@@ -25,15 +46,12 @@ export default async function MainContent() {
           </Section>
           */}
 
-      {/* Title */}
+      {/* Teaser */}
       <Section>
-        <Teaser
-          title="Connect with Sensplastik®"
-          titleLevel={1}
-        />
+        <Teaser title="Connect with Sensplastik®" titleLevel={1} />
       </Section>
 
-      {/* Spacer default */}
+      {/* Spacer 160px */}
       <Spacer
         lineSize={{
           default: '0',
@@ -42,6 +60,77 @@ export default async function MainContent() {
           default: '0',
         }}
       />
+
+      {/* Content rows */}
+      <Section>
+        <ContentRows
+          title="Looking to collaborate?"
+          items={[
+            {
+              title: 'Let’s create together',              
+              content:
+                '<p>We’re here to help bring your vision to life. Whether you’re ready to get started, interested in partnering with us, or simply have some questions – we’d love to hear from you! Reach out to discover how we can achieve remarkable results together.</p>',
+            },
+          ]}
+        />
+      </Section>
+
+      {/* Spacer  60px */}
+      <Spacer
+        lineSize={{
+          default: '0',
+        }}
+        paddingTop={{
+          default: '60px',
+        }}
+        paddingBottom={{
+          default: '0',
+        }}
+      />
+
+       {/* Spacer 160px with striped lines*/}
+       <Section>
+        <Spacer stripedLines bgColor="#f5f5f5"/>
+       </Section>
+
+       {/* Spacer 60px */}
+      <Spacer
+        lineSize={{
+          default: '0',
+        }}
+        paddingTop={{
+          default: '60px',
+        }}
+        paddingBottom={{
+          default: '0',
+        }}
+      />
+
+      {/* Content rows */}
+      <Section>
+        <ContentRows
+          title="All enquiries"
+          items={[
+            {
+              title: 'Business',              
+              content:
+                '<p>New business inquiries and collaborations. Please write to <a href="mailto:studio@sensplastik.com" target="_blank">studio@sensplastik.com</a></p>',
+            },
+            {
+              title: 'Collaboration',
+              content:
+                '<p>Send us an email, and we’ll set up a meeting.</p>',
+            },
+            {
+              title: 'Public Relations',
+              content:
+                '<p>Requests for interviews, materials and talks. Please write to <a href="mailto:mi@sensplastik.com" target="_blank">mi@sensplastik.com</a></p>',
+            },
+          ]}
+        />
+      </Section>
+
+
     </>
   )
 }

@@ -1,0 +1,62 @@
+@import '@/styles/variables';
+
+.content-rows {
+  @include grid;
+
+  &__left {
+    grid-column: span 4;
+
+    @include media('<=sm') {
+      grid-column: span 12 !important;
+    }
+  }
+
+  &__right {
+    grid-column-start: 7;
+    grid-column-end: 11;
+
+    @include media('<=sm') {
+      grid-column: span 12 !important;
+    }
+  }
+
+  &__title {
+    font-size: $font-size-6;
+    line-height: 1.625rem;
+    letter-spacing: -0.0875rem;
+
+    font-weight: $font-weight-medium;
+
+    color: $color-primary;
+  }
+
+  &__item {
+    margin-bottom: $space-3;
+  }
+}
+
+.content-row-item {
+  &__title {
+    font-size: $font-size-6;
+    line-height: 1.625rem;
+    letter-spacing: -0.0875rem;
+
+    font-weight: $font-weight-medium;
+
+    color: $color-white;
+
+    + .content-row-item__content {
+      margin-top: $space-2;
+    }
+  }
+
+  &__content {
+    font-size: $font-size-3;
+    line-height: 1.12rem;
+    letter-spacing: -0.02375rem;
+
+    font-weight: $font-weight-medium;
+
+    color: $color-fourth;
+  }
+}

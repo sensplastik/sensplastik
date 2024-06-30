@@ -1,3 +1,6 @@
+"use client"
+import { useEffect } from 'react';
+
 import { Card } from '@/components/shared/Card'
 import { Content } from '@/components/shared/Content'
 import { HorizontalMenu } from '@/components/shared/HorizontalMenu'
@@ -11,7 +14,24 @@ import { StatusBar } from '@/components/shared/StatusBar'
 import { Teaser } from '@/components/shared/Teaser'
 import { Title } from '@/components/shared/Title'
 
-export default async function MainContent() {
+// Replace with your desired background color
+const pageBackgroundColor = 'var(--color-background)';
+
+export default  function MainContent() {
+  
+  useEffect(() => {    
+    // Get the CSS custom property value
+    const originalBackgroundColor = getComputedStyle(document.documentElement).getPropertyValue('--color-background').trim();
+
+    // Set the new background color
+    document.body.style.backgroundColor = pageBackgroundColor; 
+
+    // Reset the background color when the component unmounts
+    return () => {
+      document.body.style.backgroundColor = originalBackgroundColor;
+    };
+  }, []);
+
   return (
     <>
       {/* Message */}

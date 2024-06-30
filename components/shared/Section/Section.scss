@@ -1,17 +1,17 @@
 @import "@/styles/_variables";
 
 .section {
-  padding-left: 8.33vw;
-  padding-right: 8.33vw;
+  padding-left: $section-padding-left;
+  padding-right: $section-padding-right;
 
   @include media(">=850px", "<1440px") {
-    padding-left: calc(17.6271vw - 133.8303px);
-    padding-right: calc(17.6271vw - 133.8303px);
+    padding-left: $section-padding-left--tablet;
+    padding-right: $section-padding-right--tablet;
   }
 
   @include media("<850px") {
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-left: $section-padding-left--mobile;
+    padding-right: $section-padding-right--mobile;
   }
   
   &--full {

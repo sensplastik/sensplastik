@@ -1,0 +1,74 @@
+@import '@/styles/variables';
+
+.content-table {
+  
+
+  &__heading{
+    
+  }
+
+  &__row{
+    @include grid;
+
+    padding-left: $section-padding-left;
+    padding-right: $section-padding-right;
+
+    @include media(">=850px", "<1440px") {
+      padding-left: $section-padding-left--tablet;
+      padding-right: $section-padding-right--tablet;
+    }
+  
+    @include media("<850px") {
+      padding-left: $section-padding-left--mobile;
+      padding-right: $section-padding-right--mobile;
+    }
+
+  }
+
+  &__list{
+
+  }
+
+  &__item{
+    grid-column: span 6;
+
+  }
+
+  &__separator{
+
+    background-color:red;
+    height:1px;
+    grid-column: span 12;
+
+  }
+
+  &__title{
+
+    font-size: $font-size-4;
+    line-height: $line-height-4;
+    letter-spacing: $letter-spacing-4;
+
+    font-weight: $font-weight-regular;
+
+    color:$color-primary;
+
+  }
+
+  
+}
+
+.content-table-item{
+
+  &__title{
+color: red;;
+  }
+
+  &__content{
+
+  }
+
+  &__separator{
+
+  }
+
+}

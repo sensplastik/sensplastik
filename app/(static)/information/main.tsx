@@ -1,3 +1,6 @@
+'use client'
+import { useEffect } from 'react'
+
 import { Brand } from '@/components/shared/Brand'
 import { Content } from '@/components/shared/Content'
 import { ContentColumns } from '@/components/shared/ContentColumns'
@@ -11,8 +14,27 @@ import { Section } from '@/components/shared/Section'
 import { Spacer } from '@/components/shared/Spacer'
 import { StatusBar } from '@/components/shared/StatusBar'
 import { Title } from '@/components/shared/Title'
+import { ContentTable } from '@/components/shared/ContentTable'
 
-export default async function MainContent() {
+// Replace with your desired background color
+const pageBackgroundColor = 'var(--color-background)'
+
+export default function MainContent() {
+  useEffect(() => {
+    // Get the CSS custom property value
+    const originalBackgroundColor = getComputedStyle(document.documentElement)
+      .getPropertyValue('--color-background')
+      .trim()
+
+    // Set the new background color
+    document.body.style.backgroundColor = pageBackgroundColor
+
+    // Reset the background color when the component unmounts
+    return () => {
+      document.body.style.backgroundColor = originalBackgroundColor
+    }
+  }, [])
+
   return (
     <>
       {/* Message */}
@@ -112,7 +134,7 @@ export default async function MainContent() {
 
       {/* Content */}
       <Section>
-        <Content title="What Sets Us Apart" titleGridWidth={3}/>
+        <Content title="What Sets Us Apart" titleGridWidth={3} />
       </Section>
 
       {/* Spacer default */}
@@ -202,8 +224,81 @@ export default async function MainContent() {
 
       {/* Content */}
       <Section>
-        <Content title="Guiding Principles" titleGridWidth={3}/>
+        <Content title="Guiding Principles" titleGridWidth={3} />
       </Section>
+
+      {/* Spacer default */}
+      <Spacer />
+
+      {/* Content table */}
+      <ContentTable
+        title="Excellence"
+        items={[
+          {
+            title: 'Put our clients’ interests first',
+            content:
+              "<p>We prioritize our clients' needs and objectives above all else, ensuring that every decision and action is aligned with their best interests.</p>",
+          },
+          {
+            title: 'Innovate constantly and welcome change',
+            content:
+              '<p>We embrace innovation and change as opportunities for growth and improvement, continuously seeking new ways to push boundaries and drive progress.</p>',
+          },
+          { separator: true },
+          {
+            title: 'Single-minded focus on success',
+            content:
+              '<p>While maintaining a commercial mindset, we remain focused on achieving success for our clients. We align our efforts with their business objectives, ensuring tangible results and value.</p>',
+          },
+          {
+            title: 'Act with conviction informed by deep research and analysis',
+            content:
+              '<p>We approach every project with thorough research and analysis, allowing us to make informed decisions and deliver solutions that are both strategic and effective.</p>',
+          },
+        ]}
+      />
+      <ContentTable
+        title="Engagement"
+        items={[
+          {
+            title: 'Collaborate to deliver the our best thinking and skills',
+            content:
+              '<p>Collaboration is key to our success. We leverage the diverse talents and expertise of our studio and extended team to deliver the highest quality work and innovative solutions.</p>',
+          },
+          {
+            title: 'Be collegial and work together',
+            content:
+              '<p>Foster a collegial environment where we work together with our clients to achieve the best outcomes.</p>',
+          },
+          { separator: true },
+          {
+            title: 'Lead by example with drive and ambition',
+            content:
+              '<p>We lead by example, inspiring others with our dedication, ambition, and commitment to excellence. We set high standards for ourselves and strive to exceed them in every endeavor.</p>',
+          },
+        ]}
+      />
+      <ContentTable
+        title="Planet & People"
+        items={[
+          {
+            title: 'Address the environmental impact of digital design',
+            content:
+              '<p>Recognizing the environmental impact of digital design, we strive to minimize emissions and energy consumption in our work. By creating efficient, optimized designs and utilizing sustainable practices, we aim to reduce the carbon footprint associated with internet usage.</p>',
+          },
+          {
+            title: 'Promote purposeful intentions and long-lasting quality',
+            content:
+              '<p>In addition to addressing the environmental impact of digital design, we prioritize purposeful intentions and long-lasting quality in our work. By designing with sustainability in mind and prioritizing quality over quantity, we contribute to a more sustainable future for both people and the planet.</p>',
+          },
+          { separator: true },
+          {
+            title: 'Create long-term, sustainable design experiences',
+            content:
+              '<p>We create design experiences that are aesthetically pleasing, environmentally sustainable, and socially responsible. Research shows internet usage significantly impacts the environment, with digital design contributing to emissions and energy consumption. Estimates suggest that internet usage accounts for 3% to 4% of the global carbon footprint.</p>',
+          },
+        ]}
+      />
 
       {/* Spacer default */}
       <Spacer />

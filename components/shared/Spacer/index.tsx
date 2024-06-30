@@ -3,7 +3,13 @@ import './Spacer.scss'
 import { cva } from 'cva'
 import React from 'react'
 
-const spacerStyles = cva('spacer')
+const spacerStyles = cva('spacer', {
+  variants: {
+    intent: {
+      striped: 'spacer--striped-lines',
+    },
+  },
+})
 
 const lineStyles = cva('spacer__line', {
   variants: {
@@ -16,6 +22,8 @@ const lineStyles = cva('spacer__line', {
 export interface SpacerProps {
   className?: string
   lineColor?: string
+  stripedLines?: boolean
+  bgColor?: string
   paddingTop?: {
     default?: string
     desktop?: string
@@ -42,11 +50,16 @@ export interface SpacerProps {
 export function Spacer({
   className = '',
   lineColor,
+  stripedLines = false,
   paddingTop = { default: '160px' },
   paddingBottom = { default: '10px' },
   lineSize = { default: '1px' },
+  bgColor,
 }: SpacerProps) {
-  const spacerClass = spacerStyles({ className })
+  const spacerClass = spacerStyles({
+    className,
+    intent: stripedLines ? 'striped' : null,
+  })
   const lineClass = lineStyles({ intent: lineColor ? 'custom' : null })
 
   const getResponsiveStyle = (
@@ -96,6 +109,7 @@ export function Spacer({
     <div
       className={spacerClass}
       style={{
+        '--bg-color': bgColor,
         ...paddingStyles,
         ...getResponsiveStyle(paddingTop, paddingTop.default),
         ...getResponsiveStyle(paddingBottom, paddingBottom.default),

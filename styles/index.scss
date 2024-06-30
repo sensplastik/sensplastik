@@ -15,6 +15,7 @@ body {
 body {
   display: flex;
   flex-direction: column;
+  transition: background 1s ease;
 
   > main {
     flex: 1 0 auto;
