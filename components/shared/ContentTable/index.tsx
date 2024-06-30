@@ -37,7 +37,7 @@ export function ContentTable({
   title = 'Sensplastik®',
   items = defaultItems,
 }: TableRowsProps) {
-  const rows = items.reduce((acc: JSX.Element[], item, index) => {
+  const rows = items.reduce((acc: (JSX.Element | JSX.Element[])[], item, index) => {
     const { title, content, separator } = item
 
     // Check if title exists and is truthy
@@ -77,7 +77,7 @@ export function ContentTable({
 
     // If we just completed a row, push the row into the accumulator
     if (Array.isArray(acc[acc.length - 1]) && acc[acc.length - 1].length === 2) {
-      const completedRow = acc.pop()
+      const completedRow = acc.pop() as JSX.Element[]
       acc.push(
         <div key={`row-${index}`} className="content-table__row">
           {completedRow}

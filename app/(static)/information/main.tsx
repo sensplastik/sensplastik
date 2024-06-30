@@ -257,6 +257,15 @@ export default function MainContent() {
           },
         ]}
       />
+
+      {/* Spacer 40px */}
+      <Spacer
+        paddingTop={{
+          default: '40px',
+        }}        
+      />
+
+      {/* Content table */}
       <ContentTable
         title="Engagement"
         items={[
@@ -278,6 +287,15 @@ export default function MainContent() {
           },
         ]}
       />
+      
+       {/* Spacer 40px */}
+       <Spacer
+        paddingTop={{
+          default: '40px',
+        }}        
+      />
+
+      {/* Content table */}
       <ContentTable
         title="Planet & People"
         items={[
