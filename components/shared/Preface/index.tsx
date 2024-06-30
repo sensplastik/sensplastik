@@ -4,7 +4,7 @@ import { cva } from 'class-variance-authority'
 
 import { sanitizeContent } from '@/utils/sanitizeContent'
 
-const componentStyles = cva('intro')
+const componentStyles = cva('preface')
 
 export interface PrefaceProps {
   className?: string
@@ -25,10 +25,10 @@ export function Preface({
 
   return (
     <div className={componentStyles({ class: className })}>
-      <div className="intro__right">
+      <div className="preface__right">
         {hasContent && (
           <article
-            className="intro__article"
+            className="preface__article"
             style={{ columnCount: contentColumns }}
             dangerouslySetInnerHTML={{ __html: sanitizedContent }}
           ></article>
