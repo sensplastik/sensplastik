@@ -1,0 +1,31 @@
+@import "@/styles/variables";
+
+.content-columns{
+    @include grid;
+
+    &__item{
+        font-size: $font-size-3;
+        line-height: $line-height-3;
+        letter-spacing: $letter-spacing-3;
+
+        @include media("<850px") {
+            grid-column-start: span 4!important;
+        }
+
+         @include media("<=sm") {
+            grid-column-start: span 12!important;
+        }
+
+    }
+    &__title{
+        font-size: $font-size-4;
+        line-height: $line-height-4;
+        letter-spacing: $letter-spacing-4;
+        margin-bottom: $space-2;
+        color:$color-primary;
+
+    }
+    &__content{
+            color:$color-secondary;
+    }
+}

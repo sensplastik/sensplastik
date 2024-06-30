@@ -14,6 +14,9 @@ export interface ContentProps {
   contentColumns?: number
   titleLevel?: 1 | 2 | 3 | 4 | 5 | 6
   titleGridWidth?: 1 | 2 | 3 | 4 | 5 | 6 
+  contentGridWidth?: 1 | 2 | 3 | 4 | 5 | 6 | 7
+  contentGridStart?: 1 | 2 | 3 | 4 | 5 | 6 | 7
+  titleBadge?: any
 }
 
 export function Content({
@@ -21,11 +24,13 @@ export function Content({
   title = 'We are Sensplastik®',
   content = '',
   contentColumns = 2,
-  /** The size of the title, from 1 to 6 (corresponding to h1, h2...)*/
   titleLevel = 3,
-  /** The width span of the title grid container, default to 4 */
+  titleBadge = null,
   titleGridWidth = 4,
+  contentGridWidth = 7,
+  contentGridStart = 7
 }: ContentProps) {
+  //
   const HeadingTag = titleLevel
     ? (`h${titleLevel}` as keyof JSX.IntrinsicElements)
     : 'h3'
@@ -36,14 +41,25 @@ export function Content({
   // Render article only if sanitizedContent is truthy
   const hasContent = !!sanitizedContent
 
+  const contentStyle = {
+    gridColumn:
+    contentGridStart !== null ? `${contentGridStart} / span ${contentGridWidth}` : undefined,
+  }
+  
+
   return (
     <div className={componentStyles({ class: className })}>
-      <div className="content__left" style={{gridColumn: `span ${titleGridWidth}`}}>
+      <div className="content__left" style={{ gridColumn: `span ${titleGridWidth}` }}>
         <span className="content__title">
-        <HeadingTag >{title}</HeadingTag>
+          <HeadingTag>
+            {title}
+            {titleBadge && (
+              <span className='content__title-badge'>{titleBadge}</span>
+            )}
+          </HeadingTag>
         </span>
       </div>
-      <div className="content__right">
+      <div className="content__right" style={contentStyle}>
         {hasContent && (
           <article
             className="content__article"

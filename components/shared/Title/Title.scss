@@ -1,0 +1,44 @@
+@import "@/styles/variables";
+
+.title {
+  @include grid;
+
+  &__heading {
+    font-family: $font-primary;
+    grid-column: span 8;
+
+    @include media("<lg") {
+      grid-column: span 9;
+    }
+
+    @include media("<=md") {
+      grid-column: span 11;
+    }
+
+    @include media("<=sm") {
+      grid-column: span 12;
+    }
+
+    h1 {
+      font-size: $h1;
+      line-height: $line-height-10;
+      letter-spacing: $letter-spacing-10;
+      font-weight: $font-weight-medium;
+    }
+    h2 {
+      font-size: $h2;
+    }
+    h3 {
+      font-size: $h3;
+    }
+    h4 {
+      font-size: $h4;
+    }
+    h5 {
+      font-size: $h5;
+    }
+    h6 {
+      font-size: $h6;
+    }
+  }
+}

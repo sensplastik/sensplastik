@@ -19,21 +19,22 @@ const LiveVisualEditing = dynamic(
 )
 
 export async function generateMetadata(): Promise<Metadata> {
-  const [{ data: settings }, { data: homePage }] = await Promise.all([
-    loadSettings(),
-    loadHomePage(),
+  const [{ data: settings }] = await Promise.all([
+    loadSettings()
   ])
   const ogImage = urlForOpenGraphImage(settings?.ogImage)
+
+  const siteName = settings?.siteName
+  const siteDescription = settings?.siteDescription
+  const pageDescription = ''
   return {
-    title: homePage?.title
+    title: siteName
       ? {
-          template: `%s | ${homePage.title}`,
-          default: homePage.title || 'Personal website',
+          template: `%s | ${siteName}`,
+          default: siteName || 'Personal website',
         }
       : undefined,
-    description: homePage?.overview
-      ? toPlainText(homePage.overview)
-      : undefined,
+    description: pageDescription ? pageDescription : siteDescription,
     openGraph: {
       images: ogImage ? [ogImage] : [],
     },
@@ -91,7 +92,7 @@ export default async function IndexRoute({
           <Suspense>{children}</Suspense>
         </main>
         <Suspense>
-          <Section>
+          <Section className="section--footer">
             <Footer />
           </Section>
         </Suspense>

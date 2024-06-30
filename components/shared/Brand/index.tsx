@@ -20,49 +20,6 @@ const defaultItems: BrandProps[] = [
   {
     title: 'Skykapital®',
   },
-  {
-    title: 'Sky Environment®',
-  },
-  {
-    title: 'Byredo',
-  },
-  {
-    title: 'Off-White®',
-  },
-  {
-    title: 'Château des Saints',
-  },
-  {
-    title: 'Belbao',
-  },
-  {
-    title:
-      "Festival international de mode, de photographie et d'accessoires, Hyères",
-  },
-  {
-    title: 'Marc Audibet',
-  },
-  {
-    title: 'Institut Français de la Mode',
-  },
-  {
-    title: 'Roland-Garros',
-  },
-  {
-    title: 'Flora',
-  },
-  {
-    title: 'L’Imperatrice',
-  },
-  {
-    title: 'Chantal Thomass',
-  },
-  {
-    title: 'La Fée Maraboutée',
-  },
-  {
-    title: 'Opaline Studio',
-  },
 ]
 
 export function Brand({ className = '', items = defaultItems }: BrandsProps) {

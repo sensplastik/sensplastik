@@ -7,7 +7,7 @@
     grid-column: span 4;
 
     @include media('<=sm') {
-      grid-column: span 12!important;
+      grid-column: span 12 !important;
     }
   }
 
@@ -16,7 +16,7 @@
     grid-column-end: 13;
 
     @include media('<=sm') {
-      grid-column: span 12!important;
+      grid-column: span 12 !important;
     }
   }
 
@@ -34,6 +34,14 @@
       line-height: 3.125rem;
       letter-spacing: -0.175rem;
     }
+  }
+  &__title-badge {
+    color: $color-third;
+    font-size:$font-size-3;
+    line-height: 1.12rem;
+    letter-spacing: -0.02375rem;
+    font-weight: $font-weight-medium;
+    vertical-align: top;
   }
 
   &__article {

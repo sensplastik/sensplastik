@@ -2,5 +2,24 @@
 @import 'base';
 
 .section--navbar {
-    border-bottom: 1px solid $color-lines;
+  border-bottom: 1px solid $color-lines;
+}
+
+/* Sticky Footer */
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+
+  > main {
+    flex: 1 0 auto;
   }
+  > .section--footer {
+    flex-shrink: 0;
+  }
+}

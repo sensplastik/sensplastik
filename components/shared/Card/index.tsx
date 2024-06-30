@@ -75,7 +75,7 @@ export function Card({
                 return (
                   <li className="card__service" key={key}>
                     <span>{service.title}</span>
-                    {key < services.length - 1? ', ': ''}
+                    {key < services.length - 1 ? ', ' : ''}
                   </li>
                 )
               })}

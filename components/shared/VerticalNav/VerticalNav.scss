@@ -1,55 +1,47 @@
-@import "@/styles/variables";
+@import '@/styles/variables';
 
 .vertical-nav {
-  
   @include grid;
 
   color: $color-secondary;
 
-  &__list{
+  &__list {
     grid-column-start: 7;
     grid-column-end: 10;
-    
   }
 
-  &__item{
+  &__item {
+    border-bottom: 1px solid $color-secondary;
 
-    
-
-
+    &:last-child {
+      border-bottom-color: $color-punchy;
+    }
   }
 
-  .vertical-nav-item{
-
+  .vertical-nav-item {
     display: flex;
     align-items: center;
     justify-content: space-between;
 
-    border-bottom:1px solid;
+    
 
     padding-top: 5px;
-    padding-bottom: 5px;;
+    padding-bottom: 5px;
 
-    &:last-child{
-     border-bottom-color:$color-punchy ; 
-    }
+    
 
-    &__label{
-
+    &__label {
       font-size: $font-size-3;
       line-height: 1.12rem;
-      letter-spacing: -0.02375rem;;
+      letter-spacing: -0.02375rem;
 
       font-weight: $font-weight-medium;
-
     }
 
-    &__icon{
+    &__icon {
       svg {
-        fill:$color-secondary
+        fill: $color-secondary;
       }
     }
   }
-
- 
 }

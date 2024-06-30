@@ -79,7 +79,11 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
       />
       {/* Vertical Navigation */}
       <Section>
-        <VerticalNav/>
+        <VerticalNav items={[
+          {title:'Selected Work'},
+          {title:'About Us'},
+          {title:'Get in Touch'},
+        ]}/>
       </Section>
       <Spacer />
       {/* Content */}
@@ -90,6 +94,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
           contentColumns={1}
           titleLevel={1}
           titleGridWidth={5}
+          contentGridWidth={4}
         />
       </Section>
       <Spacer />
