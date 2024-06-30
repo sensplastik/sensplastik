@@ -5,7 +5,17 @@ import React from 'react'
 
 import { sanitizeContent } from '@/utils/sanitizeContent'
 
-const componentStyles = cva('content')
+const componentStyles = cva('content', {
+  variants: {
+    isVerticallyCentered: {
+      true: 'content--vertically-centered',
+      false: '',
+    },
+  },
+  defaultVariants: {
+    isVerticallyCentered: false,
+  },
+})
 
 export interface ContentProps {
   className?: string
@@ -14,9 +24,10 @@ export interface ContentProps {
   contentColumns?: number
   titleLevel?: 1 | 2 | 3 | 4 | 5 | 6
   titleGridWidth?: 1 | 2 | 3 | 4 | 5 | 6 
+  titleBadge?: any
   contentGridWidth?: 1 | 2 | 3 | 4 | 5 | 6 | 7
   contentGridStart?: 1 | 2 | 3 | 4 | 5 | 6 | 7
-  titleBadge?: any
+  isVerticallyCentered: boolean
 }
 
 export function Content({
@@ -28,27 +39,26 @@ export function Content({
   titleBadge = null,
   titleGridWidth = 4,
   contentGridWidth = 7,
-  contentGridStart = 7
+  contentGridStart = 7,
+  isVerticallyCentered = false
 }: ContentProps) {
-  //
   const HeadingTag = titleLevel
     ? (`h${titleLevel}` as keyof JSX.IntrinsicElements)
     : 'h3'
 
-  // Sanitize content on the server side
   const sanitizedContent = sanitizeContent(content)
 
-  // Render article only if sanitizedContent is truthy
   const hasContent = !!sanitizedContent
 
   const contentStyle = {
     gridColumn:
     contentGridStart !== null ? `${contentGridStart} / span ${contentGridWidth}` : undefined,
   }
-  
 
   return (
-    <div className={componentStyles({ class: className })}>
+    <div
+      className={componentStyles({ class: className, isVerticallyCentered })}
+    >
       <div className="content__left" style={{ gridColumn: `span ${titleGridWidth}` }}>
         <span className="content__title">
           <HeadingTag>

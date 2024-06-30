@@ -95,6 +95,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
           titleLevel={1}
           titleGridWidth={5}
           contentGridWidth={4}
+          isVerticallyCentered={true}
         />
       </Section>
       <Spacer />
