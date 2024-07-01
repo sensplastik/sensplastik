@@ -1,53 +1,69 @@
-import dynamic from "next/dynamic"
-import Image from 'next/image'
+"use client"
+
 import Link from 'next/link'
-import { useTheme } from 'next-themes'
+import { useEffect,useState } from 'react'
 
 import { resolveHref } from '@/sanity/lib/utils'
 import type { MenuItem, SettingsPayload } from '@/types'
 
+import { LogoFull } from "../Logo/Full"
 import Hamburger from './Hamburger.svg'
+import { NavMenu } from "./NavMenu"
 
 interface NavbarProps {
   data: SettingsPayload
 }
 
-const Logo = dynamic(() => import("./Logo").then((mod) => mod.Logo), {
-  ssr: true
-})
-
 export default function Navbar(props: NavbarProps) {
   const { data } = props
   const menuItems = data?.menuItems || ([] as MenuItem[])
-  return (
-    <div className="navbar">
-      <Link href="/" className="navbar__brand">
-        <Logo />
-        <p className="navbar__slogan">Corporate made Beautiful with <br/>Purpose and Simplicity.</p>
-      </Link>
 
-      <nav className="navbar__nav">
-        <ul className="navbar__list">
-          {menuItems &&
-            menuItems.map((menuItem, key) => {
-              const href = resolveHref(
-                menuItem?._type,
-                menuItem?._type === 'link' ? menuItem?.url : menuItem?.slug,
-              )
-              if (!href) {
-                return null
-              }
-              return (
-                <li className="navbar__item" key={key}>
-                  <Link href={href}>{menuItem.title}</Link>
-                </li>
-              )
-            })}
-        </ul>
-      </nav>
-      <Link href="#" className="navbar__hamburger">
-        <Hamburger />
-      </Link>
-    </div>
+  const [isNavMenuVisible, setIsNavMenuVisible] = useState(false)
+
+  const toggleNavMenu = () => {
+    setIsNavMenuVisible(!isNavMenuVisible)
+  }
+
+  useEffect(() => {
+    /*if (isNavMenuVisible) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+
+    return () => {
+      document.body.style.overflow = ''
+    }*/
+  }, [isNavMenuVisible])
+
+  return (
+    <>
+      <div className="navbar">
+        <LogoFull />
+        <nav className="navbar__nav">
+          <ul className="navbar__list">
+            {menuItems &&
+              menuItems.map((menuItem, key) => {
+                const href = resolveHref(
+                  menuItem?._type,
+                  menuItem?._type === 'link' ? menuItem?.url : menuItem?.slug,
+                )
+                if (!href) {
+                  return null
+                }
+                return (
+                  <li className="navbar__item" key={key}>
+                    <Link href={href}>{menuItem.title}</Link>
+                  </li>
+                )
+              })}
+          </ul>
+        </nav>
+        <button className="navbar__hamburger" onClick={toggleNavMenu}>
+          <Hamburger />
+        </button>
+      </div>
+      {isNavMenuVisible && <NavMenu items={menuItems} onClose={toggleNavMenu} />}
+    </>
   )
 }

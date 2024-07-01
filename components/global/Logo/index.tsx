@@ -22,7 +22,6 @@ export function Logo({ color = '' }: LogoProps) {
   return (
     <>
       <svg
-        className="logo"
         width="123"
         height="22"
         viewBox="0 0 123 22"

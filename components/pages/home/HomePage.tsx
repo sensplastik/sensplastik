@@ -39,7 +39,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
   return (
     <>
       {/* Page Message */}
-      {messageTitle && messageContent && (
+      {(messageTitle || messageContent) && (
         <Section>
           <Message title={messageTitle} content={messageContent} />
         </Section>
@@ -151,11 +151,19 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
          ]}
          />
         <Card
-         image="https://cdn.sanity.io/images/m94ln1re/production/7bc1dbc594217e975e8f38a62f08aeb287cb93c5-2880x1500.jpg"
-         imageWidth={2880}
-         imageHeight={1500}         
+         image="https://cdn.sanity.io/images/m94ln1re/production/b94388a123c7455df5813b08aa035190043877eb-4096x2731.jpg"
+         imageWidth={4096}
+         imageHeight={2731}         
          gridStart={4}
          gridWidth={3}
+         title="Today Mobility"
+         description='Where travel meets the power of collaborative AI'
+         services={[
+          {title: 'Visual Identity'},
+          {title:'Web Design'},
+          {title:'Web Development'}
+         ]}
+         link="/projects/today-mobility"
          />
         <Card
         image="https://cdn.sanity.io/images/m94ln1re/production/7bc1dbc594217e975e8f38a62f08aeb287cb93c5-2880x1500.jpg"

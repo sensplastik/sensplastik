@@ -5,6 +5,7 @@ import React from 'react'
 
 import { Picture } from '@/components/shared/Picture'
 import { sanitizeContent } from '@/utils/sanitizeContent'
+import Link from 'next/link'
 
 const componentStyles = cva('card')
 
@@ -23,6 +24,7 @@ export interface CardProps {
   description?: string
   services?: Service[]
   isEmpty?: boolean
+  link? : string
 }
 
 export function Card({
@@ -36,6 +38,7 @@ export function Card({
   description = '',
   services = [],
   isEmpty = false,
+  link = '#'
 }: CardProps) {
   const gridStyle = {
     gridColumn:
@@ -52,10 +55,12 @@ export function Card({
   }
 
   return (
+    
     <article
       className={componentStyles({ class: className })}
       style={gridStyle} // Apply the grid style object
     >
+      <Link href={link}>
       <Picture
         className="card__picture"
         src={image}
@@ -83,6 +88,8 @@ export function Card({
           )}
         </div>
       )}
+       </Link>
     </article>
+   
   )
 }

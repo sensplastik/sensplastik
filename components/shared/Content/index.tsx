@@ -27,7 +27,7 @@ export interface ContentProps {
   titleBadge?: any
   contentGridWidth?: 1 | 2 | 3 | 4 | 5 | 6 | 7
   contentGridStart?: 1 | 2 | 3 | 4 | 5 | 6 | 7
-  isVerticallyCentered: boolean
+  isVerticallyCentered?: boolean
 }
 
 export function Content({
