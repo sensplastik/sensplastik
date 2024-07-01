@@ -39,6 +39,8 @@ export const projectBySlugQuery = groq`
     "slug": slug.current,
     tags,
     title,
+    messageTitle,
+    messageContent
   }
 `
 

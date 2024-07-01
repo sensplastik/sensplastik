@@ -1,5 +1,7 @@
+'use client'
 import './ProjectHeader.scss'
 
+import { useEffect, useRef, useState } from 'react'
 import { Image } from 'sanity'
 
 import { Message } from '../Message'
@@ -16,6 +18,25 @@ interface ProjectHeaderProps {
 
 export function ProjectHeader(props: ProjectHeaderProps) {
   const { messageTitle, messageContent, title, coverImage } = props
+  const [headerHeight, setHeaderHeight] = useState<number>(0)
+  const pictureRef = useRef<HTMLDivElement>(null)
+
+  const updateHeaderHeight = () => {
+    if (pictureRef.current) {
+      setHeaderHeight(pictureRef.current.clientHeight)
+    }
+  }
+
+  useEffect(() => {
+    // Initial height update
+    updateHeaderHeight()
+
+    // Update height on window resize
+    window.addEventListener('resize', updateHeaderHeight)
+
+    // Cleanup event listener on unmount
+    return () => window.removeEventListener('resize', updateHeaderHeight)
+  }, [coverImage])
 
   if (!title) {
     return null
@@ -23,23 +44,23 @@ export function ProjectHeader(props: ProjectHeaderProps) {
 
   return (
     <>
-      <div className="project-header">
+      <div className="project-header" style={{ height: headerHeight }}>
         {/* Project Message */}
         {(messageTitle || messageContent) && (
-          <Section className='project-header__message'>
+          <Section className="project-header__message">
             <Message title={messageTitle} content={messageContent} />
           </Section>
         )}
+        
+        {/* Project Title */}
+        <Section hasGrid>          
+          <h1 className="project-header__title">{title}</h1>
+        </Section>
 
         {/* Project Cover */}
-        <Picture src={coverImage} className='project-header__cover'/>
-
-        {/* Project Title */}
-        <div className="project-header__title">
-          <h1>{title}</h1>
+        <div ref={pictureRef} className="project-header__cover">
+          <Picture src={coverImage} />
         </div>
-
-        
       </div>
     </>
   )

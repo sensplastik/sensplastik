@@ -28,6 +28,17 @@ export default defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: 'messageTitle',
+      title: 'Message title',
+      type: 'string',
+    }),
+    defineField({
+      name: 'messageContent',
+      title: 'Message title',
+      type: 'array',
+      of: [{ type: 'block' }],
+    }),
+    defineField({
       name: 'overview',
       description:
         'Used both for the <meta> description tag for SEO, and project subheader.',
