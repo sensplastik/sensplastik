@@ -1,0 +1,18 @@
+@import "@/styles/variables";
+
+.accordion{
+
+    &__item{
+        @include section-layout;
+        @include grid;
+
+        &:not(:last-child){
+            border-bottom:1px solid red;
+        }
+    }
+
+    &__header, &__content{
+        grid-column-start: 7;
+        grid-column-end: span 6;
+    }
+}

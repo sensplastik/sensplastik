@@ -19,6 +19,7 @@ import {
   getBackgroundElements,
   updateBackgroundColor,
 } from '@/utils/updateBackground'
+import { Accordion } from '@/components/shared/Accordion'
 
 // Replace with your desired background color
 const pageBackgroundColor = 'var(--color-background)'
@@ -135,7 +136,9 @@ export default function MainContent() {
       <Spacer />
 
       {/* Accordion with full width section */}
-      <Section fullWidth></Section>
+      <Section fullWidth>
+        <Accordion/>
+      </Section>
 
       {/* Spacer default */}
       <Spacer />

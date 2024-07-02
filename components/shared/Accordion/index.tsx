@@ -5,8 +5,8 @@ import React from 'react'
 
 import { AccordionProps } from './Accordion'
 
-// Dynamically import ClientPicture with ssr
-const AccordionClient = dynamic(
+// Dynamically import Component with ssr
+const AccordionComponent = dynamic(
   () => import('./Accordion').then((mod) => mod.Accordion),
   {
     ssr: true,
@@ -15,7 +15,7 @@ const AccordionClient = dynamic(
 export function Accordion(props: AccordionProps) {
   return (
     <>
-      <AccordionClient {...props} />
+      <AccordionComponent {...props} />
     </>
   )
 }

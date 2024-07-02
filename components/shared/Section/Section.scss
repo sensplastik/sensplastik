@@ -1,18 +1,8 @@
 @import "@/styles/_variables";
 
 .section {
-  padding-left: $section-padding-left;
-  padding-right: $section-padding-right;
-
-  @include media(">mobile", "<laptop") {
-    padding-left: $section-padding-left--laptop;
-    padding-right: $section-padding-right--laptop;
-  }
-
-  @include media("<=mobile") {
-    padding-left: $section-padding-left--mobile;
-    padding-right: $section-padding-right--mobile;
-  }
+  
+  @include section-layout;
   
   &--full {
     padding-left: 0 !important;

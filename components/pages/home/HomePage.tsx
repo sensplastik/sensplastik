@@ -17,6 +17,7 @@ import { StatusBar } from '@/components/shared/StatusBar'
 import { VerticalNav } from '@/components/shared/VerticalNav'
 import { resolveHref } from '@/sanity/lib/utils'
 import type { HomePagePayload } from '@/types'
+import { Title } from '@/components/shared/Title'
 
 export interface HomePageProps {
   data: HomePagePayload | null
@@ -50,7 +51,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
         <>
           {/* Spacer */}
           <Spacer
-            lineColor='var(--color-lines)'
+            lineColor="var(--color-lines)"
             paddingTop={{ default: '0' }}
             paddingBottom={{ default: '10px' }}
           />
@@ -59,7 +60,10 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
           </Section>
         </>
       )}
+
+      {/* Spacer 160px */}
       <Spacer lineSize={{ default: '0' }} paddingBottom={{ default: '0' }} />
+
       {/* Picture */}
       <Section>
         <Picture
@@ -69,7 +73,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
         />
       </Section>
 
-      {/* Spacer */}
+      {/* Spacer 60px */}
       <Spacer
         lineSize={{ default: '0' }}
         paddingTop={{ default: '60px' }}
@@ -84,11 +88,14 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
           content="<p>From leading corporations and luxury brands to visionary startups and creative artists, we harness the latest technological advancements to deliver groundbreaking solutions that drive progress and set new standards. Explore how we bring ideas to life, creating impactful and sustainable designs that shape the future.</p>"
         />
       </Section>
+
+      {/* Spacer 80px */}
       <Spacer
         lineSize={{ default: '0' }}
         paddingTop={{ default: '80px' }}
         paddingBottom={{ default: '0' }}
       />
+
       {/* Vertical Navigation */}
       <Section>
         <VerticalNav
@@ -99,7 +106,10 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
           ]}
         />
       </Section>
+
+      {/* Spacer default */}
       <Spacer />
+
       {/* Content */}
       <Section>
         <Content
@@ -112,7 +122,11 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
           isVerticallyCentered={true}
         />
       </Section>
+
+      {/* Spacer default */}
       <Spacer />
+
+      {/* List */}
       <List
         listType="services"
         items={[
@@ -141,16 +155,23 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
           { title: 'SASS' },
         ]}
       />
+
+      {/* Spacer default */}
       <Spacer />
+
+      {/* Title */}
       <Section>
-        <Content title="Feed" />
+        <Title text="Feed" />
       </Section>
+
+      {/* Spacer 120px */}
       <Spacer
         lineSize={{ default: '0' }}
         paddingTop={{ default: '120px' }}
         paddingBottom={{ default: '0' }}
       />
-      {/* Showcase projects */}
+
+      {/* Showcase */}
       <Section hasGrid={true}>
         <Card
           image="https://cdn.sanity.io/images/m94ln1re/production/7bc1dbc594217e975e8f38a62f08aeb287cb93c5-2880x1500.jpg"
@@ -185,11 +206,15 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
           gridWidth={6}
         />
       </Section>
+
+      {/* Spacer 120px */}
       <Spacer
         lineSize={{ default: '0' }}
         paddingTop={{ default: '120px' }}
         paddingBottom={{ default: '0' }}
       />
+
+      {/* Showcase */}
       <Section hasGrid={true}>
         <Card
           image="https://cdn.sanity.io/images/m94ln1re/production/7bc1dbc594217e975e8f38a62f08aeb287cb93c5-2880x1500.jpg"
@@ -214,11 +239,15 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
           gridWidth={3}
         />
       </Section>
+
+      {/* Spacer 120px */}
       <Spacer
         lineSize={{ default: '0' }}
         paddingTop={{ default: '120px' }}
         paddingBottom={{ default: '0' }}
       />
+
+      {/* Showcase */}
       <Section hasGrid={true}>
         <Card
           image="https://cdn.sanity.io/images/m94ln1re/production/7bc1dbc594217e975e8f38a62f08aeb287cb93c5-2880x1500.jpg"
@@ -242,11 +271,15 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
           gridWidth={3}
         />
       </Section>
+
+      {/* Spacer 120px */}
       <Spacer
         lineSize={{ default: '0' }}
         paddingTop={{ default: '120px' }}
         paddingBottom={{ default: '0' }}
       />
+
+      {/* Showcase */}
       <Section hasGrid={true}>
         <Card
           image="https://cdn.sanity.io/images/m94ln1re/production/7bc1dbc594217e975e8f38a62f08aeb287cb93c5-2880x1500.jpg"
