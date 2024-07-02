@@ -1,13 +1,13 @@
 'use client'
 import { useEffect } from 'react'
 
-import { Brand } from '@/components/shared/Brand'
 import { Content } from '@/components/shared/Content'
 import { ContentColumns } from '@/components/shared/ContentColumns'
 import { ContentNumbered } from '@/components/shared/ContentNumbered'
 import { ContentTable } from '@/components/shared/ContentTable'
 import { HorizontalMenu } from '@/components/shared/HorizontalMenu'
 import { Intro } from '@/components/shared/Intro'
+import { List } from '@/components/shared/List'
 import { Message } from '@/components/shared/Message'
 import { Picture } from '@/components/shared/Picture'
 import { Preface } from '@/components/shared/Preface'
@@ -342,7 +342,7 @@ export default function MainContent() {
       <Spacer />
 
       <Section>
-        <Brand
+        <List
           items={[
             {
               title: 'Skykapital®',

@@ -13,8 +13,13 @@
   &__item {
     border-bottom: 1px solid $color-secondary;
 
-    &:last-child {
+    &:hover {
+      color: $color-third;
       border-bottom-color: $color-punchy;
+
+      .vertical-nav-item__icon svg {
+        fill: $color-third !important;
+      }
     }
   }
 
@@ -23,12 +28,8 @@
     align-items: center;
     justify-content: space-between;
 
-    
-
     padding-top: 5px;
     padding-bottom: 5px;
-
-    
 
     &__label {
       font-size: $font-size-3;

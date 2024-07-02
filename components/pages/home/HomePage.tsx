@@ -4,11 +4,11 @@ import type { EncodeDataAttributeCallback } from '@sanity/react-loader'
 import Link from 'next/link'
 
 import { ProjectListItem } from '@/components/pages/home/ProjectListItem'
-import { Brand } from '@/components/shared/Brand'
 import { Card } from '@/components/shared/Card'
 import { Content } from '@/components/shared/Content'
 import { Header } from '@/components/shared/Header'
 import { Intro } from '@/components/shared/Intro'
+import { List } from '@/components/shared/List'
 import { Message } from '@/components/shared/Message'
 import { Picture } from '@/components/shared/Picture'
 import { Section } from '@/components/shared/Section'
@@ -44,11 +44,20 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
           <Message title={messageTitle} content={messageContent} />
         </Section>
       )}
+
       {/* Status Bar */}
       {showStatusBar && (
-        <Section>
-          <StatusBar />
-        </Section>
+        <>
+          {/* Spacer */}
+          <Spacer
+            lineColor='var(--color-lines)'
+            paddingTop={{ default: '0' }}
+            paddingBottom={{ default: '10px' }}
+          />
+          <Section>
+            <StatusBar />
+          </Section>
+        </>
       )}
       <Spacer lineSize={{ default: '0' }} paddingBottom={{ default: '0' }} />
       {/* Picture */}
@@ -59,11 +68,14 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
           height={1500}
         />
       </Section>
+
+      {/* Spacer */}
       <Spacer
         lineSize={{ default: '0' }}
         paddingTop={{ default: '60px' }}
         paddingBottom={{ default: '0' }}
       />
+
       {/* Intro */}
       <Section>
         <Intro
@@ -79,17 +91,19 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
       />
       {/* Vertical Navigation */}
       <Section>
-        <VerticalNav items={[
-          {title:'Selected Work'},
-          {title:'About Us'},
-          {title:'Get in Touch'},
-        ]}/>
+        <VerticalNav
+          items={[
+            { title: 'Selected Work' },
+            { title: 'About Us' },
+            { title: 'Get in Touch' },
+          ]}
+        />
       </Section>
       <Spacer />
       {/* Content */}
       <Section>
         <Content
-          title="What we do"          
+          title="What we do"
           content="<p>We have partnered with numerous clients on a wide range of projects, gaining valuable insights along the way. Here is a selection of key highlights.</p>"
           contentColumns={1}
           titleLevel={1}
@@ -99,7 +113,8 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
         />
       </Section>
       <Spacer />
-      <Brand
+      <List
+        listType="services"
         items={[
           { title: 'Brand Design' },
           { title: 'Visual Identity' },
@@ -138,39 +153,36 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
       {/* Showcase projects */}
       <Section hasGrid={true}>
         <Card
-         image="https://cdn.sanity.io/images/m94ln1re/production/7bc1dbc594217e975e8f38a62f08aeb287cb93c5-2880x1500.jpg"
-         imageWidth={2880}
-         imageHeight={1500}  
-         gridStart={1}       
-         gridWidth={3}
-         title='Re-Store®'
-         description='Intelligent managment of renewable energy'
-         services={[
-          {title: 'Brand identity'},
-          {title:'Digital product'}
-         ]}
-         />
+          image="https://cdn.sanity.io/images/m94ln1re/production/7bc1dbc594217e975e8f38a62f08aeb287cb93c5-2880x1500.jpg"
+          imageWidth={2880}
+          imageHeight={1500}
+          gridStart={1}
+          gridWidth={3}
+          title="Re-Store®"
+          description="Intelligent managment of renewable energy"
+          services={[{ title: 'Brand identity' }, { title: 'Digital product' }]}
+        />
         <Card
-         image="https://cdn.sanity.io/images/m94ln1re/production/b94388a123c7455df5813b08aa035190043877eb-4096x2731.jpg"
-         imageWidth={4096}
-         imageHeight={2731}         
-         gridStart={4}
-         gridWidth={3}
-         title="Today Mobility"
-         description='Where travel meets the power of collaborative AI'
-         services={[
-          {title: 'Visual Identity'},
-          {title:'Web Design'},
-          {title:'Web Development'}
-         ]}
-         link="/projects/today-mobility"
-         />
+          image="https://cdn.sanity.io/images/m94ln1re/production/b94388a123c7455df5813b08aa035190043877eb-4096x2731.jpg"
+          imageWidth={4096}
+          imageHeight={2731}
+          gridStart={4}
+          gridWidth={3}
+          title="Today Mobility"
+          description="Where travel meets the power of collaborative AI"
+          services={[
+            { title: 'Visual Identity' },
+            { title: 'Web Design' },
+            { title: 'Web Development' },
+          ]}
+          link="/projects/today-mobility"
+        />
         <Card
-        image="https://cdn.sanity.io/images/m94ln1re/production/7bc1dbc594217e975e8f38a62f08aeb287cb93c5-2880x1500.jpg"
-        imageWidth={2880}
-        imageHeight={1500}         
-        gridStart={7}
-        gridWidth={6}
+          image="https://cdn.sanity.io/images/m94ln1re/production/7bc1dbc594217e975e8f38a62f08aeb287cb93c5-2880x1500.jpg"
+          imageWidth={2880}
+          imageHeight={1500}
+          gridStart={7}
+          gridWidth={6}
         />
       </Section>
       <Spacer
@@ -180,30 +192,26 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
       />
       <Section hasGrid={true}>
         <Card
-         image="https://cdn.sanity.io/images/m94ln1re/production/7bc1dbc594217e975e8f38a62f08aeb287cb93c5-2880x1500.jpg"
-         imageWidth={2880}
-         imageHeight={1500}  
-         gridStart={1}       
-         gridWidth={3}         
-         />
-        <Card
-         image="https://cdn.sanity.io/images/m94ln1re/production/7bc1dbc594217e975e8f38a62f08aeb287cb93c5-2880x1500.jpg"
-         imageWidth={2880}
-         imageHeight={1500}         
-         gridStart={4}
-         gridWidth={3}
-         />
-        <Card
-        isEmpty={true}    
-        gridStart={7}
-        gridWidth={3}
+          image="https://cdn.sanity.io/images/m94ln1re/production/7bc1dbc594217e975e8f38a62f08aeb287cb93c5-2880x1500.jpg"
+          imageWidth={2880}
+          imageHeight={1500}
+          gridStart={1}
+          gridWidth={3}
         />
         <Card
-        image="https://cdn.sanity.io/images/m94ln1re/production/7bc1dbc594217e975e8f38a62f08aeb287cb93c5-2880x1500.jpg"
-        imageWidth={2880}
-        imageHeight={1500}         
-        gridStart={10}
-        gridWidth={3}
+          image="https://cdn.sanity.io/images/m94ln1re/production/7bc1dbc594217e975e8f38a62f08aeb287cb93c5-2880x1500.jpg"
+          imageWidth={2880}
+          imageHeight={1500}
+          gridStart={4}
+          gridWidth={3}
+        />
+        <Card isEmpty={true} gridStart={7} gridWidth={3} />
+        <Card
+          image="https://cdn.sanity.io/images/m94ln1re/production/7bc1dbc594217e975e8f38a62f08aeb287cb93c5-2880x1500.jpg"
+          imageWidth={2880}
+          imageHeight={1500}
+          gridStart={10}
+          gridWidth={3}
         />
       </Section>
       <Spacer
@@ -213,25 +221,25 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
       />
       <Section hasGrid={true}>
         <Card
-         image="https://cdn.sanity.io/images/m94ln1re/production/7bc1dbc594217e975e8f38a62f08aeb287cb93c5-2880x1500.jpg"
-         imageWidth={2880}
-         imageHeight={1500}  
-         gridStart={1}       
-         gridWidth={6}
-         />
+          image="https://cdn.sanity.io/images/m94ln1re/production/7bc1dbc594217e975e8f38a62f08aeb287cb93c5-2880x1500.jpg"
+          imageWidth={2880}
+          imageHeight={1500}
+          gridStart={1}
+          gridWidth={6}
+        />
         <Card
-         image="https://cdn.sanity.io/images/m94ln1re/production/7bc1dbc594217e975e8f38a62f08aeb287cb93c5-2880x1500.jpg"
-         imageWidth={2880}
-         imageHeight={1500}         
-         gridStart={7}
-         gridWidth={3}
-         />
+          image="https://cdn.sanity.io/images/m94ln1re/production/7bc1dbc594217e975e8f38a62f08aeb287cb93c5-2880x1500.jpg"
+          imageWidth={2880}
+          imageHeight={1500}
+          gridStart={7}
+          gridWidth={3}
+        />
         <Card
-        image="https://cdn.sanity.io/images/m94ln1re/production/7bc1dbc594217e975e8f38a62f08aeb287cb93c5-2880x1500.jpg"
-        imageWidth={2880}
-        imageHeight={1500}         
-        gridStart={10}
-        gridWidth={3}
+          image="https://cdn.sanity.io/images/m94ln1re/production/7bc1dbc594217e975e8f38a62f08aeb287cb93c5-2880x1500.jpg"
+          imageWidth={2880}
+          imageHeight={1500}
+          gridStart={10}
+          gridWidth={3}
         />
       </Section>
       <Spacer
@@ -241,30 +249,22 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
       />
       <Section hasGrid={true}>
         <Card
-         image="https://cdn.sanity.io/images/m94ln1re/production/7bc1dbc594217e975e8f38a62f08aeb287cb93c5-2880x1500.jpg"
-         imageWidth={2880}
-         imageHeight={1500}  
-         gridStart={1}       
-         gridWidth={3}
-         />
-        <Card            
-         gridStart={4}
-         gridWidth={3}
-         isEmpty={true}
-         />
-        <Card
-        image="https://cdn.sanity.io/images/m94ln1re/production/7bc1dbc594217e975e8f38a62f08aeb287cb93c5-2880x1500.jpg"
-        imageWidth={2880}
-        imageHeight={1500}         
-        gridStart={7}
-        gridWidth={3}
+          image="https://cdn.sanity.io/images/m94ln1re/production/7bc1dbc594217e975e8f38a62f08aeb287cb93c5-2880x1500.jpg"
+          imageWidth={2880}
+          imageHeight={1500}
+          gridStart={1}
+          gridWidth={3}
         />
-        <Card            
-         gridStart={10}
-         gridWidth={3}
-         isEmpty={true}
-         />
-      </Section>      
+        <Card gridStart={4} gridWidth={3} isEmpty={true} />
+        <Card
+          image="https://cdn.sanity.io/images/m94ln1re/production/7bc1dbc594217e975e8f38a62f08aeb287cb93c5-2880x1500.jpg"
+          imageWidth={2880}
+          imageHeight={1500}
+          gridStart={7}
+          gridWidth={3}
+        />
+        <Card gridStart={10} gridWidth={3} isEmpty={true} />
+      </Section>
       {/* {showcaseProjects && showcaseProjects.length > 0 && (
         <div className="mx-auto max-w-[100rem] rounded-md border">
           {showcaseProjects.map((project, key) => {

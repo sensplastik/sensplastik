@@ -34,5 +34,9 @@
   &__content {
     color: $color-secondary;
     font-weight: $font-weight-regular;
+
+    a {
+      text-decoration: underline;
+    }
   }
 }

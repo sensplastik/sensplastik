@@ -48,6 +48,7 @@
     color: $color-secondary;
 
     display: flex;
+    flex-wrap: wrap;
   }
   &__service:not(:last-child){
     margin-right:5px;

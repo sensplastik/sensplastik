@@ -20,7 +20,7 @@ import {
 } from '@/utils/updateBackground'
 
 // Replace with your desired background color
-const pageBackgroundColor = '#f5f5f5'
+const pageBackgroundColor = '#E3E1DD'
 
 export default function MainContent() {
   useEffect(() => {
@@ -44,16 +44,26 @@ export default function MainContent() {
 
   return (
     <>
-      {/* Message */}
+      {/* Message 
       <Section>
         <Message content="<p>If you’re interested in any form of collaboration, please send us an email and we’ll get back shortly. <a href='mailto:studio@sensplastik.com' target='_blank'>studio@sensplastik.com</a></p>" />
       </Section>
-
+      */}
       {/* Status Bar 
           <Section>
             <StatusBar />
           </Section>
           */}
+
+      {/* Spacer 160px */}
+      <Spacer
+        lineSize={{
+          default: '0',
+        }}
+        paddingBottom={{
+          default: '0',
+        }}
+      />
 
       {/* Teaser */}
       <Section>
@@ -99,7 +109,7 @@ export default function MainContent() {
 
       {/* Spacer 160px with striped lines*/}
       <Section>
-        <Spacer stripedLines bgColor="#f5f5f5" />
+        <Spacer stripedLines bgColor="#E3E1DD" />
       </Section>
 
       {/* Spacer 60px */}

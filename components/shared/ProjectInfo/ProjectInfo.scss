@@ -87,6 +87,7 @@
   &__website {
     display: flex;
     gap: $space-1;
+    font-weight: $font-weight-medium;
   }
 
   .external-link-icon {
