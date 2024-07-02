@@ -33,9 +33,7 @@
     grid-column-start: 7;
     grid-column-end: span 5;
 
-    font-size: $font-size-10;
-    line-height: 5.3125rem;
-    letter-spacing: -0.3025rem;
+    @include font-style-10;
 
     font-weight: $font-weight-medium;
 

@@ -1,5 +1,21 @@
 //
 
+$breakpoints: (
+  "xs": 320px,
+  "sm": 576px,
+  "md": 768px,
+  "lg": 1024px,
+  "xl": 1280px,
+  "2xl": 1536px,
+  //
+  "mobile": 850px,
+  "laptop": 1440px,
+);
+
+@import "include-media";
+
+//
+
 $font-primary: var(--font-sans);
 
 //
@@ -24,16 +40,6 @@ $color-background-iphone: var(--color-background-iphone);
 
 //
 
-$breakpoints: (
-  "xs": 320px,
-  "sm": 576px,
-  "md": 768px,
-  "lg": 1024px,
-  "xl": 1280px,
-  "2xl": 1536px,
-);
-
-@import "include-media";
 
 //
 

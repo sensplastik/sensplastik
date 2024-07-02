@@ -6,7 +6,7 @@ html {
 }
 
 body {
-  @include media('<=sm') {
+  @include media("<=mobile") {
     padding: 0 env(safe-area-inset-right) env(safe-area-inset-bottom)
       env(safe-area-inset-left);
   }
@@ -16,11 +16,13 @@ body {
 
 html,
 body {
-  font-size: $font-size-3;
-  line-height: $line-height-3;
-  letter-spacing: $letter-spacing-3;
+
+  @include font-style-4;
+  
   color: $color-primary;
+
   font-family: $font-primary;
+  
   padding: 0;
   margin: 0;
 }

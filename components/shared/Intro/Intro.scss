@@ -29,9 +29,9 @@
 
 
   &__title {
-    font-size: $h5;    
-    line-height:$line-height-6;
-    letter-spacing: $letter-spacing-6;
+
+    @include font-style-6;
+
     font-weight: $font-weight-medium;
 
     + .intro__sub-title{
@@ -40,17 +40,15 @@
   }
 
   &__sub-title {
-    font-size: $font-size-4;
-    line-height: $line-height-4;
-    letter-spacing: $letter-spacing-4;
+
+    @include font-style-5;
 
     font-weight:$font-weight-regular;
   }
 
   &__article {
-    font-size: $font-size-3;
-    line-height: $line-height-3;
-    letter-spacing: -0.02375rem;
+
+     @include font-style-4;
 
     font-weight:$font-weight-medium;
 

@@ -6,11 +6,11 @@
     row-gap: $space-4;
     &__item{
       
-        @include media("<850px") {
+        @include media(">mobile", "<laptop") {
             grid-column-start: span 6!important;
         }
 
-         @include media("<=sm") {
+        @include media("<=mobile") {
             grid-column-start: span 12!important;
         }        
 
@@ -19,9 +19,7 @@
     &__number{
         color:$color-punchy;
 
-        font-size: $font-size-3;
-        line-height: $line-height-3;
-        letter-spacing: $letter-spacing-3;
+        @include font-style-4;;
 
         font-weight: $font-weight-medium;
     }
@@ -29,9 +27,7 @@
     &__title{
         color:$color-fourth;
 
-        font-size: $font-size-3;
-        line-height: $line-height-3;
-        letter-spacing: $letter-spacing-3;
+        @include font-style-4;
 
         font-weight: $font-weight-medium;
 
@@ -41,11 +37,10 @@
     }
     &__content{
         
-        color:$color-secondary;
-        font-size: $font-size-2;
-        line-height: 1rem;
-        letter-spacing: $letter-spacing-2;
+        @include font-style-3;
 
+        color:$color-secondary;
+        
         font-weight: $font-weight-regular;
     }
 }

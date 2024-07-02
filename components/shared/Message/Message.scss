@@ -3,27 +3,27 @@
 .message {
   @include grid;
 
+  @include font-style-2;
+
   &__article {
     grid-column: span 3;
     
     padding-top: $space-6;
     padding-bottom: $space-6;
 
-    @include media('<lg') {
+    @include media(">mobile", "<laptop") {
       grid-column: span 6;
     }
 
-    @include media('<=sm') {
+    @include media("<=mobile") {
       grid-column: span 11;
     }
   }
 
-  font-size: $font-size-1;
-  line-height: $line-height-1;
-  letter-spacing: $letter-spacing-1;
-
   &__title {
+
     color: $color-fourth;
+
     font-weight: $font-weight-medium;
 
     + .message__content {
@@ -32,7 +32,9 @@
   }
 
   &__content {
+
     color: $color-secondary;
+    
     font-weight: $font-weight-regular;
 
     a {

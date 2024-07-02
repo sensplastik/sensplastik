@@ -7,36 +7,35 @@
     font-family: $font-primary;
     grid-column: span 8;
 
-    @include media("<lg") {
+    @include media(">mobile", "<laptop") {
       grid-column: span 9;
     }
-
-    @include media("<=md") {
-      grid-column: span 11;
-    }
-
-    @include media("<=sm") {
+       
+    @include media("<=mobile") {
       grid-column: span 12;
     }
 
     h1,h2 {
-      font-size: $h1;
-      line-height: $line-height-10;
-      letter-spacing: $letter-spacing-10;
+
+      @include font-style-10;
+
       font-weight: $font-weight-medium;
     }
    
     h3 {
-      font-size: $h3;
+      @include font-style-9;
     }
+    
     h4 {
-      font-size: $h4;
+      @include font-style-7;
     }
+
     h5 {
-      font-size: $h5;
+      @include font-style-6;
     }
+
     h6 {
-      font-size: $h6;
+      @include font-style-5;
     }
   }
 }

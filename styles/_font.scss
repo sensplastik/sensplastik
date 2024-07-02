@@ -1,46 +1,211 @@
+//
+
 $font-weight-regular: 400;
 $font-weight-medium: 500;
 
 //
 
-$font-size-1: 0.75rem; // 12px
-$font-size-2: 0.875rem; //14px
-$font-size-3: 1rem; // 16px
-$font-size-4: 1.625rem; // 26px
-$font-size-5: 1.875rem; // 30px
-$font-size-6: 2rem; // 32px
-$font-size-7: 2.5rem; // 40px
-$font-size-8: 3.125rem; // 50px
-$font-size-9: 4.625rem; // 74px
-$font-size-10: 5.3125rem; // 85px
+$font-size-1: calc(5.5593px + 0.1694vw); // 8px
+$font-size-2: calc(9.5593px + 0.1694vw); // 12px
+$font-size-3: calc(9.1186px + 0.3389vw); // 14px
+$font-size-4: calc(6.2372px + 0.6779vw); // 16px
+$font-size-5: calc(11.3559px + 1.0169vw); // 26px
+$font-size-6: calc(12.4745px + 1.3559vw); // 32px
+$font-size-7: calc(16.4750px + 1.3559vw); // 36px
+$font-size-8: calc(19.5932px + 1.16949vw); // 44px
+$font-size-9: calc(15.8722px + 2.3754vw); // 50px
+$font-size-10: calc(31.3050px + 3.7288vw); // 85px
+$font-size-11: calc(18.9491px + 2.7118vw); // 58px
+$font-size-12: calc(34.9491px + 2.7118vw); // 74px
 
 //
 
-$line-height-1: 1rem;
-$line-height-2: 1.25rem;
-$line-height-3: 1.11rem;
-$line-height-4: 1.625rem;
+// 8px
+@mixin font-style-1 {
+    font-size: $font-size-1;
+    letter-spacing: -0.025em;
+    line-height: 125%;
+    @include media('<mobile'){
+        font-size: 10px;
+        letter-spacing: -0.025em;
+        line-height: 118%;
+    }
+}
 
-$line-height-6: 1.625rem;
+// 12px
+@mixin font-style-2 {
+    font-size: $font-size-2;
+    letter-spacing: -0.021em;
+    line-height: 110%;
+    @include media('<mobile'){
+        font-size: 12px;
+        letter-spacing: -0.027em;
+        line-height: 110%;
+    }
+}
 
-$line-height-10: 5.3125rem;
+// 14px
+@mixin font-style-3 {
+    font-size: $font-size-3;
+    letter-spacing: -0.031em;
+    line-height: 114%;
+    @include media('<mobile'){
+        font-size: 14px;
+        letter-spacing: -0.028em;
+        line-height: 110%;
+    }
+}
+
+// 16px
+@mixin font-style-4 {
+    font-size: $font-size-4;
+    letter-spacing: -0.03em;
+    line-height: 108%;
+    @include media('<mobile'){
+        font-size: 17px;
+        letter-spacing: -0.03em;
+        line-height: 109%;
+    }
+}
+
+// 26px
+@mixin font-style-5 {
+    font-size: $font-size-5;
+    letter-spacing: -0.038em;
+    line-height: 100%;
+    @include media('<mobile'){
+        font-size: 24px;
+        letter-spacing: -0.034em;
+        line-height: 104%;
+    }
+}
+
+// 32px
+@mixin font-style-6 {
+    font-size: $font-size-6;
+    letter-spacing: -0.040em;
+    line-height: 100%;
+    @include media('<mobile'){
+        font-size: 30px;
+        letter-spacing: -0.040em;
+        line-height: 100%;
+    }
+}
+
+// 36px
+@mixin font-style-7 {
+    font-size: $font-size-7;
+    letter-spacing: -0.043em;
+    line-height: 100%;
+    @include media('<mobile'){
+        font-size: 32px;
+        letter-spacing: -0.041em;
+        line-height: 100%;
+    }
+}
+
+// 44px
+@mixin font-style-8 {
+    font-size: $font-size-8;
+    letter-spacing: -0.044em;
+    line-height: 100%;
+    @include media('<mobile'){
+        font-size: 42px;
+        letter-spacing: -0.042em;
+        line-height: 100%;
+    }
+}
+
+// 50px
+@mixin font-style-9 {
+    font-size: $font-size-9;
+    letter-spacing: -0.045em;
+    line-height: 100%;
+    @include media('<mobile'){
+        font-size: 46px;
+        letter-spacing: -0.047em;
+        line-height: 100%;
+    }
+}
+
+// 85px
+@mixin font-style-10 {
+    font-size: $font-size-10;
+    letter-spacing: -0.05em;
+    line-height: 100%;
+    @include media('<mobile'){
+        font-size: 52px;
+        letter-spacing: -0.05em;
+        line-height: 100%;
+    }
+}
+
+// 58px
+@mixin font-style-11 {
+    font-size: $font-size-11;
+    letter-spacing: -0.035em;
+    line-height: 100%;
+    @include media('<mobile'){
+        font-size: 42px;
+        letter-spacing: -0.045em;
+        line-height: 100%;
+    }
+}
+
+// 74px
+@mixin font-style-12 {
+    font-size: $font-size-12;
+    letter-spacing: -0.049em;
+    line-height: 100%;
+    @include media('<mobile'){
+        font-size: 50px;
+        letter-spacing: -0.048em;
+        line-height: 100%;
+    }
+}
 
 //
 
-$letter-spacing-1: -0.01125rem;
-$letter-spacing-2: -0.03rem;
-$letter-spacing-3: -0.03rem;
-$letter-spacing-4: -0.0875rem;
+.font-style--1{
+    @include font-style-1;
+}
 
-$letter-spacing-6: -0.0875rem;
+.font-style--2{
+    @include font-style-2;
+}
 
-$letter-spacing-10: -0.3025rem;
+.font-style--3{
+    @include font-style-3;
+}
 
-//
+.font-style--4{
+    @include font-style-4;
+}
 
-$h1: $font-size-10;
-$h2: $font-size-9;
-$h3: $font-size-8;
-$h4: $font-size-7;
-$h5: $font-size-6;
-$h6: $font-size-5;
+.font-style--5{
+    @include font-style-5;
+}
+
+.font-style--6{
+    @include font-style-6;
+}
+
+.font-style--7{
+    @include font-style-7;
+}
+
+.font-style--8{
+    @include font-style-8;
+}
+
+.font-style--9{
+    @include font-style-9;
+}
+
+.font-style--10{
+    @include font-style-10;
+}
+
+.font-style--11{
+    @include font-style-11;
+}

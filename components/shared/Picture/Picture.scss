@@ -9,16 +9,18 @@
   }
 
   &__placeholder {
+
+    @include font-style-5;
+
+    font-weight: $font-weight-medium; 
     
     border-radius: 0.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
     grid-column: span 12;
-    min-height: 0; /* Reset min-height to allow padding-top to take effect */
-    color: white;
-    font-size: $font-size-4;
-    font-weight: bold;
+    min-height: 0;
+    color: $color-white;
 
     // Calculate and apply aspect ratio padding
     padding-top: 56.25%; // 16:9 aspect ratio (9 divided by 16 multiplied by 100)

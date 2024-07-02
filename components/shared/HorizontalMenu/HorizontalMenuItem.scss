@@ -6,11 +6,9 @@ $dot-line-height: 0.825rem;
 
   display: flex;
 
-  font-size: $font-size-1;
-  line-height: $dot-line-height;
-  letter-spacing: $letter-spacing-1;
+  @include font-style-2;
+  
   font-weight: $font-weight-regular;
-  letter-spacing: -0.04313rem;
 
   &__dot {
     margin-right: 5px;

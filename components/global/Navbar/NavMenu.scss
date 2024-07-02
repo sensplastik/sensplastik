@@ -22,6 +22,7 @@
     margin-top: $space-2;
 
     &-link {
+      
       font-size: $font-size-3;
       line-height: 1.12rem;
       letter-spacing: -0.02375rem;
@@ -50,9 +51,7 @@
   &__list {
     text-align: right;
 
-    font-size: $font-size-10;
-    line-height: 5.3125rem;
-    letter-spacing: -0.3025rem;
+    @include font-style-10;
 
     font-weight: $font-weight-medium;
   }
@@ -86,9 +85,8 @@
       }
 
       &__link {
-        font-size: $font-size-4;
-        line-height: 1.625rem;
-        letter-spacing: -0.0875rem;
+
+        @include font-style-5;
 
         font-weight: $font-weight-medium;
 

@@ -11,18 +11,13 @@
     grid-column-end: span 6;
     display: block;
 
-    @include media('<850px') {
+    @include media("<=mobile") {
       grid-column-start: span 12 !important;
-    }
-
-    @include media('<=sm') {
     }
 
     color: $color-black;
 
-    font-size: 2.25rem;
-    line-height: 2.25rem;
-    letter-spacing: -0.13125rem;
+    @include font-style-7;
 
     font-weight: $font-weight-regular;
   }
@@ -35,9 +30,8 @@
 
   &--services {
     .list__item {
-      font-size: 3.625rem;
-      line-height: 3.625rem;
-      letter-spacing: -0.19375rem;;
+     @include font-style-11;
+
       font-weight: $font-weight-regular;
     }
   }

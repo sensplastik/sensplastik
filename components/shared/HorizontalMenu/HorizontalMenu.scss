@@ -10,7 +10,7 @@
 
   &__item {
     grid-column: span 2;
-    @include media("<=sm") {
+    @include media("<=mobile") {
       grid-column: span 4;
     }
   }

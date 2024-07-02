@@ -4,23 +4,21 @@
     @include grid;
 
     &__item{
-        font-size: $font-size-3;
-        line-height: $line-height-3;
-        letter-spacing: $letter-spacing-3;
 
-        @include media("<850px") {
+        @include font-style-4;
+
+        @include media(">mobile", "<laptop") {
             grid-column-start: span 4!important;
         }
 
-         @include media("<=sm") {
+         @include media("<=mobile") {
             grid-column-start: span 12!important;
         }
 
     }
     &__title{
-        font-size: $font-size-4;
-        line-height: $line-height-4;
-        letter-spacing: $letter-spacing-4;
+        @include font-style-5;
+        
         margin-bottom: $space-2;
         color:$color-primary;
 

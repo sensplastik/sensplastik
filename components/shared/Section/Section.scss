@@ -4,12 +4,12 @@
   padding-left: $section-padding-left;
   padding-right: $section-padding-right;
 
-  @include media(">=850px", "<1440px") {
-    padding-left: $section-padding-left--tablet;
-    padding-right: $section-padding-right--tablet;
+  @include media(">mobile", "<laptop") {
+    padding-left: $section-padding-left--laptop;
+    padding-right: $section-padding-right--laptop;
   }
 
-  @include media("<850px") {
+  @include media("<=mobile") {
     padding-left: $section-padding-left--mobile;
     padding-right: $section-padding-right--mobile;
   }

@@ -29,9 +29,8 @@
   }
 
   &__list {
-    font-size: $font-size-3;
-    line-height: $line-height-3;
-    letter-spacing: $letter-spacing-3;
+
+    @include font-style-4;
 
     font-weight: $font-weight-regular;
   }
@@ -52,9 +51,7 @@
   &__headline {
     grid-column: span 5;
 
-    font-size: $font-size-6;
-    line-height: 2.2rem;
-    letter-spacing: -0.10688rem;
+    @include font-style-6;
 
     + .project-info__body {
       margin-top: 34px;
@@ -70,9 +67,8 @@
   }
 
   &__content {
-    font-size: $font-size-3;
-    line-height: $line-height-3;
-    letter-spacing: $letter-spacing-3;
+    
+     @include font-style-4;
 
     p:not(:last-child) {
       margin-bottom: 1rem;
