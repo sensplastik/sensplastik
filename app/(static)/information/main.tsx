@@ -26,9 +26,7 @@ const pageBackgroundColor = 'var(--color-background)'
 export default function MainContent() {
   useEffect(() => {
     // Cache the original background color
-    const originalBackgroundColor = getComputedStyle(document.documentElement)
-      .getPropertyValue('--color-background')
-      .trim()
+    const originalBackgroundColor = 'var(--color-background)'
 
     // Get the elements
     const { mainElement, footerElement } = getBackgroundElements()

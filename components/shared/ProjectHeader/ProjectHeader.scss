@@ -3,7 +3,7 @@
 .project-header {
   margin-top: calc(-1 * $navbar-height);
   position: relative;
-  margin-top: -60px;  
+  margin-top: -60px;
 
   display: flex;
   flex-direction: column;
@@ -21,6 +21,9 @@
     left: 0;
     right: 0;
     bottom: 0;
+    .picture__img {
+      border-radius: 0;
+    }
   }
 
   &__title {
@@ -29,7 +32,6 @@
     margin-bottom: $space-3;
     grid-column-start: 7;
     grid-column-end: span 5;
-
 
     font-size: $font-size-10;
     line-height: 5.3125rem;
