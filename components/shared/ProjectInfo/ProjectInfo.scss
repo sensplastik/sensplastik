@@ -1,42 +1,97 @@
-@import "@/styles/variables";
+@import '@/styles/variables';
 
 .project-info {
-  
   @include grid;
 
-  &__first-column{
-
+  &__first-column {
+    grid-column-start: 1;
+    grid-column-end: span 2;
   }
 
-  &__second-column{
-
+  &__second-column {
+    grid-column-start: 3;
+    grid-column-end: span 2;
   }
 
-  &__main-column{
-
+  &__main-column {
+    grid-column-start: 7;
+    grid-column-end: span 6;
   }
 
-  &__list{
-
+  &__client {
+    + .project-info__deliverables {
+      margin-top: $space-2;
+    }
   }
 
-  &__item{
-
+  &__label {
+    color: $color-secondary;
   }
 
-  &__article{
+  &__list {
+    font-size: $font-size-3;
+    line-height: $line-height-3;
+    letter-spacing: $letter-spacing-3;
 
+    font-weight: $font-weight-regular;
   }
 
-  &__headline{
-
+  &__item {
+    color: $color-primary;
   }
 
-  &__content{
+  &__article {
+    @include grid(6);
+    row-gap:0;
 
+    font-weight: $font-weight-regular;
+
+    color: $color-primary;
   }
 
-  &__website{
-    
+  &__headline {
+    grid-column: span 5;
+
+    font-size: $font-size-6;
+    line-height: 2.2rem;
+    letter-spacing: -0.10688rem;
+
+    + .project-info__body {
+      margin-top: 34px;
+    }
+
+    + .project-info__website {
+      margin-top: $space-2;
+    }
+  }
+
+  &__body {
+    grid-column: span 6;
+  }
+
+  &__content {
+    font-size: $font-size-3;
+    line-height: $line-height-3;
+    letter-spacing: $letter-spacing-3;
+
+    p:not(:last-child) {
+      margin-bottom: 1rem;
+      margin-bottom: 1lh;
+    }
+
+    + .project-info__website {
+      margin-top: $space-2;
+    }
+  }
+
+  &__website {
+    display: flex;
+    gap: $space-1;
+  }
+
+  .external-link-icon {
+    &__path {
+      fill: $color-black;
+    }
   }
 }

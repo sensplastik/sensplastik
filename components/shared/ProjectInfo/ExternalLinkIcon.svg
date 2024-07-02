@@ -1,0 +1,11 @@
+<svg class="external-link-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+  <g clip-path="url(#clip0_1120_871)">
+    <path d="M0 0V6.38815V6.56185V7H0.875V6.56185V6.38815V0.875H13.125V13.125H7.43815H7V14H7.43815H14V0H0Z" class="external-link-icon__path"/>
+    <path d="M7 10.8241H7.875V6.125H3.17593V7H6.38167L0 13.3817V14H0.618333L7 7.61833V10.8241Z" class="external-link-icon__path"/>
+  </g>
+  <defs>
+    <clipPath id="clip0_1120_871">
+      <rect width="14" height="14" fill="white"/>
+    </clipPath>
+  </defs>
+</svg>

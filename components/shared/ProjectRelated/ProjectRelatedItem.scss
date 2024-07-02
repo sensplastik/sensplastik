@@ -1,0 +1,42 @@
+@import '@/styles/variables';
+
+.project-related-item {
+  display: block;
+
+  padding-top: $space-1;
+  padding-bottom: $space-1;
+
+  &:first-child {
+    border-top: 1px solid $color-primary;
+  }
+
+  border-bottom: 1px solid $color-primary;
+
+  &__index {
+    grid-column: span 1;
+  }
+
+  &__title {
+    grid-column-start: 3;
+    grid-column-end: span 2;
+
+  }
+
+  &__deliverables {
+    grid-column-start: 7;
+    grid-column-end: span 3;
+  }
+
+  &__icon{
+    grid-column-start: 12;
+    grid-column-end: span 1;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .arrow-icon{
+    &__path{
+      fill:$color-primary;
+    }
+  }
+}

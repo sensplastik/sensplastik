@@ -1,8 +1,16 @@
 @import 'variables';
 @import 'base';
 
-.section--navbar {
+.section--navbar {  
+  position: relative;
+  z-index: 1;
   border-bottom: 1px solid $color-lines;
+}
+
+.section--footer {  
+  position: relative;
+  z-index: 1;
+  background-color:$color-background;
 }
 
 /* Sticky Footer */

@@ -1,0 +1,48 @@
+@import '@/styles/variables';
+
+.project-gallery-item {
+  &--half,
+  &--default {
+    grid-column: span 6;
+
+    .project-gallery-item__info {
+      @include grid(6);
+    }
+  }
+
+  &--full {
+    grid-column: span 12;
+
+    .project-gallery-item__info {
+      @include grid(12);
+    }
+  }
+
+  .picture__img {
+    border-radius: 0;
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 120px;
+  }
+
+  &__info {
+    font-size: $font-size-1;
+    line-height: $line-height-1;
+    letter-spacing: $letter-spacing-1;
+
+    font-weight: $font-weight-regular;
+
+    padding-top: $space-1;
+  }
+
+  &__reference {
+    color: $color-third;
+    grid-column: span 1;
+  }
+
+  &__title {
+    color: $color-secondary;
+    grid-column: span 2;
+  }
+}

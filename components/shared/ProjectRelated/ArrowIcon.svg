@@ -1,0 +1,10 @@
+<svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" width="15" height="10" viewBox="0 0 15 10" fill="none">
+  <g clip-path="url(#clip0_1139_901)">
+    <path d="M11.376 4.2348L-2.45538e-07 4.2348L-1.85252e-07 5.61399L11.376 5.61399L7.08059 9.85205L9.05444 9.85205L14.0488 4.92439L9.05444 0.000198922L7.08059 0.000199008L11.376 4.2348Z" class="arrow-icon__path"/>
+  </g>
+  <defs>
+    <clipPath id="clip0_1139_901">
+      <rect width="9.85185" height="14.0488" fill="white" transform="translate(0 9.85205) rotate(-90)"/>
+    </clipPath>
+  </defs>
+</svg>

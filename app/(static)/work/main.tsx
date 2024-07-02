@@ -13,24 +13,29 @@ import { Spacer } from '@/components/shared/Spacer'
 import { StatusBar } from '@/components/shared/StatusBar'
 import { Teaser } from '@/components/shared/Teaser'
 import { Title } from '@/components/shared/Title'
+import { getBackgroundElements, updateBackgroundColor } from '@/utils/updateBackground';
 
 // Replace with your desired background color
 const pageBackgroundColor = 'var(--color-background)';
 
 export default  function MainContent() {
-  
-  useEffect(() => {    
-    // Get the CSS custom property value
-    const originalBackgroundColor = getComputedStyle(document.documentElement).getPropertyValue('--color-background').trim();
+  useEffect(() => {
+    // Cache the original background color
+    const originalBackgroundColor = getComputedStyle(document.documentElement)
+      .getPropertyValue('--color-background')
+      .trim()
+
+    // Get the elements
+    const {mainElement ,footerElement }  = getBackgroundElements()
 
     // Set the new background color
-    document.body.style.backgroundColor = pageBackgroundColor; 
-
+    updateBackgroundColor({mainElement ,footerElement }, pageBackgroundColor)
+   
     // Reset the background color when the component unmounts
     return () => {
-      document.body.style.backgroundColor = originalBackgroundColor;
-    };
-  }, []);
+    updateBackgroundColor({mainElement ,footerElement }, originalBackgroundColor)
+    }
+  }, [])
 
   return (
     <>

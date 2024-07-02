@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { useEffect,useState } from 'react'
 
+import Portal from '@/components/shared/Portal'
 import { resolveHref } from '@/sanity/lib/utils'
 import type { MenuItem, SettingsPayload } from '@/types'
 
@@ -63,7 +64,11 @@ export default function Navbar(props: NavbarProps) {
           <Hamburger />
         </button>
       </div>
-      {isNavMenuVisible && <NavMenu items={menuItems} onClose={toggleNavMenu} />}
+      {isNavMenuVisible && (
+        <Portal>
+          <NavMenu items={menuItems} onClose={toggleNavMenu} />
+        </Portal>
+      )}
     </>
   )
 }

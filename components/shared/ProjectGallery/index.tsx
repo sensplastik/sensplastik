@@ -29,15 +29,15 @@ export function ProjectGallery(props: ProjectGalleryProps) {
                 const { reference, title, image, gridWidth, isEmpty } = item
 
                 return (
-                  <li key={index} className="project-gallery__item">
-                    <ProjectGalleryItem
-                      reference={reference}
-                      title={title}
-                      image={image}
-                      gridWidth={gridWidth}
-                      isEmpty={isEmpty}
-                    />
-                  </li>
+                  <ProjectGalleryItem
+                    key={index}
+                    className="project-gallery__item"
+                    reference={reference}
+                    title={title}
+                    image={image}
+                    gridWidth={gridWidth}
+                    isEmpty={isEmpty}
+                  />
                 )
               })}
             </ul>

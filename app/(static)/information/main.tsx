@@ -5,6 +5,7 @@ import { Brand } from '@/components/shared/Brand'
 import { Content } from '@/components/shared/Content'
 import { ContentColumns } from '@/components/shared/ContentColumns'
 import { ContentNumbered } from '@/components/shared/ContentNumbered'
+import { ContentTable } from '@/components/shared/ContentTable'
 import { HorizontalMenu } from '@/components/shared/HorizontalMenu'
 import { Intro } from '@/components/shared/Intro'
 import { Message } from '@/components/shared/Message'
@@ -14,24 +15,33 @@ import { Section } from '@/components/shared/Section'
 import { Spacer } from '@/components/shared/Spacer'
 import { StatusBar } from '@/components/shared/StatusBar'
 import { Title } from '@/components/shared/Title'
-import { ContentTable } from '@/components/shared/ContentTable'
+import {
+  getBackgroundElements,
+  updateBackgroundColor,
+} from '@/utils/updateBackground'
 
 // Replace with your desired background color
 const pageBackgroundColor = 'var(--color-background)'
 
 export default function MainContent() {
   useEffect(() => {
-    // Get the CSS custom property value
+    // Cache the original background color
     const originalBackgroundColor = getComputedStyle(document.documentElement)
       .getPropertyValue('--color-background')
       .trim()
 
+    // Get the elements
+    const { mainElement, footerElement } = getBackgroundElements()
+
     // Set the new background color
-    document.body.style.backgroundColor = pageBackgroundColor
+    updateBackgroundColor({ mainElement, footerElement }, pageBackgroundColor)
 
     // Reset the background color when the component unmounts
     return () => {
-      document.body.style.backgroundColor = originalBackgroundColor
+      updateBackgroundColor(
+        { mainElement, footerElement },
+        originalBackgroundColor,
+      )
     }
   }, [])
 
@@ -262,7 +272,7 @@ export default function MainContent() {
       <Spacer
         paddingTop={{
           default: '40px',
-        }}        
+        }}
       />
 
       {/* Content table */}
@@ -287,12 +297,12 @@ export default function MainContent() {
           },
         ]}
       />
-      
-       {/* Spacer 40px */}
-       <Spacer
+
+      {/* Spacer 40px */}
+      <Spacer
         paddingTop={{
           default: '40px',
-        }}        
+        }}
       />
 
       {/* Content table */}

@@ -1,0 +1,8 @@
+@import "@/styles/variables";
+
+.project-page-details{
+    position: relative;
+    z-index: 1;
+    background-color: $color-background;
+    padding-top: $space-1;
+}

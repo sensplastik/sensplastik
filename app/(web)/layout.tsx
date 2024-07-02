@@ -91,11 +91,12 @@ export default async function IndexRoute({
           <Suspense>{children}</Suspense>
         </main>
         <Suspense>
-          <Section>
+          <Section className="section--footer">
             <Footer />
           </Section>
         </Suspense>
         {draftMode().isEnabled && <LiveVisualEditing />}
+        <div id="portal-root"></div>
       </SettingsProvider>
     </>
   )

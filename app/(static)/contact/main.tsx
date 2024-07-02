@@ -1,5 +1,5 @@
-"use client"
-import { useEffect } from 'react';
+'use client'
+import { useEffect } from 'react'
 
 import { Card } from '@/components/shared/Card'
 import { Content } from '@/components/shared/Content'
@@ -14,25 +14,36 @@ import { Spacer } from '@/components/shared/Spacer'
 import { StatusBar } from '@/components/shared/StatusBar'
 import { Teaser } from '@/components/shared/Teaser'
 import { Title } from '@/components/shared/Title'
+import {
+  getBackgroundElements,
+  updateBackgroundColor,
+} from '@/utils/updateBackground'
 
 // Replace with your desired background color
-const pageBackgroundColor = '#f5f5f5';
+const pageBackgroundColor = '#f5f5f5'
 
-export default  function MainContent() {
+export default function MainContent() {
+  useEffect(() => {
+    // Cache the original background color
+    const originalBackgroundColor = getComputedStyle(document.documentElement)
+      .getPropertyValue('--color-background')
+      .trim()
 
-  useEffect(() => {    
-    // Get the CSS custom property value
-    const originalBackgroundColor = getComputedStyle(document.documentElement).getPropertyValue('--color-background').trim();
+    // Get the elements
+    const { mainElement, footerElement } = getBackgroundElements()
 
     // Set the new background color
-    document.body.style.backgroundColor = pageBackgroundColor; 
+    updateBackgroundColor({ mainElement, footerElement }, pageBackgroundColor)
 
     // Reset the background color when the component unmounts
     return () => {
-      document.body.style.backgroundColor = originalBackgroundColor;
-    };
-  }, []);
-  
+      updateBackgroundColor(
+        { mainElement, footerElement },
+        originalBackgroundColor,
+      )
+    }
+  }, [])
+
   return (
     <>
       {/* Message */}
@@ -67,7 +78,7 @@ export default  function MainContent() {
           title="Looking to collaborate?"
           items={[
             {
-              title: 'Let’s create together',              
+              title: 'Let’s create together',
               content:
                 '<p>We’re here to help bring your vision to life. Whether you’re ready to get started, interested in partnering with us, or simply have some questions – we’d love to hear from you! Reach out to discover how we can achieve remarkable results together.</p>',
             },
@@ -88,12 +99,12 @@ export default  function MainContent() {
         }}
       />
 
-       {/* Spacer 160px with striped lines*/}
-       <Section>
-        <Spacer stripedLines bgColor="#f5f5f5"/>
-       </Section>
+      {/* Spacer 160px with striped lines*/}
+      <Section>
+        <Spacer stripedLines bgColor="#f5f5f5" />
+      </Section>
 
-       {/* Spacer 60px */}
+      {/* Spacer 60px */}
       <Spacer
         lineSize={{
           default: '0',
@@ -112,14 +123,13 @@ export default  function MainContent() {
           title="All enquiries"
           items={[
             {
-              title: 'Business',              
+              title: 'Business',
               content:
                 '<p>New business inquiries and collaborations. Please write to <a href="mailto:studio@sensplastik.com" target="_blank">studio@sensplastik.com</a></p>',
             },
             {
               title: 'Collaboration',
-              content:
-                '<p>Send us an email, and we’ll set up a meeting.</p>',
+              content: '<p>Send us an email, and we’ll set up a meeting.</p>',
             },
             {
               title: 'Public Relations',
@@ -129,8 +139,6 @@ export default  function MainContent() {
           ]}
         />
       </Section>
-
-
     </>
   )
 }

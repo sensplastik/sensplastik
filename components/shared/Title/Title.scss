@@ -19,15 +19,13 @@
       grid-column: span 12;
     }
 
-    h1 {
+    h1,h2 {
       font-size: $h1;
       line-height: $line-height-10;
       letter-spacing: $letter-spacing-10;
       font-weight: $font-weight-medium;
     }
-    h2 {
-      font-size: $h2;
-    }
+   
     h3 {
       font-size: $h3;
     }

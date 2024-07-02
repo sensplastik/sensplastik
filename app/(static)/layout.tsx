@@ -97,6 +97,7 @@ export default async function IndexRoute({
           </Section>
         </Suspense>
         {draftMode().isEnabled && <LiveVisualEditing />}
+        <div id="portal-root"></div>
       </SettingsProvider>
     </>
   )

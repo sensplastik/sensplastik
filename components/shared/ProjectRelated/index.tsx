@@ -10,39 +10,35 @@ import { ProjectRelatedItem } from './ProjectRelatedItem'
 
 const componentStyles = cva('project-related')
 
-
 interface ProjectRelatedProps {
   className?: string
-  items?: ProjectRelatedItem[]  
+  items?: ProjectRelatedItem[]
 }
 
 export function ProjectRelated(props: ProjectRelatedProps) {
-  const {
-    className,
-    items,
-  } = props
-  
+  const { className, items } = props
+
   return (
     <>
       <div className={componentStyles({ class: className })}>
         {/* Related */}
         {items && (
           <>
-            <ul className="project-related__list">
+         
               {items.map((item, index) => {
                 const { slug, title, deliverables } = item
 
                 return (
-                  <li key={index} className="project-related__item">
-                    <ProjectRelatedItem
-                      slug={slug}
-                      title={title}
-                      deliverables={deliverables}                      
-                    />
-                  </li>
+                  <ProjectRelatedItem
+                    key={index}
+                    index={index +1 }
+                    slug={slug}
+                    title={title}
+                    deliverables={deliverables}
+                  />
                 )
               })}
-            </ul>
+           
           </>
         )}
       </div>
