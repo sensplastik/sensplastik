@@ -2,37 +2,34 @@
 
 .list {
   &__list {
-    @include grid;
-    row-gap: $space-1;
+    @include grid; // Apply grid layout
+    row-gap: $space-1; // Set row gap
   }
 
   &__item {
-    grid-column-start: 7;
-    grid-column-end: span 6;
-    display: block;
+    grid-column-start: 7; // Set starting column for list item
+    grid-column-end: span 6; // Span columns for list item
+    display: block; // Display as block element
 
     @include media("<=mobile") {
-      grid-column-start: span 12 !important;
+      grid-column-start: span 12 !important; // Adjust for mobile screens
     }
 
-    color: $color-black;
-
-    @include font-style-7;
-
-    font-weight: $font-weight-regular;
+    color: $color-black; // Set text color
+    @include font-style-7; // Apply font styles
+    font-weight: $font-weight-regular; // Set font weight
   }
 
   &--brands {
     .list__item {
-
+      // Additional styles for brand items can be added here
     }
   }
 
   &--services {
     .list__item {
-     @include font-style-11;
-
-      font-weight: $font-weight-regular;
+      @include font-style-11; // Apply different font styles for services
+      font-weight: $font-weight-regular; // Set font weight
     }
   }
 }

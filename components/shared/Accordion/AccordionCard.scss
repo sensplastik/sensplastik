@@ -4,12 +4,14 @@
   display: block;
   color: $color-secondary;
 
+  // Image styling within the card
   &__image {
-    margin-top: 8px;
+    margin-top: 8px; // Space above the image
   }
+
+  // Title styling within the card
   &__title {
     @include font-style-2;
-
-    margin-top: 6px;
+    margin-top: 6px; // Space above the title
   }
 }

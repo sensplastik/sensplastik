@@ -1,41 +1,40 @@
 @import "@/styles/variables";
 
+// Styles for title section
 .title {
-  @include grid;
+  @include grid; // Apply grid layout
 
   &__heading {
-    font-family: $font-primary;
-    grid-column: span 8;
+    font-family: $font-primary; // Set primary font
+    grid-column: span 8; // Default grid column span
 
     @include media(">mobile", "<laptop") {
-      grid-column: span 9;
+      grid-column: span 9; // Adjust span for medium screens
     }
-       
+
     @include media("<=mobile") {
-      grid-column: span 12;
+      grid-column: span 12; // Adjust span for small screens
     }
 
-    h1,h2 {
-
-      @include font-style-10;
-
-      font-weight: $font-weight-medium;
+    h1, h2 {
+      @include font-style-10; // Apply font style for h1 and h2
+      font-weight: $font-weight-medium; // Set font weight
     }
-   
+
     h3 {
-      @include font-style-9;
+      @include font-style-9; // Apply font style for h3
     }
-    
+
     h4 {
-      @include font-style-7;
+      @include font-style-7; // Apply font style for h4
     }
 
     h5 {
-      @include font-style-6;
+      @include font-style-6; // Apply font style for h5
     }
 
     h6 {
-      @include font-style-5;
+      @include font-style-5; // Apply font style for h6
     }
   }
 }

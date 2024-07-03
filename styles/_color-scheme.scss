@@ -1,3 +1,5 @@
+/* Root Variables for Light Theme */
+/* Define color variables for the light theme. */
 :root {
   --color-primary: #1f1e1c;
   --color-secondary: #7c7c7a;
@@ -7,11 +9,14 @@
   --color-punchy: #ebd248;
   --color-background: #ffffff;
   --color-background-iphone: #ffffff;
-  --color-white:white;
-  --color-black:black;
-  --color-background-menu:#e3e1dd;
+  --color-white: white;
+  --color-black: black;
+  --color-background-menu: #e3e1dd;
 }
 
+/* Root Variables for Dark Theme */
+/* Define color variables for the dark theme.
+   These variables will override the light theme variables when the data-theme attribute is set to 'dark'. */
 [data-theme='dark'] {
   --color-primary: #e3e1dd;
   --color-secondary: #8e8d86;
@@ -21,7 +26,7 @@
   --color-punchy: #ebd248;
   --color-background: black;
   --color-background-iphone: black;
-  --color-white:black;
-  --color-black:white;
-  --color-background-menu:#5f5a5a;
+  --color-white: black;
+  --color-black: white;
+  --color-background-menu: #5f5a5a;
 }

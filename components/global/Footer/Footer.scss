@@ -1,56 +1,58 @@
+// Import Variables
 @import '@/styles/variables';
 
-.footer{
+// Footer Styles
+.footer {
+    @include grid; // Apply grid layout
+    @include font-style-2; // Apply font style 2
 
-    @include grid;
+    margin-top: 220px; // Add top margin
+    font-weight: $font-weight-medium; // Set font weight
+    color: $color-primary; // Set text color
+    padding-bottom: $space-2; // Add bottom padding
 
-    @include font-style-2;
-
-    margin-top:220px;
-
-    font-weight: $font-weight-medium;
-
-    color:$color-primary;
-
-    padding-bottom: $space-2;
-
-    
-    &__brand{
-        grid-column: span 2;               
-    }
-    
-    &__content{
-        grid-column-start:  3;
-        grid-column-end:  6;
+    // Brand Section
+    &__brand {
+        grid-column: span 2; // Span 2 columns in the grid
     }
 
-    &__address{
-        grid-column-start:  7;
-        grid-column-end:  8;
-        font-style: normal;
+    // Content Section
+    &__content {
+        grid-column-start: 3; // Start at column 3
+        grid-column-end: 6; // End at column 6
     }
 
-    &__follow{
-        grid-column-start:  8;
-        grid-column-end:  9;
+    // Address Section
+    &__address {
+        grid-column-start: 7; // Start at column 7
+        grid-column-end: 8; // End at column 8
+        font-style: normal; // Set font style to normal
     }
 
-    &__talk{
-        grid-column-start:  9;
-        grid-column-end:  11;
+    // Follow Section
+    &__follow {
+        grid-column-start: 8; // Start at column 8
+        grid-column-end: 9; // End at column 9
     }
 
-    &__name{
-
-        @include font-style-3;
+    // Talk Section
+    &__talk {
+        grid-column-start: 9; // Start at column 9
+        grid-column-end: 11; // End at column 11
     }
 
-    &__label{
-        display:block;
-    }
-    &__link{
-        color:$color-secondary;
+    // Name Sub-section
+    &__name {
+        @include font-style-3; // Apply font style 3
     }
 
+    // Label Sub-section
+    &__label {
+        display: block; // Display as block element
+    }
 
+    // Link Sub-section
+    &__link {
+        color: $color-secondary; // Set link color
+    }
 }

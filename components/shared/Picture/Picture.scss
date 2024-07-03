@@ -1,37 +1,35 @@
 @import "@/styles/variables";
 
 .picture {
-  @include grid;
+  @include grid; // Apply grid layout for the picture section
 
   &__img {
-    grid-column: span 12;
-    border-radius: 0.5rem;
+    grid-column: span 12; // Span across 12 columns
+    border-radius: 0.5rem; // Apply border radius for rounded corners
   }
 
   &__placeholder {
-
-    @include font-style-5;
-
-    font-weight: $font-weight-medium; 
+    @include font-style-5; // Apply specific font styles
+    font-weight: $font-weight-medium; // Set font weight
     
-    border-radius: 0.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    grid-column: span 12;
-    min-height: 0;
-    color: $color-white;
+    border-radius: 0.5rem; // Apply border radius for rounded corners
+    display: flex; // Use flexbox for layout
+    align-items: center; // Center items vertically
+    justify-content: center; // Center items horizontally
+    grid-column: span 12; // Span across 12 columns
+    min-height: 0; // Remove minimum height constraint
+    color: $color-white; // Set text color
 
     // Calculate and apply aspect ratio padding
     padding-top: 56.25%; // 16:9 aspect ratio (9 divided by 16 multiplied by 100)
 
     // Ensure content within placeholder spans entire area
-    position: relative;
+    position: relative; // Position relative for absolutely positioned children
     span {
-      position: absolute; /* Position title absolutely */
-      top: 50%; /* Center vertically */
-      left: 50%; /* Center horizontally */
-      transform: translate(-50%, -50%); /* Center using transform */
+      position: absolute; /* Position title absolutely within the placeholder */
+      top: 50%; /* Center title vertically */
+      left: 50%; /* Center title horizontally */
+      transform: translate(-50%, -50%); /* Center title using transform */
     }
   }
 }

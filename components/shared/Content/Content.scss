@@ -3,64 +3,63 @@
 .content {
   @include grid;
 
+  // Styling for the left column of the content
   &__left {
     grid-column: span 4;
 
     @include media("<=mobile") {
-      grid-column: span 12 !important;
+      grid-column: span 12 !important; // Full-width on mobile
     }
   }
 
+  // Styling for the right column of the content
   &__right {
     grid-column-start: 7;
     grid-column-end: 13;
 
     @include media("<=mobile") {
-      grid-column: span 12 !important;
+      grid-column: span 12 !important; // Full-width on mobile
     }
   }
 
+  // Styling for the title section of the content
   &__title {
     font-weight: $font-weight-medium;
 
     h1 {
-      @include font-style-10;
+      @include font-style-10; // Style for h1
     }
 
     h3 {
-      @include font-style-9;
+      @include font-style-9; // Style for h3
     }
   }
 
+  // Styling for the title badge
   &__title-badge {
-
     color: $color-third;
-
     @include font-style-4;
-
     font-weight: $font-weight-medium;
-
-    vertical-align: top;
+    vertical-align: top; // Align badge to the top
   }
 
+  // Styling for the article section
   &__article {
-
     @include font-style-4;
-
-    column-count: 2;
-    
-    column-gap: 1rem;
+    column-count: 2; // Two columns layout
+    column-gap: 1rem; // Gap between columns
 
     @include media(">mobile", "<laptop") {
-      column-count: 1 !important;
+      column-count: 1 !important; // Single column on medium devices
     }
 
     p:not(:last-child) {
-      margin-bottom: 1rem;
-      margin-bottom: 1lh;
+      margin-bottom: 1rem; // Space between paragraphs
+      margin-bottom: 1lh; // Line height adjustment
     }
   }
 
+  // Vertically center content
   &--vertically-centered {
     align-items: center; // Center vertically
   }

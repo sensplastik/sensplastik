@@ -1,46 +1,42 @@
 @import "@/styles/variables";
 
-.content-numbered{
-    @include grid;
+.content-numbered {
+  @include grid;
 
-    row-gap: $space-4;
-    &__item{
-      
-        @include media(">mobile", "<laptop") {
-            grid-column-start: span 6!important;
-        }
+  row-gap: $space-4; // Space between rows
 
-        @include media("<=mobile") {
-            grid-column-start: span 12!important;
-        }        
-
+  // Styling for each item in the content numbered section
+  &__item {
+    @include media(">mobile", "<laptop") {
+      grid-column-start: span 6 !important; // Span 6 columns on medium devices
     }
 
-    &__number{
-        color:$color-punchy;
-
-        @include font-style-4;;
-
-        font-weight: $font-weight-medium;
+    @include media("<=mobile") {
+      grid-column-start: span 12 !important; // Full-width on mobile
     }
+  }
 
-    &__title{
-        color:$color-fourth;
+  // Styling for the number in the content numbered section
+  &__number {
+    color: $color-punchy; // Number color
 
-        @include font-style-4;
+    @include font-style-4;
+    font-weight: $font-weight-medium;
+  }
 
-        font-weight: $font-weight-medium;
+  // Styling for the title in the content numbered section
+  &__title {
+    color: $color-fourth; // Title color
 
-        margin-bottom: $space-1;
-        
+    @include font-style-4;
+    font-weight: $font-weight-medium;
+    margin-bottom: $space-1; // Space below the title
+  }
 
-    }
-    &__content{
-        
-        @include font-style-3;
-
-        color:$color-secondary;
-        
-        font-weight: $font-weight-regular;
-    }
+  // Styling for the content in the content numbered section
+  &__content {
+    @include font-style-3;
+    color: $color-secondary; // Content color
+    font-weight: $font-weight-regular;
+  }
 }

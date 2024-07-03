@@ -1,111 +1,120 @@
+// Import Variables
 @import '@/styles/variables';
 
+// Navigation Menu Styles
 .nav-menu {
-  position: fixed;
+  position: fixed; // Fix the menu to the viewport
   top: 0;
   right: 0;
   left: 0;
   bottom: 0;
-  z-index:998;
+  z-index: 998; // Ensure it appears above other elements
 
-  background-color: $color-background-menu;
+  background-color: $color-background-menu; // Set background color
 
+  // Container for sections
   section {
-    height: 100%;
+    height: 100%; // Full height
   }
+
+  // Container within section
   .section__container {
-    height: 100%;
-    position: relative;
+    height: 100%; // Full height
+    position: relative; // Position relative for child elements
   }
+
+  // Toggle Button
   &__toggle {
-    grid-column-start: 1;
-    margin-top: $space-2;
+    grid-column-start: 1; // Position in the grid
+    margin-top: $space-2; // Add top margin
 
+    // Link inside toggle
     &-link {
-      
-      font-size: $font-size-3;
-      line-height: 1.12rem;
-      letter-spacing: -0.02375rem;
-
-      font-weight: $font-weight-medium;
-
-      color: $color-third;
+      font-size: $font-size-3; // Set font size
+      line-height: 1.12rem; // Set line height
+      letter-spacing: -0.02375rem; // Adjust letter spacing
+      font-weight: $font-weight-medium; // Set font weight
+      color: $color-third; // Set font color
     }
   }
 
+  // Close Button
   &__close {
-    grid-column-start: 12;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-start;
-    margin-top: $space-2;
+    grid-column-start: 12; // Position in the grid
+    display: flex; // Use flexbox layout
+    justify-content: flex-end; // Align items to the end
+    align-items: flex-start; // Align items to the start
+    margin-top: $space-2; // Add top margin
   }
 
+  // Navigation Container
   &__nav {
-    grid-column: span 12;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
+    grid-column: span 12; // Span 12 columns
+    display: flex; // Use flexbox layout
+    justify-content: flex-end; // Align items to the end
+    align-items: center; // Center items vertically
   }
 
+  // Navigation List
   &__list {
-    text-align: right;
-
-    @include font-style-10;
-
-    font-weight: $font-weight-medium;
+    text-align: right; // Align text to the right
+    @include font-style-10; // Apply font style 10
+    font-weight: $font-weight-medium; // Set font weight
   }
 
+  // Navigation Item
   &__item {
-    color: $color-white;
+    color: $color-white; // Set font color
 
     &--active {
-      color: $color-secondary;
+      color: $color-secondary; // Set color for active item
     }
 
     &:not(:last-child) {
-      margin-bottom: $space-1;
+      margin-bottom: $space-1; // Add bottom margin to non-last items
     }
   }
 
+  // Social Media Section
   &__social {
-    grid-column-start: 10;
-    grid-column-end: 13;
-    text-align: right;
-    margin-bottom: $space-4;
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-end;
+    grid-column-start: 10; // Start at column 10
+    grid-column-end: 13; // End at column 13
+    text-align: right; // Align text to the right
+    margin-bottom: $space-4; // Add bottom margin
+    display: flex; // Use flexbox layout
+    align-items: flex-end; // Align items to the end
+    justify-content: flex-end; // Align items to the end
 
+    // Social Media Items
     .nav-menu-social {
       &__item {
         &:not(:last-child) {
-          margin-bottom: 5px;
+          margin-bottom: 5px; // Add bottom margin to non-last items
         }
       }
 
+      // Social Media Links
       &__link {
-
-        @include font-style-5;
-
-        font-weight: $font-weight-medium;
-
-        color: $color-third;
+        @include font-style-5; // Apply font style 5
+        font-weight: $font-weight-medium; // Set font weight
+        color: $color-third; // Set font color
       }
     }
   }
 
+  // Brand Logo
   &__brand {
-    position: absolute;
-    left: 0;
-    bottom: $space-4;
-    transform: rotate(-90deg) translateY(100%);
-    transform-origin: bottom left;
+    position: absolute; // Position absolute within the nav-menu
+    left: 0; // Align to the left
+    bottom: $space-4; // Set bottom spacing
+    transform: rotate(-90deg) translateY(100%); // Rotate and move down
+    transform-origin: bottom left; // Set transform origin
   }
 
+  // Close Button Lines
   .close {
     &__line {
-      stroke: $color-secondary;
+      stroke: $color-secondary; // Set stroke color
     }
   }
 }

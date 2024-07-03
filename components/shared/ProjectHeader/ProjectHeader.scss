@@ -1,42 +1,44 @@
 @import '@/styles/variables';
 
 .project-header {
+  // Adjust the top margin to overlap with the navbar
   margin-top: calc(-1 * $navbar-height);
   position: relative;
-  margin-top: -60px;
 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 
   &__message {
-    margin-top: $navbar-height;
+    // Position message relative to the project header
+    margin-top: $navbar-height; // Space for the navbar
     position: relative;
-    z-index: 1;
+    z-index: 1; // Ensure it is above other elements
   }
 
   &__cover {
+    // Fixed position for cover image to cover the entire viewport
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
+
     .picture__img {
-      border-radius: 0;
+      border-radius: 0; // Remove border-radius from the cover image
     }
   }
 
   &__title {
     position: relative;
-    z-index: 1;
-    margin-bottom: $space-3;
-    grid-column-start: 7;
-    grid-column-end: span 6;
+    z-index: 1; // Ensure title is above other elements
+    margin-bottom: $space-3; // Space below the title
+    grid-column-start: 7; // Start column for grid layout
+    grid-column-end: span 6; // Span columns for grid layout
 
-    @include font-style-10;
+    @include font-style-10; // Apply font style
 
-    font-weight: $font-weight-medium;
-
-    color: $color-white;
+    font-weight: $font-weight-medium; // Medium font weight
+    color: $color-white; // White color for the title
   }
 }

@@ -1,5 +1,5 @@
-//
-
+// Breakpoints
+// Define the breakpoints used for responsive design.
 $breakpoints: (
   "xs": 320px,
   "sm": 576px,
@@ -7,25 +7,24 @@ $breakpoints: (
   "lg": 1024px,
   "xl": 1280px,
   "2xl": 1536px,
-  //
   "mobile": 850px,
   "laptop": 1440px,
 );
 
+// Import include-media for handling media queries
 @import "include-media";
 
-//
-
+// Font
+// Define the primary font using a CSS variable.
 $font-primary: var(--font-sans);
 
-//
-
+// Import additional SCSS files
 @import "_color-scheme";
 @import "_layout";
 @import "_font";
 
-//
-
+// Color Variables
+// Map CSS variables to SCSS variables for easy reference in the stylesheet.
 $color-primary: var(--color-primary);
 $color-secondary: var(--color-secondary);
 $color-third: var(--color-third);
@@ -35,12 +34,11 @@ $color-punchy: var(--color-punchy);
 $color-white: var(--color-white);
 $color-black: var(--color-black);
 $color-background: var(--color-background);
-$color-background-menu:var(--color-background-menu);
+$color-background-menu: var(--color-background-menu);
 $color-background-iphone: var(--color-background-iphone);
 
-//
-
-// GSAP Easing
+// GSAP Easing Variables
+// Define custom easing functions for GSAP animations.
 $ease: cubic-bezier(1, 0, 0.3, 1);
 $easeOut: cubic-bezier(0.165, 0.84, 0.44, 1);
 $easeIn: cubic-bezier(0.755, 0.05, 0.855, 0.06);
@@ -55,4 +53,3 @@ $easeInPower3: cubic-bezier(0.550, 0.055, 0.675, 0.190);
 $easeInPower4: cubic-bezier(0.895, 0.030, 0.685, 0.220);
 $easeOutPower2: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 $easeOutPower3: cubic-bezier(0.215, 0.610, 0.355, 1);
-

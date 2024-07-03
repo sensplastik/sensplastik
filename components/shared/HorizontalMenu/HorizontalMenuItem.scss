@@ -1,41 +1,37 @@
 @import "@/styles/variables";
 
+// Define the line height for dots
 $dot-line-height: 0.825rem;
 
 .horizontal-menu-item {
 
-  display: flex;
+  display: flex; // Use flexbox for layout
 
-  @include font-style-2;
-  
-  font-weight: $font-weight-regular;
+  @include font-style-2; // Apply font styles
+
+  font-weight: $font-weight-regular; // Set font weight
 
   &__dot {
-    margin-right: 5px;
+    margin-right: 5px; // Space between dot and text
 
-    //
+    // Dot styling
     height: $dot-line-height;
-    height: 1lh;
+    height: 1lh; // Ensure line-height consistency
     display: flex;
-    justify-content: center;
-    flex-direction: column;
+    justify-content: center; // Center dot horizontally
+    flex-direction: column; // Align dot vertically
 
     &:before {
-      content: "";
-      display: block;
-      background-color: $color-third;
-      width: 6px;
-      height: 6px;
-      border-radius: 100%;
+      content: ""; // Add an empty content before element
+      display: block; // Make sure it behaves as a block element
+      background-color: $color-third; // Set dot color
+      width: 6px; // Dot width
+      height: 6px; // Dot height
+      border-radius: 100%; // Make it a circle
     }   
   }
 
   &__link {
-    color: $color-third;
-  }
-  &__index {
-  }
-
-  &__title {
+    color: $color-third; // Set link color
   }
 }

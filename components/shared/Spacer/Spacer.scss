@@ -1,30 +1,31 @@
 @import "@/styles/variables";
 
 .spacer {
-  padding-top: $space-6;
-  padding-bottom: $space-1;
+  padding-top: $space-6; // Top padding
+  padding-bottom: $space-1; // Bottom padding
 
   &__line {
-    background-color: $color-primary;
-    height: 1px;
+    background-color: $color-primary; // Line color
+    height: 1px; // Line height
     
     &--custom {
-      background-color: inherit;
+      background-color: inherit; // Custom background color
     }
   }
 
-  &--striped-lines{
-    padding-bottom: 0!important;
+  &--striped-lines {
+    padding-bottom: 0 !important; // Remove bottom padding
+
     background: repeating-linear-gradient(
       90deg, /* 90 degrees for horizontal stripes */
       #fff, /* First color */
-      #fff 1px, /* First color stops after 5px */
-      var(--bg-color, #f5f5f5) 1px, /* Second color starts */
-      var(--bg-color, #f5f5f5) 8px /* Second color stops after 5px (10px total for each stripe) */
+      #fff 1px, /* First color stops after 1px */
+      var(--bg-color, #f5f5f5) 1px, /* Second color starts at 1px */
+      var(--bg-color, #f5f5f5) 8px /* Second color stops after 8px */
     );
 
-    .spacer__line{
-      height:0!important;
+    .spacer__line {
+      height: 0 !important; // Remove height for lines in striped lines
     }
   }
 }

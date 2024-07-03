@@ -1,42 +1,41 @@
 @import '@/styles/variables';
 
 .project-related-item {
-  display: block;
+  display: block; // Display block for item
 
-  padding-top: $space-1;
-  padding-bottom: $space-1;
+  padding-top: $space-1; // Padding on top
+  padding-bottom: $space-1; // Padding on bottom
 
   &:first-child {
-    border-top: 1px solid $color-primary;
+    border-top: 1px solid $color-primary; // Top border for the first item
   }
 
-  border-bottom: 1px solid $color-primary;
+  border-bottom: 1px solid $color-primary; // Bottom border for all items
 
   &__index {
-    grid-column: span 1;
+    grid-column: span 1; // Span 1 column for index
   }
 
   &__title {
-    grid-column-start: 3;
-    grid-column-end: span 2;
-
+    grid-column-start: 3; // Start at column 3
+    grid-column-end: span 2; // Span 2 columns
   }
 
   &__deliverables {
-    grid-column-start: 7;
-    grid-column-end: span 3;
+    grid-column-start: 7; // Start at column 7
+    grid-column-end: span 3; // Span 3 columns
   }
 
-  &__icon{
-    grid-column-start: 12;
-    grid-column-end: span 1;
-    display: flex;
-    justify-content: flex-end;
+  &__icon {
+    grid-column-start: 12; // Start at column 12
+    grid-column-end: span 1; // Span 1 column
+    display: flex; // Flex container
+    justify-content: flex-end; // Align icon to the end
   }
 
-  .arrow-icon{
-    &__path{
-      fill:$color-primary;
+  .arrow-icon {
+    &__path {
+      fill: $color-primary; // Fill color for arrow icon path
     }
   }
 }

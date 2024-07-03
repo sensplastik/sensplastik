@@ -2,6 +2,6 @@
 
 .project-gallery {
   &__list {
-    @include grid;
+    @include grid; // Apply grid layout for the project gallery list
   }
 }

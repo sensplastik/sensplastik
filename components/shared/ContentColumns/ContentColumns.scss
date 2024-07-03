@@ -1,29 +1,30 @@
 @import "@/styles/variables";
 
-.content-columns{
-    @include grid;
+.content-columns {
+  @include grid;
 
-    &__item{
+  // Styling for each item in the content columns
+  &__item {
+    @include font-style-4;
 
-        @include font-style-4;
-
-        @include media(">mobile", "<laptop") {
-            grid-column-start: span 4!important;
-        }
-
-         @include media("<=mobile") {
-            grid-column-start: span 12!important;
-        }
-
+    @include media(">mobile", "<laptop") {
+      grid-column-start: span 4 !important; // Span 4 columns on medium devices
     }
-    &__title{
-        @include font-style-5;
-        
-        margin-bottom: $space-2;
-        color:$color-primary;
 
+    @include media("<=mobile") {
+      grid-column-start: span 12 !important; // Full-width on mobile
     }
-    &__content{
-            color:$color-secondary;
-    }
+  }
+
+  // Styling for the title in the content columns
+  &__title {
+    @include font-style-5;
+    margin-bottom: $space-2; // Space below the title
+    color: $color-primary; // Title color
+  }
+
+  // Styling for the content in the content columns
+  &__content {
+    color: $color-secondary; // Content color
+  }
 }

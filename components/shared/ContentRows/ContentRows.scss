@@ -3,57 +3,55 @@
 .content-rows {
   @include grid;
 
+  // Styling for the left section in content rows
   &__left {
-    grid-column: span 4;
+    grid-column: span 4; // Span 4 columns
 
     @include media("<=mobile") {
-      grid-column: span 12 !important;
+      grid-column: span 12 !important; // Full-width on mobile
     }
   }
 
+  // Styling for the right section in content rows
   &__right {
     grid-column-start: 7;
     grid-column-end: 11;
 
     @include media("<=mobile") {
-      grid-column: span 12 !important;
+      grid-column: span 12 !important; // Full-width on mobile
     }
   }
 
+  // Styling for the title in content rows
   &__title {
-    
     @include font-style-6;
-
     font-weight: $font-weight-medium;
-
     color: $color-primary;
   }
 
+  // Styling for each item in content rows
   &__item {
-    margin-bottom: $space-3;
+    margin-bottom: $space-3; // Space below each item
   }
 }
 
+// Styling for content row items
 .content-row-item {
+  // Styling for the title in content row items
   &__title {
-    
     @include font-style-6;
-
     font-weight: $font-weight-medium;
-
     color: $color-white;
 
     + .content-row-item__content {
-      margin-top: $space-2;
+      margin-top: $space-2; // Space above the content
     }
   }
 
+  // Styling for the content in content row items
   &__content {
-
-     @include font-style-4;
-
+    @include font-style-4;
     font-weight: $font-weight-medium;
-
     color: $color-fourth;
   }
 }

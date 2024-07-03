@@ -2,59 +2,50 @@
 
 .intro {
   
-  @include grid;
-  color: $color-primary;
+  @include grid; // Apply grid layout
+  color: $color-primary; // Set text color
 
+  &__heading {
+    grid-column-start: 4; // Set starting column for heading
+    grid-column-end: 10; // Set ending column for heading
+    display: flex; // Use flexbox for layout
+    flex-direction: column; // Stack items vertically
+    text-align: center; // Center-align text
 
-
-
-  &__heading{
-
-    grid-column-start: 4;
-    grid-column-end: 10;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-
-    + .intro__content{
-      margin-top: 55px;
+    + .intro__content {
+      margin-top: 55px; // Add margin to content below heading
     }
   }
 
-  &__content{
-    
-    grid-column-start: 7;
-    grid-column-end: 10;
+  &__content {
+    grid-column-start: 7; // Set starting column for content
+    grid-column-end: 10; // Set ending column for content
   }
 
-
   &__title {
+    @include font-style-6; // Apply font styles for title
 
-    @include font-style-6;
+    font-weight: $font-weight-medium; // Set font weight
 
-    font-weight: $font-weight-medium;
-
-    + .intro__sub-title{
-      margin-top:$space-2;
+    + .intro__sub-title {
+      margin-top: $space-2; // Add margin to sub-title below title
     }
   }
 
   &__sub-title {
+    @include font-style-5; // Apply font styles for sub-title
 
-    @include font-style-5;
-
-    font-weight:$font-weight-regular;
+    font-weight: $font-weight-regular; // Set font weight
   }
 
   &__article {
+    @include font-style-4; // Apply font styles for article
 
-     @include font-style-4;
-
-    font-weight:$font-weight-medium;
+    font-weight: $font-weight-medium; // Set font weight
 
     p:not(:last-child) {
-      margin-bottom: 1rem;
-      margin-bottom: 1lh;
+      margin-bottom: 1rem; // Add margin to paragraphs except the last one
+      margin-bottom: 1lh; // Ensure line-height consistency
     }
   }
 }

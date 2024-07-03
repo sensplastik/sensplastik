@@ -1,53 +1,47 @@
-@import "@/styles/variables";
+@import '@/styles/variables';
 
 .card {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 
+  // Styling for the picture section of the card
   &__picture {
-    
-    + .card__body{
-      margin-top:$space-1;
+    + .card__body {
+      margin-top: $space-1; // Space between picture and body
     }
   }
 
+  // Styling for the body section of the card
   &__body {
     display: flex;
     flex-direction: column;
-
-    color: $color-primary;
-    
+    color: $color-primary; // Text color for the body
   }
 
+  // Styling for the title within the card
   &__title {
-    
     @include font-style-4;
-
-    font-weight: $font-weight-medium;    
+    font-weight: $font-weight-medium; // Medium weight for the title
   }
 
+  // Styling for the description within the card
   &__description {
-
     @include font-style-4;
-
-    font-weight:$font-weight-regular;
-
-    max-width:calc( 100% * 2 / 3 );
-
+    font-weight: $font-weight-regular; // Regular weight for the description
+    max-width: calc(100% * 2 / 3); // Max width for the description
   }
 
+  // Styling for the services section within the card
   &__services {
-
-     @include font-style-4;
-     
-    font-weight:$font-weight-regular;
-
-    color: $color-secondary;
-
+    @include font-style-4;
+    font-weight: $font-weight-regular; // Regular weight for the services
+    color: $color-secondary; // Color for the services
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: wrap; // Wrap services to fit within container
   }
-  &__service:not(:last-child){
-    margin-right:5px;
+
+  // Styling for individual service items
+  &__service:not(:last-child) {
+    margin-right: 5px; // Space between service items
   }
 }

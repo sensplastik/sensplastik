@@ -1,108 +1,108 @@
 @import '@/styles/variables';
 
 .accordion {
+  // Accordion item container
   &__item {
     @include section-layout;
     @include grid;
     row-gap: $space-2;
     padding-top: $space-1;
+
     &:not(:last-child) {
-      border-bottom: 1px solid $color-primary;
+      border-bottom: 1px solid $color-primary; // Bottom border for separation
     }
   }
 
+  // Header and content styling
   &__header,
   &__content {
     grid-column-start: 7;
     grid-column-end: span 6;
   }
 
+  // Header specific styling
   &__header {
-    margin-bottom: $space-2;
+    margin-bottom: $space-2; // Space below the header
   }
 
+  // Trigger button styling
   &__trigger {
     @include grid(6);
     row-gap: 0;
 
-    &[data-state='open'] .accordion-arrow-icon {        
-      transform: rotate(-90deg);
+    &[data-state='open'] .accordion-arrow-icon {
+      transform: rotate(-90deg); // Rotate icon when open
     }
   }
 
+  // Index styling
   &__index {
     grid-column: span 1;
-
     text-align: left;
-
     @include font-style-8;
-
     font-weight: $font-weight-regular;
-
     color: $color-punchy;
   }
 
+  // Title styling
   &__title {
     grid-column: span 2;
-
     text-align: left;
-
     @include font-style-4;
-
     font-weight: $font-weight-medium;
-
     color: $color-primary;
   }
 
+  // Icon styling
   &__icon {
     grid-column: 6 / span 1;
-
     text-align: right;
 
     svg {
-      margin-left: auto;
+      margin-left: auto; // Align icon to the right
     }
   }
 
+  // Content styling
   &__content {
     @include grid(12);
     row-gap: 0;
-
     overflow: hidden;
 
     &[data-state='open'] {
-      animation: slideDown 300ms $easeSine forwards;
+      animation: slideDown 300ms $easeSine forwards; // Slide down animation
     }
 
     &[data-state='closed'] {
-      animation: slideUp 300ms $easeSine forwards;
+      animation: slideUp 300ms $easeSine forwards; // Slide up animation
     }
   }
 
+  // Article styling inside the content
   &__article {
     grid-column: 5 / span 8;
-
     margin-bottom: $space-5;
-
     @include font-style-4;
-
     color: $color-secondary;
   }
 
+  // Arrow icon styling
   .accordion-arrow-icon {
     transition: transform 300ms $easeSine;
+
     &__path {
       fill: $color-third;
     }
   }
 
+  // Cards styling
   &__cards {
     grid-column: 5 / span 8;
   }
 
+  // List styling
   &__list {
     margin-bottom: $space-5;
-
     @include grid(2);
 
     &-item {
@@ -116,6 +116,7 @@
   }
 }
 
+// Keyframes for sliding animations
 @keyframes slideDown {
   from {
     height: 0;

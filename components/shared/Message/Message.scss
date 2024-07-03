@@ -1,44 +1,39 @@
 @import '@/styles/variables';
 
 .message {
-  @include grid;
-
-  @include font-style-2;
+  @include grid; // Apply grid layout for the message section
+  @include font-style-2; // Apply specific font styles
 
   &__article {
-    grid-column: span 3;
-    
-    padding-top: $space-6;
-    padding-bottom: $space-6;
+    grid-column: span 3; // Span across 3 columns
+
+    padding-top: $space-6; // Add padding to the top
+    padding-bottom: $space-6; // Add padding to the bottom
 
     @include media(">mobile", "<laptop") {
-      grid-column: span 6;
+      grid-column: span 6; // Span across 6 columns on medium screens
     }
 
     @include media("<=mobile") {
-      grid-column: span 11;
+      grid-column: span 11; // Span across 11 columns on mobile screens
     }
   }
 
   &__title {
-
-    color: $color-fourth;
-
-    font-weight: $font-weight-medium;
+    color: $color-fourth; // Set text color
+    font-weight: $font-weight-medium; // Set font weight
 
     + .message__content {
-      margin-top: 5px;
+      margin-top: 5px; // Add space above the content
     }
   }
 
   &__content {
-
-    color: $color-secondary;
-    
-    font-weight: $font-weight-regular;
+    color: $color-secondary; // Set text color
+    font-weight: $font-weight-regular; // Set font weight
 
     a {
-      text-decoration: underline;
+      text-decoration: underline; // Underline links
     }
   }
 }

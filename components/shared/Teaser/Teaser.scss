@@ -1,69 +1,62 @@
 @import '@/styles/variables';
 
 .teaser {
-  @include grid;
+  @include grid; // Apply grid layout
 
-  font-family: $font-primary;
+  font-family: $font-primary; // Set primary font family
 
   &__left {
-    grid-column-start: 4;
-    grid-column-end: span 3;
+    grid-column-start: 4; // Start at column 4
+    grid-column-end: span 3; // Span 3 columns
 
     @include media('<=mobile') {
-      grid-column: span 12 !important;
+      grid-column: span 12 !important; // Span 12 columns on mobile
     }
 
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
+    h1, h2, h3, h4, h5, h6 {
+      @include font-style-8; // Apply font style 8
 
-     @include font-style-8;
-
-      font-weight: $font-weight-medium;
+      font-weight: $font-weight-medium; // Medium font weight
     }
   }
 
   &__right {
-    grid-column-start: 7;
-    grid-column-end: span 6;
+    grid-column-start: 7; // Start at column 7
+    grid-column-end: span 6; // Span 6 columns
 
     @include media('<=mobile') {
-      grid-column: span 12 !important;
+      grid-column: span 12 !important; // Span 12 columns on mobile
     }
 
-    font-weight: $font-weight-medium;
+    font-weight: $font-weight-medium; // Medium font weight
 
     h1 {
-      @include font-style-10;
+      @include font-style-10; // Apply font style 10
     }
 
     h2 {
-      @include font-style-12;
+      @include font-style-12; // Apply font style 12
     }
 
     h3 {
-      @include font-style-9;
+      @include font-style-9; // Apply font style 9
     }
 
     h4 {
-      @include font-style-8;
+      @include font-style-8; // Apply font style 8
     }
 
     h5 {
-      @include font-style-6;
+      @include font-style-6; // Apply font style 6
     }
 
     h6 {
-      @include font-style-5;
+      @include font-style-5; // Apply font style 5
     }
   }
 
   &__sub-title {
-    margin-left: auto;
-    text-align: right;
-   
+    margin-left: auto; // Align to the right
+    text-align: right; // Right-align text
   }
 }

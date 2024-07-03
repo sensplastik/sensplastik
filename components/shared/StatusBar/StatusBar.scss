@@ -1,31 +1,30 @@
 @import "@/styles/_variables";
 
-.status-bar{
-    @include grid;
+.status-bar {
+    @include grid; // Apply grid layout
 
-    @include font-style-2;
+    @include font-style-2; // Apply font style
 
-    font-weight: $font-weight-regular;
+    font-weight: $font-weight-regular; // Regular font weight
+    color: $color-secondary; // Text color
 
-    color:$color-secondary;
-
-    &__time{
-        grid-column: span 2;
+    &__time {
+        grid-column: span 2; // Span 2 columns for time
     }
 
-    &__dark-mode-label{
-        grid-column-start: 7;
-        grid-column-end: 8;
+    &__dark-mode-label {
+        grid-column-start: 7; // Start at column 7
+        grid-column-end: 8; // End at column 8
     }
 
-    &__dark-mode-toggle{
-        grid-column-start: 8;
-        grid-column-end: 9;
+    &__dark-mode-toggle {
+        grid-column-start: 8; // Start at column 8
+        grid-column-end: 9; // End at column 9
     }
 
-    &__os{
-        grid-column-start: 11;
-        grid-column-end: 13;
-        margin-left: auto;
+    &__os {
+        grid-column-start: 11; // Start at column 11
+        grid-column-end: 13; // End at column 13
+        margin-left: auto; // Align to the right
     }
 }

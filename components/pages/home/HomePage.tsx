@@ -127,6 +127,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
       <Spacer />
 
       {/* List */}
+      <Section>
       <List
         listType="services"
         items={[
@@ -155,6 +156,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
           { title: 'SASS' },
         ]}
       />
+      </Section>
 
       {/* Spacer default */}
       <Spacer />

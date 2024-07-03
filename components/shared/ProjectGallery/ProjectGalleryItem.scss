@@ -1,47 +1,47 @@
 @import '@/styles/variables';
 
 .project-gallery-item {
+  // Styles for project gallery items with different sizes
   &--half,
   &--default {
-    grid-column: span 6;
+    grid-column: span 6; // Half-width item
 
     .project-gallery-item__info {
-      @include grid(6);
+      @include grid(6); // Grid layout for item info
     }
   }
 
   &--full {
-    grid-column: span 12;
+    grid-column: span 12; // Full-width item
 
     .project-gallery-item__info {
-      @include grid(12);
+      @include grid(12); // Grid layout for item info
     }
   }
 
   .picture__img {
-    border-radius: 0;
+    border-radius: 0; // Remove border-radius from images
   }
 
   &:not(:last-child) {
-    margin-bottom: 120px;
+    margin-bottom: 120px; // Space between items
   }
 
   &__info {
-    
-    @include font-style-2;
+    @include font-style-2; // Apply font style
 
-    font-weight: $font-weight-regular;
+    font-weight: $font-weight-regular; // Regular font weight
 
-    padding-top: $space-1;
+    padding-top: $space-1; // Space above the info
   }
 
   &__reference {
-    color: $color-third;
-    grid-column: span 1;
+    color: $color-third; // Color for reference
+    grid-column: span 1; // Grid column span for reference
   }
 
   &__title {
-    color: $color-secondary;
-    grid-column: span 2;
+    color: $color-secondary; // Color for title
+    grid-column: span 2; // Grid column span for title
   }
 }

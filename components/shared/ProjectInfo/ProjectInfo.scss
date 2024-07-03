@@ -1,94 +1,91 @@
 @import '@/styles/variables';
 
 .project-info {
-  @include grid;
+  @include grid; // Apply grid layout
 
   &__first-column {
-    grid-column-start: 1;
-    grid-column-end: span 2;
+    grid-column-start: 1; // Start column 1
+    grid-column-end: span 2; // Span 2 columns
   }
 
   &__second-column {
-    grid-column-start: 3;
-    grid-column-end: span 2;
+    grid-column-start: 3; // Start column 3
+    grid-column-end: span 2; // Span 2 columns
   }
 
   &__main-column {
-    grid-column-start: 7;
-    grid-column-end: span 6;
+    grid-column-start: 7; // Start column 7
+    grid-column-end: span 6; // Span 6 columns
   }
 
   &__client {
+    // Add margin-top to the following deliverables section
     + .project-info__deliverables {
-      margin-top: $space-2;
+      margin-top: $space-2; // Space between client and deliverables
     }
   }
 
   &__label {
-    color: $color-secondary;
+    color: $color-secondary; // Secondary color for labels
   }
 
   &__list {
-
-    @include font-style-4;
-
-    font-weight: $font-weight-regular;
+    @include font-style-4; // Apply font style
+    font-weight: $font-weight-regular; // Regular font weight
   }
 
   &__item {
-    color: $color-primary;
+    color: $color-primary; // Primary color for items
   }
 
   &__article {
-    @include grid(6);
-    row-gap:0;
-
-    font-weight: $font-weight-regular;
-
-    color: $color-primary;
+    @include grid(6); // Apply 6-column grid layout
+    row-gap: 0; // Remove row gap
+    font-weight: $font-weight-regular; // Regular font weight
+    color: $color-primary; // Primary color for article text
   }
 
   &__headline {
-    grid-column: span 5;
+    grid-column: span 5; // Span 5 columns
+    @include font-style-6; // Apply font style
 
-    @include font-style-6;
-
+    // Add margin-top to following body and website sections
     + .project-info__body {
-      margin-top: 34px;
+      margin-top: 34px; // Space between headline and body
     }
 
     + .project-info__website {
-      margin-top: $space-2;
+      margin-top: $space-2; // Space between headline and website
     }
   }
 
   &__body {
-    grid-column: span 6;
+    grid-column: span 6; // Span 6 columns
   }
 
   &__content {
-    
-     @include font-style-4;
+    @include font-style-4; // Apply font style
 
+    // Margin for paragraphs within content
     p:not(:last-child) {
-      margin-bottom: 1rem;
-      margin-bottom: 1lh;
+      margin-bottom: 1rem; // Space below paragraphs
+      margin-bottom: 1lh; // Line-height space below paragraphs
     }
 
     + .project-info__website {
-      margin-top: $space-2;
+      margin-top: $space-2; // Space between content and website
     }
   }
 
   &__website {
-    display: flex;
-    gap: $space-1;
-    font-weight: $font-weight-medium;
+    display: flex; // Flex container
+    gap: $space-1; // Space between flex items
+    font-weight: $font-weight-medium; // Medium font weight
   }
 
   .external-link-icon {
     &__path {
-      fill: $color-black;
+      fill: $color-black; // Black fill for external link icon
     }
   }
 }

@@ -1,5 +1,6 @@
-//
-
+// Spacing Variables
+// These variables define various spacing values used throughout the project.
+// Adjust these values to maintain consistent spacing.
 $space-1: 10px;
 $space-2: 20px;
 $space-3: 40px;
@@ -8,8 +9,8 @@ $space-5: 80px;
 $space-6: 90px;
 $space-7: 160px;
 
-//
-
+// Section Padding Variables
+// Define the padding for sections to ensure proper spacing on different devices.
 $section-padding-left: 7.5rem;
 $section-padding-right: $section-padding-left;
 
@@ -19,12 +20,12 @@ $section-padding-right--laptop: $section-padding-left--laptop;
 $section-padding-left--mobile: 1rem;
 $section-padding-right--mobile: $section-padding-left--mobile;
 
-//
-
+// Navbar Height
+// Define the height of the navbar using one of the spacing variables.
 $navbar-height: $space-4;
 
-//
-
+// Mixin: Section Layout
+// This mixin applies padding to sections, adjusting for different device sizes.
 @mixin section-layout {
   padding-left: $section-padding-left;
   padding-right: $section-padding-right;
@@ -40,7 +41,8 @@ $navbar-height: $space-4;
   }
 }
 
-
+// Mixin: Grid
+// This mixin sets up a CSS Grid layout with a configurable number of columns.
 @mixin grid($columns: 12) {
   display: grid;
   grid-template-columns: repeat($columns, minmax(0px, 1fr));

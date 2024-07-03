@@ -1,46 +1,45 @@
 @import '@/styles/variables';
 
+// Styles for vertical navigation
 .vertical-nav {
-  @include grid;
+  @include grid; // Apply grid layout
 
-  color: $color-secondary;
+  color: $color-secondary; // Set text color for the navigation
 
   &__list {
-    grid-column-start: 7;
-    grid-column-end: 10;
+    grid-column-start: 7; // Start column position
+    grid-column-end: 10; // End column position
   }
 
   &__item {
-    border-bottom: 1px solid $color-secondary;
+    border-bottom: 1px solid $color-secondary; // Bottom border for each item
 
     &:hover {
-      color: $color-third;
-      border-bottom-color: $color-punchy;
+      color: $color-third; // Change text color on hover
+      border-bottom-color: $color-punchy; // Change border color on hover
 
       .vertical-nav-item__icon svg {
-        fill: $color-third !important;
+        fill: $color-third !important; // Change icon color on hover
       }
     }
   }
 
   .vertical-nav-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    display: flex; // Flexbox layout
+    align-items: center; // Center items vertically
+    justify-content: space-between; // Space items evenly
 
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding-top: 5px; // Padding on top
+    padding-bottom: 5px; // Padding on bottom
 
     &__label {
-
-      @include font-style-4;
-
-      font-weight: $font-weight-medium;
+      @include font-style-4; // Apply font style
+      font-weight: $font-weight-medium; // Set font weight
     }
 
     &__icon {
       svg {
-        fill: $color-secondary;
+        fill: $color-secondary; // Set icon color
       }
     }
   }

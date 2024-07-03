@@ -1,15 +1,14 @@
 @import '@/styles/variables';
 
 .content-table {
-  
-
-  &__heading{
-    
+  // Styling for the heading in content tables
+  &__heading {
+    // Add styles as needed
   }
 
-  &__row{
+  // Styling for rows in content tables
+  &__row {
     @include grid;
-
     padding-left: $section-padding-left;
     padding-right: $section-padding-right;
 
@@ -17,71 +16,57 @@
       padding-left: $section-padding-left--laptop;
       padding-right: $section-padding-right--laptop;
     }
-  
+
     @include media("<=mobile") {
       padding-left: $section-padding-left--mobile;
       padding-right: $section-padding-right--mobile;
     }
-
   }
 
-  &__list{
-
+  // Styling for the list in content tables
+  &__list {
+    // Add styles as needed
   }
 
-  &__item{
-    grid-column: span 6;
-
+  // Styling for each item in content tables
+  &__item {
+    grid-column: span 6; // Span 6 columns
   }
 
-  &__separator{
-
-    background-color:$color-lines;
+  // Styling for separators in content tables
+  &__separator {
+    background-color: $color-lines;
     margin-top: $space-3;
     margin-bottom: $space-1;
-    height:1px;
-    grid-column: span 12;
-
+    height: 1px; // 1px height for separators
+    grid-column: span 12; // Span 12 columns
   }
 
-  &__title{
-
+  // Styling for titles in content tables
+  &__title {
     @include font-style-5;
-
     font-weight: $font-weight-regular;
-
-    color:$color-primary;
-
+    color: $color-primary;
   }
-
-  
 }
 
-.content-table-item{
-
+// Styling for content table items
+.content-table-item {
   @include grid(6);
-  
-  &__title{
 
+  // Styling for the title in content table items
+  &__title {
     grid-column: span 2;
-    
     @include font-style-3;
-
     font-weight: $font-weight-medium;
-
     color: $color-fourth;
   }
 
-  &__content{
-
+  // Styling for the content in content table items
+  &__content {
     grid-column: span 3;
-
     @include font-style-3;
-
     font-weight: $font-weight-regular;
-
     color: $color-secondary;
-
   }
-
 }

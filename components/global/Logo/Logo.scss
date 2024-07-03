@@ -1,26 +1,31 @@
+// Import Variables
 @import '@/styles/variables';
 
+// Logo Styles
 .logo {
-  color: $color-primary;
-  display: flex;
-  align-items: center;
-  align-content: center;
-  column-gap: 5px;
-  grid-column: span 3;
+  color: $color-primary; // Set primary color
+  display: flex; // Use flexbox layout
+  align-items: center; // Center items vertically
+  align-content: center; // Center content along the cross axis
+  column-gap: 5px; // Add column gap between items
+  grid-column: span 3; // Span 3 columns in the grid
 
+  // Media Query: Between mobile and laptop sizes
   @include media(">mobile", "<laptop") {
-    grid-column: span 4;
+    grid-column: span 4; // Span 4 columns in the grid
   }
 
+  // Media Query: Mobile size and below
   @include media("<=mobile") {
-    grid-column: span 11;
+    grid-column: span 11; // Span 11 columns in the grid
   }
 }
 
+// Slogan Styles
 .slogan {
-  font-size: 0.5rem;
-  line-height: 0.625rem;
-  letter-spacing: -0.0125rem;
-  font-weight: $font-weight-medium;
-  //width: 41.67%;
+  font-size: 0.5rem; // Set font size
+  line-height: 0.625rem; // Set line height
+  letter-spacing: -0.0125rem; // Set letter spacing
+  font-weight: $font-weight-medium; // Set font weight
+  //width: 41.67%; // Commented out width property
 }

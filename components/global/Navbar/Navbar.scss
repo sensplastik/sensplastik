@@ -1,53 +1,60 @@
+// Import Variables
 @import '@/styles/variables';
 
+// Navbar Styles
 .navbar {
-  height: 60px;
-  justify-content: space-between;
-  align-items: center;
-  color: $color-primary;
+  height: $navbar-height; // Set the height of the navbar
+  justify-content: space-between; // Space items evenly with space between
+  align-items: center; // Align items vertically centered
+  color: $color-primary; // Set text color
 
-  @include grid;
+  @include grid; // Apply grid layout
 
+  // Navigation Container
   &__nav {
-    grid-column-start: 7;
-    grid-column-end: 12;
+    grid-column-start: 7; // Start at column 7
+    grid-column-end: 12; // End at column 12
 
+    // Media Query: Mobile size and below
     @include media('<=mobile') {
-      display: none;
+      display: none; // Hide on mobile devices
     }
   }
 
+  // Navigation List
   &__list {
-    display: flex;
-    column-gap: $space-2;
+    display: flex; // Use flexbox layout
+    column-gap: $space-2; // Add column gap between items
   }
 
+  // Navigation Item
   &__item {
-    
-    @include font-style-3;
-
-    font-weight: $font-weight-medium;
-
- 
+    @include font-style-3; // Apply font style 3
+    font-weight: $font-weight-medium; // Set font weight
   }
 
+  // Hamburger Menu
   &__hamburger {
-    margin-left: auto;
-    margin-right: 0;
-    grid-column-start: 12;
+    margin-left: auto; // Push to the right side
+    margin-right: 0; // Remove right margin
+    grid-column-start: 12; // Start at column 12
 
+    // Media Query: Between mobile and laptop sizes
     @include media('>mobile', '<laptop') {
-      max-width: $space-2;
+      max-width: $space-2; // Set max width
     }
+
+    // Media Query: Mobile size and below
     @include media('<=mobile') {
-      overflow: hidden;
-      grid-column: span 1;
+      overflow: hidden; // Hide overflow
+      grid-column: span 1; // Span 1 column
     }
   }
 
+  // Hamburger Menu Lines
   .hamburger {
     &__line {
-      stroke: $color-primary;
+      stroke: $color-primary; // Set stroke color for lines
     }
   }
 }

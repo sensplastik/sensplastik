@@ -1,8 +1,10 @@
+// Import Variables
 @import "@/styles/variables";
 
-.project-page-details{
-    position: relative;
-    z-index: 1;
-    background-color: $color-background;
-    padding-top: $space-1;
+// Project Page Details
+.project-page-details {
+  position: relative; // Set position relative for absolute positioning of children
+  z-index: 1; // Ensure it appears above elements with lower z-index
+  background-color: $color-background; // Set the background color from variables
+  padding-top: $space-1; // Add top padding for spacing
 }
