@@ -1,5 +1,4 @@
 import './Spacer.scss'
-
 import { cva } from 'cva'
 import React from 'react'
 
@@ -26,23 +25,17 @@ export interface SpacerProps {
   bgColor?: string
   paddingTop?: {
     default?: string
-    desktop?: string
     laptop?: string
-    tablet?: string
     mobile?: string
   }
   paddingBottom?: {
     default?: string
-    desktop?: string
     laptop?: string
-    tablet?: string
     mobile?: string
   }
   lineSize?: {
     default?: string
-    desktop?: string
     laptop?: string
-    tablet?: string
     mobile?: string
   }
 }
@@ -62,62 +55,39 @@ export function Spacer({
   })
   const lineClass = lineStyles({ intent: lineColor ? 'custom' : null })
 
-  const getResponsiveStyle = (
-    styleProp: {
-      default?: string
-      desktop?: string
-      laptop?: string
-      tablet?: string
-      mobile?: string
-    },
-    defaultStyle: string,
-  ) => ({
-    default: styleProp.default || defaultStyle,
-    [`@media (max-width: 1024px)`]: {
-      [styleProp.property]:
-        styleProp.laptop || styleProp.default || defaultStyle,
-    },
-    [`@media (max-width: 850px)`]: {
-      [styleProp.property]:
-        styleProp.tablet || styleProp.default || defaultStyle,
-    },
-    [`@media (max-width: 576px)`]: {
-      [styleProp.property]:
-        styleProp.mobile || styleProp.default || defaultStyle,
-    },
-  })
-
-  const paddingStyles = {
-    paddingTop: paddingTop.default,
-    paddingBottom: paddingBottom.default,
+  // Generate responsive padding and line size styles
+  const responsivePaddingTop = {
+    '--spacer-padding-top': paddingTop.default,
+    '--spacer-padding-top-laptop': paddingTop.laptop || paddingTop.default,
+    '--spacer-padding-top-mobile': paddingTop.mobile || paddingTop.default,
   }
-
-  const lineSizeStyles = {
-    height: lineSize.default,
-    [`@media (max-width: 1024px)`]: {
-      height: lineSize.laptop || lineSize.default,
-    },
-    [`@media (max-width: 850px)`]: {
-      height: lineSize.tablet || lineSize.default,
-    },
-    [`@media (max-width: 576px)`]: {
-      height: lineSize.mobile || lineSize.default,
-    },
+  const responsivePaddingBottom = {
+    '--spacer-padding-bottom': paddingBottom.default,
+    '--spacer-padding-bottom-laptop': paddingBottom.laptop || paddingBottom.default,
+    '--spacer-padding-bottom-mobile': paddingBottom.mobile || paddingBottom.default,
+  }
+  const responsiveLineSize = {
+    '--spacer-line-size': lineSize.default,
+    '--spacer-line-size-laptop': lineSize.laptop || lineSize.default,
+    '--spacer-line-size-mobile': lineSize.mobile || lineSize.default,
   }
 
   return (
     <div
       className={spacerClass}
       style={{
-        '--bg-color': bgColor,
-        ...paddingStyles,
-        ...getResponsiveStyle(paddingTop, paddingTop.default),
-        ...getResponsiveStyle(paddingBottom, paddingBottom.default),
+        '--spacer-bg-color': bgColor,
+        ...responsivePaddingTop,
+        ...responsivePaddingBottom,
+        ...responsiveLineSize,
       }}
     >
       <div
         className={lineClass}
-        style={{ backgroundColor: lineColor || '', ...lineSizeStyles }}
+        style={{
+          '--spacer-line-color': lineColor || '',
+          ...responsiveLineSize,
+        }}
       ></div>
     </div>
   )

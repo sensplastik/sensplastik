@@ -1,16 +1,17 @@
 @import "@/styles/variables";
 
 .spacer {
-  padding-top: $space-6; // Top padding
-  padding-bottom: $space-1; // Bottom padding
+  // Default padding
+  padding-top: var(--spacer-padding-top, $space-6);
+  padding-bottom: var(--spacer-padding-bottom, $space-1);
+
+  // Background color for striped lines
+  background-color: var(--spacer-bg-color, transparent);
 
   &__line {
-    background-color: $color-primary; // Line color
-    height: 1px; // Line height
-    
-    &--custom {
-      background-color: inherit; // Custom background color
-    }
+    // Default line styles
+    background-color: var(--spacer-line-color, $color-primary);
+    height: var(--spacer-line-size, 1px);
   }
 
   &--striped-lines {
@@ -20,12 +21,31 @@
       90deg, /* 90 degrees for horizontal stripes */
       #fff, /* First color */
       #fff 1px, /* First color stops after 1px */
-      var(--bg-color, #f5f5f5) 1px, /* Second color starts at 1px */
-      var(--bg-color, #f5f5f5) 8px /* Second color stops after 8px */
+      var(--spacer-bg-color, #f5f5f5) 1px, /* Second color starts at 1px */
+      var(--spacer-bg-color, #f5f5f5) 8px /* Second color stops after 8px */
     );
 
     .spacer__line {
       height: 0 !important; // Remove height for lines in striped lines
+    }
+  }
+
+  // Responsive styles
+  @include media(">mobile", "<laptop") {
+    padding-top: var(--spacer-padding-top-laptop, var(--spacer-padding-top, $space-6));
+    padding-bottom: var(--spacer-padding-bottom-laptop, var(--spacer-padding-bottom, $space-1));
+
+    .spacer__line {
+      height: var(--spacer-line-size-laptop, var(--spacer-line-size, 1px));
+    }
+  }
+
+  @include media("<=mobile") {
+    padding-top: var(--spacer-padding-top-mobile, var(--spacer-padding-top, $space-6));
+    padding-bottom: var(--spacer-padding-bottom-mobile, var(--spacer-padding-bottom, $space-1));
+
+    .spacer__line {
+      height: var(--spacer-line-size-mobile, var(--spacer-line-size, 1px));
     }
   }
 }
