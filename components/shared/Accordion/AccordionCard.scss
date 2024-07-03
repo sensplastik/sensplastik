@@ -1,0 +1,15 @@
+@import '@/styles/variables';
+
+.accordion-card {
+  display: block;
+  color: $color-secondary;
+
+  &__image {
+    margin-top: 8px;
+  }
+  &__title {
+    @include font-style-2;
+
+    margin-top: 6px;
+  }
+}

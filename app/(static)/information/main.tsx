@@ -1,6 +1,7 @@
 'use client'
 import { useEffect } from 'react'
 
+import { Accordion } from '@/components/shared/Accordion'
 import { Content } from '@/components/shared/Content'
 import { ContentColumns } from '@/components/shared/ContentColumns'
 import { ContentNumbered } from '@/components/shared/ContentNumbered'
@@ -19,7 +20,6 @@ import {
   getBackgroundElements,
   updateBackgroundColor,
 } from '@/utils/updateBackground'
-import { Accordion } from '@/components/shared/Accordion'
 
 // Replace with your desired background color
 const pageBackgroundColor = 'var(--color-background)'
@@ -137,7 +137,88 @@ export default function MainContent() {
 
       {/* Accordion with full width section */}
       <Section fullWidth>
-        <Accordion/>
+        <Accordion
+          items={[
+            {
+              index: 1,
+              title: 'Brand Design & Visual Identity',
+              content:
+                '<p>We delve deep into the essence of your brand, combining tested methodologies with creative intuition to articulate a visual identity that resonates with your audience. From logo design to brand guidelines, we craft a cohesive brand experience that stands the test of time.</p>',
+              listTitle: 'Work Samples',
+              listItems: [
+                {
+                  image:
+                    'https://cdn.sanity.io/images/m94ln1re/production/b94388a123c7455df5813b08aa035190043877eb-4096x2731.jpg',
+                  title: 'Re-Store®',
+                  url: '/projects/today-mobility',
+                },
+                {
+                  image:
+                    'https://cdn.sanity.io/images/m94ln1re/production/b94388a123c7455df5813b08aa035190043877eb-4096x2731.jpg',
+                  title: 'Re-Store®',
+                  url: '/projects/today-mobility',
+                },
+              ],
+            },
+            {
+              index: 2,
+              title: 'Digital Experience  Design System',
+              listTitle: 'Work Samples',
+              listItems: [
+                {
+                  image:
+                    'https://cdn.sanity.io/images/m94ln1re/production/b94388a123c7455df5813b08aa035190043877eb-4096x2731.jpg',
+                  title: 'Re-Store®',
+                  url: '/projects/today-mobility',
+                },
+                {
+                  image:
+                    'https://cdn.sanity.io/images/m94ln1re/production/b94388a123c7455df5813b08aa035190043877eb-4096x2731.jpg',
+                  title: 'Re-Store®',
+                  url: '/projects/today-mobility',
+                },
+              ],
+            },
+            {
+              index: 3,
+              title: 'Websites & Platforms Design & Development',
+              listTitle: 'Work Samples',
+              listItems: [
+                {
+                  image:
+                    'https://cdn.sanity.io/images/m94ln1re/production/b94388a123c7455df5813b08aa035190043877eb-4096x2731.jpg',
+                  title: 'Re-Store®',
+                  url: '/projects/today-mobility',
+                },
+                {
+                  image:
+                    'https://cdn.sanity.io/images/m94ln1re/production/b94388a123c7455df5813b08aa035190043877eb-4096x2731.jpg',
+                  title: 'Re-Store®',
+                  url: '/projects/today-mobility',
+                },
+              ],
+            },
+            {
+              index: 4,
+              title: 'Print and Production Management',
+              listTitle: 'Work Samples',
+              listItems: [
+                {
+                  image:
+                    'https://cdn.sanity.io/images/m94ln1re/production/b94388a123c7455df5813b08aa035190043877eb-4096x2731.jpg',
+                  title: 'Re-Store®',
+                  url: '/projects/today-mobility',
+                },
+                {
+                  image:
+                    'https://cdn.sanity.io/images/m94ln1re/production/b94388a123c7455df5813b08aa035190043877eb-4096x2731.jpg',
+                  title: 'Re-Store®',
+                  url: '/projects/today-mobility',
+                },
+              ],
+            },
+          ]}
+        />
       </Section>
 
       {/* Spacer default */}

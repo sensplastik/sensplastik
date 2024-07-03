@@ -14,10 +14,10 @@ import { Picture } from '@/components/shared/Picture'
 import { Section } from '@/components/shared/Section'
 import { Spacer } from '@/components/shared/Spacer'
 import { StatusBar } from '@/components/shared/StatusBar'
+import { Title } from '@/components/shared/Title'
 import { VerticalNav } from '@/components/shared/VerticalNav'
 import { resolveHref } from '@/sanity/lib/utils'
 import type { HomePagePayload } from '@/types'
-import { Title } from '@/components/shared/Title'
 
 export interface HomePageProps {
   data: HomePagePayload | null

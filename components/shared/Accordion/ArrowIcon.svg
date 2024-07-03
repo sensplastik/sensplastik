@@ -1,0 +1,10 @@
+<svg class="accordion-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 23 23" fill="none">
+  <g clip-path="url(#clip0_569_206)">
+    <path d="M18.2893 8.38988L17.1697 7.27032L16.7419 15.8671L5.3871 4.51231L4.51223 5.38718L15.8671 16.742L7.27023 17.1698L8.3898 18.2894L17.8209 17.8209L18.2893 8.38988Z" class="accordion-arrow-icon__path"/>
+  </g>
+  <defs>
+    <clipPath id="clip0_569_206">
+      <rect width="18.2026" height="14" fill="white" transform="translate(9.89941) rotate(45)"/>
+    </clipPath>
+  </defs>
+</svg>

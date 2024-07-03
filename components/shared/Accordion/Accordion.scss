@@ -1,18 +1,135 @@
-@import "@/styles/variables";
+@import '@/styles/variables';
 
-.accordion{
+.accordion {
+  &__item {
+    @include section-layout;
+    @include grid;
+    row-gap: $space-2;
+    padding-top: $space-1;
+    &:not(:last-child) {
+      border-bottom: 1px solid $color-primary;
+    }
+  }
 
-    &__item{
-        @include section-layout;
-        @include grid;
+  &__header,
+  &__content {
+    grid-column-start: 7;
+    grid-column-end: span 6;
+  }
 
-        &:not(:last-child){
-            border-bottom:1px solid red;
-        }
+  &__header {
+    margin-bottom: $space-2;
+  }
+
+  &__trigger {
+    @include grid(6);
+    row-gap: 0;
+
+    &[data-state='open'] .accordion-arrow-icon {        
+      transform: rotate(-90deg);
+    }
+  }
+
+  &__index {
+    grid-column: span 1;
+
+    text-align: left;
+
+    @include font-style-8;
+
+    font-weight: $font-weight-regular;
+
+    color: $color-punchy;
+  }
+
+  &__title {
+    grid-column: span 2;
+
+    text-align: left;
+
+    @include font-style-4;
+
+    font-weight: $font-weight-medium;
+
+    color: $color-primary;
+  }
+
+  &__icon {
+    grid-column: 6 / span 1;
+
+    text-align: right;
+
+    svg {
+      margin-left: auto;
+    }
+  }
+
+  &__content {
+    @include grid(12);
+    row-gap: 0;
+
+    overflow: hidden;
+
+    &[data-state='open'] {
+      animation: slideDown 300ms $easeSine forwards;
     }
 
-    &__header, &__content{
-        grid-column-start: 7;
-        grid-column-end: span 6;
+    &[data-state='closed'] {
+      animation: slideUp 300ms $easeSine forwards;
     }
+  }
+
+  &__article {
+    grid-column: 5 / span 8;
+
+    margin-bottom: $space-5;
+
+    @include font-style-4;
+
+    color: $color-secondary;
+  }
+
+  .accordion-arrow-icon {
+    transition: transform 300ms $easeSine;
+    &__path {
+      fill: $color-third;
+    }
+  }
+
+  &__cards {
+    grid-column: 5 / span 8;
+  }
+
+  &__list {
+    margin-bottom: $space-5;
+
+    @include grid(2);
+
+    &-item {
+      grid-column: span 1;
+    }
+
+    &-title {
+      @include font-style-2;
+      color: $color-third;
+    }
+  }
+}
+
+@keyframes slideDown {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
 }
