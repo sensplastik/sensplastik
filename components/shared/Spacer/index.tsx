@@ -1,4 +1,5 @@
 import './Spacer.scss'
+
 import { cva } from 'cva'
 import React from 'react'
 
