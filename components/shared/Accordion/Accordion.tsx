@@ -61,7 +61,7 @@ export function Accordion({
 
   return (
     <div className={componentStyles({ class: className })}>
-      <ReactAccordion.Root type="single" collapsible>
+      <ReactAccordion.Root type="single" collapsible defaultValue="item-0">
         {items.map((item, index) => {
           // Ensure content exists and sanitize it
           const sanitizedContent = item?.content
