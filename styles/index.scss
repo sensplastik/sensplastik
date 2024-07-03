@@ -14,8 +14,7 @@
 // Styles specific to the footer section.
 .section--footer {  
   position: relative; // Ensure the footer is positioned relative to its normal position
-  z-index: 1; // Set the stacking order
-  background-color: $color-background; // Set the background color using the color-background variable
+  z-index: 1; // Set the stacking order  
 }
 
 // Sticky Footer

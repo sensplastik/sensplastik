@@ -1,11 +1,11 @@
 import './Card.scss'
 
 import { cva } from 'cva'
+import Link from 'next/link'
 import React from 'react'
 
 import { Picture } from '@/components/shared/Picture'
 import { sanitizeContent } from '@/utils/sanitizeContent'
-import Link from 'next/link'
 
 const componentStyles = cva('card')
 

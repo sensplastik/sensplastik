@@ -1,21 +1,15 @@
 'use client'
-import { useEffect } from 'react'
+// Import the SCSS file for styling the page
+import './page.scss'
 
-import { Card } from '@/components/shared/Card'
-import { Content } from '@/components/shared/Content'
+import React, { useEffect } from 'react'
+
 import { ContentRows } from '@/components/shared/ContentRows'
-import { HorizontalMenu } from '@/components/shared/HorizontalMenu'
-import { Intro } from '@/components/shared/Intro'
-import { Message } from '@/components/shared/Message'
-import { Picture } from '@/components/shared/Picture'
-import { Preface } from '@/components/shared/Preface'
 import { Section } from '@/components/shared/Section'
 import { Spacer } from '@/components/shared/Spacer'
-import { StatusBar } from '@/components/shared/StatusBar'
 import { Teaser } from '@/components/shared/Teaser'
-import { Title } from '@/components/shared/Title'
 import {
-  getBackgroundElements,
+  getRootPageElement,
   updateBackgroundColor,
 } from '@/utils/updateBackground'
 
@@ -27,34 +21,23 @@ export default function MainContent() {
     // Cache the original background color
     const originalBackgroundColor = 'var(--color-background)'
 
-    // Get the elements
-    const { mainElement, footerElement } = getBackgroundElements()
+    // Get the page element
+    const  pageElement  = getRootPageElement()
 
     // Set the new background color
-    updateBackgroundColor({ mainElement, footerElement }, pageBackgroundColor)
+    updateBackgroundColor(pageElement, pageBackgroundColor)
 
     // Reset the background color when the component unmounts
     return () => {
       updateBackgroundColor(
-        { mainElement, footerElement },
+        pageElement,
         originalBackgroundColor,
       )
     }
   }, [])
 
   return (
-    <>
-      {/* Message 
-      <Section>
-        <Message content="<p>If you’re interested in any form of collaboration, please send us an email and we’ll get back shortly. <a href='mailto:studio@sensplastik.com' target='_blank'>studio@sensplastik.com</a></p>" />
-      </Section>
-      */}
-      {/* Status Bar 
-          <Section>
-            <StatusBar />
-          </Section>
-          */}
-
+    <>    
       {/* Spacer 160px */}
       <Spacer
         lineSize={{
@@ -146,7 +129,7 @@ export default function MainContent() {
             },
           ]}
         />
-      </Section>
+      </Section>      
     </>
   )
 }

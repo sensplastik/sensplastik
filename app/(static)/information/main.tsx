@@ -1,4 +1,7 @@
 'use client'
+// Import the SCSS file for styling the page
+import './page.scss'
+
 import { useEffect } from 'react'
 
 import { Accordion } from '@/components/shared/Accordion'
@@ -7,17 +10,15 @@ import { ContentColumns } from '@/components/shared/ContentColumns'
 import { ContentNumbered } from '@/components/shared/ContentNumbered'
 import { ContentTable } from '@/components/shared/ContentTable'
 import { HorizontalMenu } from '@/components/shared/HorizontalMenu'
-import { Intro } from '@/components/shared/Intro'
 import { List } from '@/components/shared/List'
 import { Message } from '@/components/shared/Message'
 import { Picture } from '@/components/shared/Picture'
 import { Preface } from '@/components/shared/Preface'
 import { Section } from '@/components/shared/Section'
 import { Spacer } from '@/components/shared/Spacer'
-import { StatusBar } from '@/components/shared/StatusBar'
 import { Title } from '@/components/shared/Title'
 import {
-  getBackgroundElements,
+  getRootPageElement,
   updateBackgroundColor,
 } from '@/utils/updateBackground'
 
@@ -29,16 +30,16 @@ export default function MainContent() {
     // Cache the original background color
     const originalBackgroundColor = 'var(--color-background)'
 
-    // Get the elements
-    const { mainElement, footerElement } = getBackgroundElements()
+    // Get the page element
+    const  pageElement  = getRootPageElement()
 
     // Set the new background color
-    updateBackgroundColor({ mainElement, footerElement }, pageBackgroundColor)
+    updateBackgroundColor(pageElement, pageBackgroundColor)
 
     // Reset the background color when the component unmounts
     return () => {
       updateBackgroundColor(
-        { mainElement, footerElement },
+        pageElement,
         originalBackgroundColor,
       )
     }

@@ -19,9 +19,7 @@ const LiveVisualEditing = dynamic(
 )
 
 export async function generateMetadata(): Promise<Metadata> {
-  const [{ data: settings }] = await Promise.all([
-    loadSettings()
-  ])
+  const [{ data: settings }] = await Promise.all([loadSettings()])
   const ogImage = urlForOpenGraphImage(settings?.ogImage)
 
   const siteName = settings?.siteName
@@ -50,10 +48,7 @@ export default async function IndexRoute({
 }: {
   children: React.ReactNode
 }) {
-
-  const [{ data: settings }] = await Promise.all([
-    loadSettings(),
-  ])
+  const [{ data: settings }] = await Promise.all([loadSettings()])
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -82,23 +77,25 @@ export default async function IndexRoute({
         strategy="beforeInteractive"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <SettingsProvider settings={settings}>
-        <main>
+      <div className="page">
+        <SettingsProvider settings={settings}>
+          <main>
+            <Suspense>
+              <Section className="section--navbar">
+                <Navbar />
+              </Section>
+            </Suspense>
+            <Suspense>{children}</Suspense>
+          </main>
           <Suspense>
-            <Section className="section--navbar">
-              <Navbar />
+            <Section className="section--footer">
+              <Footer />
             </Section>
           </Suspense>
-          <Suspense>{children}</Suspense>
-        </main>
-        <Suspense>
-          <Section className="section--footer">
-            <Footer />
-          </Section>
-        </Suspense>
-        {draftMode().isEnabled && <LiveVisualEditing />}
-        <div id="portal-root"></div>
-      </SettingsProvider>
+          {draftMode().isEnabled && <LiveVisualEditing />}
+          <div id="portal-root"></div>
+        </SettingsProvider>
+      </div>
     </>
   )
 }
