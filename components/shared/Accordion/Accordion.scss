@@ -69,13 +69,13 @@
     row-gap: 0;
     overflow: hidden;
 
-    &[data-state='open'] {
+    /*&[data-state='open'] {
       animation: slideDown 300ms $easeSine forwards; // Slide down animation
     }
 
     &[data-state='closed'] {
       animation: slideUp 300ms $easeSine forwards; // Slide up animation
-    }
+    }*/
   }
 
   // Article styling inside the content
@@ -113,24 +113,5 @@
       @include font-style-2;
       color: $color-third;
     }
-  }
-}
-
-// Keyframes for sliding animations
-@keyframes slideDown {
-  from {
-    height: 0;
-  }
-  to {
-    height: var(--radix-accordion-content-height);
-  }
-}
-
-@keyframes slideUp {
-  from {
-    height: var(--radix-accordion-content-height);
-  }
-  to {
-    height: 0;
   }
 }
