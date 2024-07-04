@@ -2,6 +2,7 @@ import './AccordionCard.scss'
 
 import { cva } from 'cva'
 import Link from 'next/link'
+import { memo } from 'react';
 
 import { Picture } from '../Picture'
 export interface AccordionCardProps {
@@ -13,7 +14,7 @@ export interface AccordionCardProps {
 
 const componentStyles = cva('accordion-card')
 
-export function AccordionCard(props: AccordionCardProps) {
+export function AccordionCardComponent(props: AccordionCardProps) {
   const { className, title, image, url } = props
 
   return (
@@ -23,3 +24,5 @@ export function AccordionCard(props: AccordionCardProps) {
     </Link>
   )
 }
+
+export const AccordionCard = memo(AccordionCardComponent);
