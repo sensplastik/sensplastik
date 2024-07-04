@@ -1,23 +1,29 @@
 'use client'
-
 import { useTheme } from 'next-themes'
 import React, { useEffect, useState } from 'react'
+
+import variables from './index.module.scss'
 
 interface LogoProps {
   color?: string
 }
 
 export function Logo({ color = '' }: LogoProps) {
-  const { theme, resolvedTheme } = useTheme()
+  const { theme, resolvedTheme, forcedTheme } = useTheme()
 
   const [currentColor, setCurrentColor] = useState(color)
 
   useEffect(() => {
-    resolvedTheme === 'light'
-        ? setCurrentColor('#1f1e1c')
-        : setCurrentColor('#e3e1dd')
-    
-  }, [resolvedTheme])
+    if (forcedTheme) {
+      forcedTheme === 'dark'
+        ? setCurrentColor(variables.darkLogoColor)
+        : setCurrentColor(variables.lightLogoColor)
+    } else {
+      resolvedTheme === 'light'
+        ? setCurrentColor(variables.lightLogoColor)
+        : setCurrentColor(variables.darkLogoColor)
+    }
+  }, [resolvedTheme, forcedTheme])
 
   return (
     <>
