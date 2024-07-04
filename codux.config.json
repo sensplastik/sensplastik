@@ -16,7 +16,7 @@
   "boardGlobalSetup": "./boards-global-setup.ts",
   "fileNamingConvention": "pascal-case",
   "styling": {
-    "solution": "scss"
+    "solution": "scss modules"
   },
   "sassCompilation": {
     "modules": {

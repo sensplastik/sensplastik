@@ -1,12 +1,17 @@
 // Import Variables
 @import '@/styles/variables';
 
-// Footer Styles
+// Footer Section Styles
+.section--footer{
+    background-color: $color-background;
+}
+
+// Footer Content Styles
 .footer {
     @include grid; // Apply grid layout
     @include font-style-2; // Apply font style 2
 
-    margin-top: 220px; // Add top margin
+    padding-top: 220px; // Add top margin
     font-weight: $font-weight-medium; // Set font weight
     color: $color-primary; // Set text color
     padding-bottom: $space-2; // Add bottom padding

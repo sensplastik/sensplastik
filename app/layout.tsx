@@ -1,7 +1,6 @@
 import './globals.css'
 
 import { IBM_Plex_Mono, Inter, PT_Serif } from 'next/font/google'
-import { ThemeProvider } from 'next-themes'
 
 const serif = PT_Serif({
   variable: '--font-serif',
@@ -32,7 +31,7 @@ export default async function RootLayout({
       className={`${mono.variable} ${sans.variable} ${serif.variable}`}
     >
       <body>
-        <ThemeProvider>{children}</ThemeProvider>
+       {children}
       </body>
     </html>
   )
