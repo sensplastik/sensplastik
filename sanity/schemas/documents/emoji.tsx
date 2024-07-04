@@ -1,0 +1,1 @@
+export const flagEmoji = <span style={{fontSize: '1.5rem'}}>🏳️</span>

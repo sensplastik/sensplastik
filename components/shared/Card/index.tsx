@@ -16,6 +16,7 @@ interface Service {
 export interface CardProps {
   className?: string
   image?: any
+  darkImage?: any
   imageWidth?: number
   imageHeight?: number
   gridStart?: number | null
@@ -30,6 +31,7 @@ export interface CardProps {
 export function Card({
   className = '',
   image = '',
+  darkImage= '',
   imageWidth = 1920,
   imageHeight = 1080,
   gridStart = null,
@@ -64,6 +66,7 @@ export function Card({
       <Picture
         className="card__picture"
         src={image}
+        darkSrc={darkImage}
         width={imageWidth}
         height={imageHeight}
       />

@@ -1,3 +1,4 @@
+import { ProjectTechnology } from '@/components/shared/ProjectInfo'
 import type { PortableTextBlock } from 'next-sanity'
 import type { Image } from 'sanity'
 
@@ -53,6 +54,14 @@ export interface PagePayload {
   slug?: string
 }
 
+export interface ProjectDeliverable {
+  title: string
+}
+
+export interface ProjectTechnology {
+  title: string
+}
+
 export interface ProjectPayload {
   client?: string
   coverImage?: Image
@@ -62,12 +71,16 @@ export interface ProjectPayload {
     end?: string
   }
   overview?: PortableTextBlock[]
-  site?: string
+  headline?: string,
+  website?: string
+  deliverables?:ProjectDeliverable[]
+  technologies?:ProjectTechnology[]
+  gallery?:[any]
+  related?:[]
+  message?:{title:string, content:any}
   slug: string
   tags?: string[]
   title?: string
-  messageTitle?:string
-  messageContent?:string
 }
 
 export interface FooterSettings{

@@ -6,13 +6,36 @@ export default defineType({
   name: 'page',
   title: 'Page',
   icon: DocumentIcon,
+
+  groups: [
+    {
+      name: 'content',
+      title: 'Content',
+      default: true,
+    },
+    {
+      name: 'message',
+      title: 'Message',
+    },
+    {
+      name: 'theme',
+      title: 'Theme',
+    },
+    {
+      name: 'options',
+      title: 'Options',
+    },
+  ],
+
   fields: [
     defineField({
       type: 'string',
       name: 'title',
       title: 'Title',
+      description: 'This field is the title of your page.',
       validation: (rule) => rule.required(),
     }),
+
     defineField({
       type: 'slug',
       name: 'slug',
@@ -22,10 +45,11 @@ export default defineType({
       },
       validation: (rule) => rule.required(),
     }),
+    
     defineField({
       name: 'overview',
       description:
-        'Used both for the <meta> description tag for SEO, and the personal website subheader.',
+        'Used both for the <meta> description tag for SEO, and the website subheader.',
       title: 'Overview',
       type: 'array',
       of: [
@@ -51,6 +75,20 @@ export default defineType({
       ],
       validation: (rule) => rule.max(155).required(),
     }),
+
+    defineField({
+      name: 'message',
+      title: 'Message',
+      type: 'message',
+      group: 'message',      
+    }),
+
+    defineField({
+      name: 'theme',      
+      type: 'theme',
+      group: 'theme',
+    }),
+/*
     defineField({
       type: 'array',
       name: 'body',
@@ -114,7 +152,7 @@ export default defineType({
           ],
         }),
       ],
-    }),
+    }),*/
   ],
   preview: {
     select: {

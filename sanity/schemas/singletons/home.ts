@@ -8,20 +8,44 @@ export default defineType({
   icon: HomeIcon,
   // Uncomment below to have edits publish automatically as you type
   // liveEdit: true,
+
+  groups: [
+    {
+      name: 'content',
+      title: 'Content',
+      default: true,
+    },
+    {
+      name: 'message',
+      title: 'Message',
+    },
+    {
+      name: 'theme',
+      title: 'Theme',
+    },
+    {
+      name: 'options',
+      title: 'Options',
+    },
+  ],
+
   fields: [
     defineField({
       name: 'title',
-      description: 'This field is the title of your personal website.',
+      description: 'This field is the title of your homepage.',
       title: 'Title',
       type: 'string',
+      group: 'content',
       validation: (rule) => rule.required(),
     }),
+
     defineField({
       name: 'overview',
       description:
-        'Used both for the <meta> description tag for SEO, and the personal website subheader.',
+        'Used both for the <meta> description tag for SEO, and the website homepage.',
       title: 'Description',
       type: 'array',
+      group: 'content',
       of: [
         // Paragraphs
         defineArrayMember({
@@ -58,49 +82,33 @@ export default defineType({
       ],
       validation: (rule) => rule.max(155).required(),
     }),
+
     defineField({
       name: 'message',
       title: 'Message',
-      type: 'object',
-      fields: [
-        defineField({
-          name: 'title',
-          title: 'Title',
-          type: 'string',
-          // Uncomment the line below if you want to make the title required
-          // validation: (rule) => rule.required(),
-        }),
-        defineField({
-          name: 'content',
-          title: 'Content',
-          type: 'array',
-          of: [{ type: 'block' }],
-        }),
-      ],
+      type: 'message',
+      group: 'message',      
     }),
+
+    defineField({
+      name: 'theme',      
+      type: 'theme',
+      group: 'theme',
+    }),
+
     defineField({
       name: 'showStatusBar',
       title: 'Show Status Bar',
-      type: 'boolean',      
-    }),
-    defineField({
-      name: 'showcaseProjects',
-      title: 'Showcase projects',
-      description:
-        'These are the projects that will appear first on your landing page.',
-      type: 'array',
-      of: [
-        defineArrayMember({
-          type: 'reference',
-          to: [{ type: 'project' }],
-        }),
-      ],
+      type: 'boolean',
+      group: 'options',
     }),
   ],
+
   preview: {
     select: {
       title: 'title',
     },
+
     prepare({ title }) {
       return {
         subtitle: 'Home',

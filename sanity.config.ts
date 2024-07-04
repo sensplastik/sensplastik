@@ -3,6 +3,7 @@
  * This config is used to set up Sanity Studio that's mounted on the `app/studio/[[...index]]/Studio.tsx` route
  */
 
+import {colorInput} from '@sanity/color-input'
 import { visionTool } from '@sanity/vision'
 import { defineConfig } from 'sanity'
 import { presentationTool } from 'sanity/presentation'
@@ -17,14 +18,21 @@ import link from '@/sanity/schemas/documents/link'
 import page from '@/sanity/schemas/documents/page'
 import project from '@/sanity/schemas/documents/project'
 import duration from '@/sanity/schemas/objects/duration'
+import message from '@/sanity/schemas/objects/message'
 import milestone from '@/sanity/schemas/objects/milestone'
+import picture from '@/sanity/schemas/objects/picture'
+import theme from '@/sanity/schemas/objects/theme'
 import timeline from '@/sanity/schemas/objects/timeline'
 import home from '@/sanity/schemas/singletons/home'
 import settings from '@/sanity/schemas/singletons/settings'
 
+import client from './sanity/schemas/documents/client'
+import deliverable from './sanity/schemas/documents/deliverable'
+import technology from './sanity/schemas/documents/technology'
+
 const title =
   process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE ||
-  'Next.js Personal Website with Sanity.io'
+  'Sensplastik® Studio'
 
 export default defineConfig({
   basePath: studioUrl,
@@ -40,11 +48,17 @@ export default defineConfig({
       // Documents
       duration,
       page,
-      project,
-      link,
+      link,      
+      client,
+      deliverable,
+      technology,
+      project,                  
       // Objects
       milestone,
       timeline,
+      picture,
+      theme,
+      message
     ],
   },
   plugins: [
@@ -67,5 +81,6 @@ export default defineConfig({
     // Vision lets you query your content with GROQ in the studio
     // https://www.sanity.io/docs/the-vision-plugin
     visionTool({ defaultApiVersion: apiVersion }),
+    colorInput()
   ],
 })

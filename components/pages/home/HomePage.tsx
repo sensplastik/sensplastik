@@ -1,12 +1,9 @@
 import './HomePage.scss'
 
 import type { EncodeDataAttributeCallback } from '@sanity/react-loader'
-import Link from 'next/link'
 
-import { ProjectListItem } from '@/components/pages/home/ProjectListItem'
 import { Card } from '@/components/shared/Card'
 import { Content } from '@/components/shared/Content'
-import { Header } from '@/components/shared/Header'
 import { Intro } from '@/components/shared/Intro'
 import { List } from '@/components/shared/List'
 import { Message } from '@/components/shared/Message'
@@ -16,7 +13,6 @@ import { Spacer } from '@/components/shared/Spacer'
 import { StatusBar } from '@/components/shared/StatusBar'
 import { Title } from '@/components/shared/Title'
 import { VerticalNav } from '@/components/shared/VerticalNav'
-import { resolveHref } from '@/sanity/lib/utils'
 import type { HomePagePayload } from '@/types'
 
 export interface HomePageProps {
@@ -27,11 +23,8 @@ export interface HomePageProps {
 export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
   // Default to an empty object to allow previews on non-existent documents
   const {
-    overview = [],
-    message = null,
-    showStatusBar = true,
-    showcaseProjects = [],
-    title = '',
+    message,
+    showStatusBar,
   } = data ?? {}
 
   const messageTitle = message?.title
@@ -68,8 +61,9 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
       <Section>
         <Picture
           src="https://cdn.sanity.io/images/m94ln1re/production/7bc1dbc594217e975e8f38a62f08aeb287cb93c5-2880x1500.jpg"
+          darkSrc="https://cdn.sanity.io/images/m94ln1re/production/b94388a123c7455df5813b08aa035190043877eb-4096x2731.jpg"
           width={2880}
-          height={1500}
+          height={1500}        
         />
       </Section>
 
@@ -177,6 +171,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
       <Section hasGrid={true}>
         <Card
           image="https://cdn.sanity.io/images/m94ln1re/production/7bc1dbc594217e975e8f38a62f08aeb287cb93c5-2880x1500.jpg"
+          darkImage = "https://cdn.sanity.io/images/m94ln1re/production/b94388a123c7455df5813b08aa035190043877eb-4096x2731.jpg"          
           imageWidth={2880}
           imageHeight={1500}
           gridStart={1}
@@ -299,30 +294,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
           gridWidth={3}
         />
         <Card gridStart={10} gridWidth={3} isEmpty={true} />
-      </Section>
-      {/* {showcaseProjects && showcaseProjects.length > 0 && (
-        <div className="mx-auto max-w-[100rem] rounded-md border">
-          {showcaseProjects.map((project, key) => {
-            const href = resolveHref(project?._type, project?.slug)
-            if (!href) {
-              return null
-            }
-            return (
-              <Link
-                key={key}
-                href={href}
-                data-sanity={encodeDataAttribute?.([
-                  'showcaseProjects',
-                  key,
-                  'slug',
-                ])}
-              >
-                <ProjectListItem project={project} odd={key % 2} />
-              </Link>
-            )
-          })}
-        </div>
-      )} */}
+      </Section>      
     </>
   )
 }

@@ -13,7 +13,8 @@ export const homePageQuery = groq`
       title,
     },
     title,
-    message
+    message,
+    showStatusBar
   }
 `
 
@@ -30,17 +31,19 @@ export const pagesBySlugQuery = groq`
 export const projectBySlugQuery = groq`
   *[_type == "project" && slug.current == $slug][0] {
     _id,
-    client,
+    "client": client->title,
     coverImage,
-    description,
-    duration,
+    description,    
     overview,
-    site,
+    headline,
+    website,
+    deliverables[]->{title},
+    technologies[]->{title},
+    gallery[]{reference, title, image, gridWidth, isEmpty},
     "slug": slug.current,
     tags,
     title,
-    messageTitle,
-    messageContent
+    message->{title,content},    
   }
 `
 

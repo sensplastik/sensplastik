@@ -4,19 +4,12 @@ import { cva } from 'cva'
 import Link from 'next/link'
 import React from 'react'
 
+import { ProjectDeliverable, ProjectTechnology } from '@/types'
 import { sanitizeContent } from '@/utils/sanitizeContent'
 
 import ExternalLinkIcon from './ExternalLinkIcon.svg'
 
 const componentStyles = cva('project-info')
-
-export interface ProjectDeliverable {
-  title: string
-}
-
-export interface ProjectTechnology {
-  title: string
-}
 
 interface ProjectInfoProps {
   className?: string

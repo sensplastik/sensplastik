@@ -1,11 +1,11 @@
-import { LinkIcon } from '@sanity/icons'
+import { CaseIcon } from '@sanity/icons'
 import { defineField, defineType } from 'sanity'
 
 export default defineType({
   type: 'document',
-  name: 'link',
-  title: 'Link',
-  icon: LinkIcon,
+  name: 'client',
+  title: 'Client',
+  icon: CaseIcon,
   fields: [
     defineField({
       type: 'string',
@@ -14,21 +14,22 @@ export default defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
-        type: 'url',
-        name: 'url',
-        title: 'Url',        
-        validation: (rule) => rule.required().uri({
-            allowRelative: true,            
-          })
-      }),
+      type: 'url',
+      name: 'website',
+      title: 'Website',
+      validation: (rule) =>
+        rule.uri({
+          allowRelative: true,
+        }),
+    }),
   ],
   preview: {
     select: {
-      title: 'title',
+      title: 'title',     
     },
     prepare({ title }) {
       return {
-        subtitle: 'Page',
+        subtitle: 'Client',
         title,
       }
     },
