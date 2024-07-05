@@ -31,17 +31,14 @@ export default function MainContent() {
     const originalBackgroundColor = 'var(--color-background)'
 
     // Get the page element
-    const  pageElement  = getRootPageElement()
+    const pageElement = getRootPageElement()
 
     // Set the new background color
     updateBackgroundColor(pageElement, pageBackgroundColor)
 
     // Reset the background color when the component unmounts
     return () => {
-      updateBackgroundColor(
-        pageElement,
-        originalBackgroundColor,
-      )
+      updateBackgroundColor(pageElement, originalBackgroundColor)
     }
   }, [])
 
@@ -68,7 +65,34 @@ export default function MainContent() {
 
       {/* Horizontal Menu */}
       <Section>
-        <HorizontalMenu />
+        <HorizontalMenu
+          items={[
+            {
+              index: 1,
+              title: 'Introduction',
+            },
+            {
+              index: 2,
+              title: 'Our Capabilities',
+            },
+            {
+              index: 3,
+              title: 'What We Sets Us Apart',
+            },
+            {
+              index: 4,
+              title: 'Transparency',
+            },
+            {
+              index: 5,
+              title: 'Guiding Principles',
+            },
+            {
+              index: 6,
+              title: 'Key Clients',
+            },
+          ]}
+        />
       </Section>
 
       {/* Spacer 120px */}

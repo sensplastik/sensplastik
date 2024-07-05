@@ -21,26 +21,6 @@ const defaultItems: HorizontalMenuItemProps[] = [
     index: 1,
     title: 'Introduction',
   },
-  {
-    index: 2,
-    title: 'Our Capabilities',
-  },
-  {
-    index: 3,
-    title: 'What We Sets Us Apart',
-  },
-  {
-    index: 4,
-    title: 'Transparency',
-  },
-  {
-    index: 5,
-    title: 'Guiding Principles',
-  },
-  {
-    index: 6,
-    title: 'Key Clients',
-  },
 ]
 
 export function HorizontalMenu({
