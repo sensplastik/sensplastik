@@ -1,0 +1,48 @@
+// This file contains predefined custom reusable utility classes for the project.
+
+// Fade Utilities
+// These classes create a fade effect at the top and bottom of elements, 
+// using a gradient transition from the background color to transparent.
+
+.fade-bottom,
+.fade-top {
+  height: $space-5; // Set the height of the fade effect
+  left: 0;         // Positioning to span the full width of the parent element
+  right: 0;        // Positioning to span the full width of the parent element
+  position: absolute; // Positioned absolutely within the parent element
+  z-index: 1;      // Ensure the fade effect is above other content
+}
+
+// Fade effect at the top of the element
+.fade-top {
+  top:0; // Position at the top of the parent element
+  background: linear-gradient(180deg, $color-background 0, transparent);
+
+  /* Safari 10.1+ compatibility */
+  @media not all and (min-resolution: 0.001dpcm) {
+    @supports (-webkit-appearance: none) {
+      background: linear-gradient(
+        180deg,
+        $color-background 0,
+        rgba(255, 255, 255, 0)
+      );
+    }
+  }
+}
+
+// Fade effect at the bottom of the element
+.fade-bottom {
+  bottom: 0; // Position at the bottom of the parent element
+  background: linear-gradient(180deg, transparent 0, $color-background);
+
+  /* Safari 10.1+ compatibility */
+  @media not all and (min-resolution: 0.001dpcm) {
+    @supports (-webkit-appearance: none) {
+      background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0) 0,
+        $color-background
+      );
+    }
+  }
+}

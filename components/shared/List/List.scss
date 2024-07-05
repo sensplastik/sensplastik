@@ -1,6 +1,11 @@
 @import '@/styles/variables';
 
 .list {
+  &-container {
+    overflow: hidden;
+    position: relative;
+  }
+
   &__list {
     @include grid; // Apply grid layout
     row-gap: $space-1; // Set row gap
@@ -33,16 +38,52 @@
     }
   }
 
-  &-container{
-    overflow:hidden;
-  }
-
-  &--animated{    
+  $animation-list-duration: 25s;
+  &--animated {
     animation: scrollList;
-    animation-duration: 20s;
+    animation-duration: $animation-list-duration;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
-    animation-fill-mode: forwards
+    animation-fill-mode: forwards;
+
+    .list__item {
+      white-space: nowrap;
+      overflow: hidden;
+      height: 1lh;
+
+      &:nth-child(2n) .list__group {
+        animation-delay: 2s;
+      }
+
+      &:nth-child(3n) .list__group {
+        animation-delay: 8s;
+      }
+
+      &:nth-child(4n) .list__group {
+        animation-delay: 5s;
+      }
+
+      &:nth-child(5n) .list__group {
+        animation-delay: 3s;
+      }
+
+      &:nth-child(6n) .list__group {
+        animation-delay: 6s;
+      }
+    }
+
+    .list__group {
+      animation: rollListGroup;
+      animation-duration: 10s;
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite;
+      animation-fill-mode: forwards;
+      animation-delay: 1s;
+
+      div {
+        line-height: normal;
+      }
+    }
   }
 }
 
@@ -50,9 +91,23 @@
   from {
     transform: translateY(0);
   }
-  
+
   to {
     transform: translateY(-50%);
   }
 }
 
+@keyframes rollListGroup {
+  0%,
+  20% {
+    transform: translateY(0);
+  }
+  30%,
+  60% {
+    transform: translateY(-35%);
+  }
+  70%,
+  100% {
+    transform: translateY(-67%);
+  }
+}

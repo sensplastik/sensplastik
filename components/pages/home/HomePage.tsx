@@ -127,6 +127,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
       <List
         listType="services"
         enableAnimation={true}
+        enableFadeEffect={true}
         items={[
           { title: 'Brand Design' },
           { title: 'Visual Identity' },
@@ -148,7 +149,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
           { title: 'Vue.js' },
           { title: 'Nuxt' },
           { title: 'JavaScript' },
-          { title: 'HTML | CSS' },
+          { title: 'HTML / CSS' },
           { title: 'Tailwind CSS' },
           { title: 'SASS' },
         ]}
@@ -156,9 +157,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
       </Section>
 
       {/* Spacer default */}
-      <Spacer
-        paddingTop={{ default: '0' }}
-      />
+      <Spacer/>
 
       {/* Title */}
       <Section>
