@@ -11,7 +11,7 @@
     grid-column-end: span 6; // Span columns for list item
     display: block; // Display as block element
 
-    @include media("<=mobile") {
+    @include media('<=mobile') {
       grid-column-start: span 12 !important; // Adjust for mobile screens
     }
 
@@ -32,4 +32,27 @@
       font-weight: $font-weight-regular; // Set font weight
     }
   }
+
+  &-container{
+    overflow:hidden;
+  }
+
+  &--animated{    
+    animation: scrollList;
+    animation-duration: 20s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards
+  }
 }
+
+@keyframes scrollList {
+  from {
+    transform: translateY(0);
+  }
+  
+  to {
+    transform: translateY(-50%);
+  }
+}
+

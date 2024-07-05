@@ -81,8 +81,7 @@ export function Accordion({
       <div className={componentStyles({ class: className })} ref={container}>
         <ReactAccordion.Root
           type="single"
-          collapsible
-          defaultValue="item-0"
+          collapsible          
           onValueChange={setAccordionValue}
         >
           {items.map((item, index) => {

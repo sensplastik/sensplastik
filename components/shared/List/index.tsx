@@ -1,7 +1,12 @@
+'use client'
 import './List.scss'
 
+import { useGSAP } from '@gsap/react'
 import { cva } from 'cva'
-import React from 'react'
+import gsap from 'gsap'
+import React, { useRef } from 'react'
+
+gsap.registerPlugin(useGSAP)
 
 const componentStyles = cva('list', {
   variants: {
@@ -10,9 +15,13 @@ const componentStyles = cva('list', {
       brands: 'list--brands',
       services: 'list--services',
     },
+    animated: {
+      true: 'list--animated',
+    },
   },
   defaultVariants: {
     type: 'default',
+    animated: false,
   },
 })
 
@@ -26,6 +35,7 @@ export interface BrandsProps {
   className?: string
   items?: BrandProps[]
   listType?: 'default' | 'brands' | 'services'
+  enableAnimation?: boolean
 }
 
 const defaultItems: BrandProps[] = [
@@ -34,9 +44,35 @@ const defaultItems: BrandProps[] = [
   },
 ]
 
-export function List({ className = '', items = defaultItems, listType = 'default' }: BrandsProps) {
+export function List({
+  className = '',
+  items = defaultItems,
+  listType = 'default',
+  enableAnimation = false,
+}: BrandsProps) {
+  const container = useRef<HTMLDivElement>(null)
+
+  useGSAP(
+    () => {
+      const ul = container.current?.querySelector('.list__list')
+      if (ul && container.current) {
+        const ulHeight = (ul as HTMLElement).offsetHeight
+        container.current.style.height = `${ulHeight}px`
+      }
+    },
+    { scope: container },
+  )
+
   return (
-    <div className={componentStyles({ class: className, type: listType })}>
+    <div className='list-container' ref={container}>
+    <div
+      className={componentStyles({
+        class: className,
+        type: listType,
+        animated: enableAnimation,
+      })}
+      
+    >
       <ul className="list__list">
         {items.map((item, index) => {
           return (
@@ -46,6 +82,19 @@ export function List({ className = '', items = defaultItems, listType = 'default
           )
         })}
       </ul>
+      {/* Duplicated for animation purpose */}
+      {enableAnimation && (
+        <ul className="list__list">
+          {items.map((item, index) => {
+            return (
+              <li className="list__item" key={index}>
+                {item.title}
+              </li>
+            )
+          })}
+        </ul>
+      )}
+      </div>
     </div>
   )
 }

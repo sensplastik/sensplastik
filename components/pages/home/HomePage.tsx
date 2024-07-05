@@ -118,12 +118,15 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
       </Section>
 
       {/* Spacer default */}
-      <Spacer />
+      <Spacer
+        paddingBottom={{ default: '0' }}
+      />
 
       {/* List */}
       <Section>
       <List
         listType="services"
+        enableAnimation={true}
         items={[
           { title: 'Brand Design' },
           { title: 'Visual Identity' },
@@ -153,7 +156,9 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
       </Section>
 
       {/* Spacer default */}
-      <Spacer />
+      <Spacer
+        paddingTop={{ default: '0' }}
+      />
 
       {/* Title */}
       <Section>

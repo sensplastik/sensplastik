@@ -144,7 +144,7 @@ export function PlaceHolder({
     }
   }
 
-  console.log({ resolvedTheme, src, darkSrc, imageUrl })
+  //console.log({ resolvedTheme, src, darkSrc, imageUrl })
   // TODO: Add Mobile and Dark mobile mode support
 
   return (
