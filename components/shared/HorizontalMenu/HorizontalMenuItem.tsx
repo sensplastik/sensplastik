@@ -1,6 +1,6 @@
 import "./HorizontalMenuItem.scss"
 
-import { cva } from "class-variance-authority"
+import { cva } from "cva"
 import Link from "next/link"
 import React from "react"
 
