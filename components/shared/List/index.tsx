@@ -34,6 +34,7 @@ export interface BrandsProps {
   listType?: 'default' | 'brands' | 'services'
   enableAnimation?: boolean
   enableFadeEffect?: boolean
+  animationDuration?: string
 }
 
 const defaultItems: BrandProps[] = [
@@ -48,18 +49,18 @@ export function List({
   listType = 'default',
   enableAnimation = false,
   enableFadeEffect = true,
+  animationDuration = '20s',
 }: BrandsProps) {
   const container = useRef<HTMLDivElement>(null)
 
   const updateItemHeights = () => {
     const lists = container.current?.querySelectorAll('.list__list')
 
-    if (lists && lists?.length > 0){
+    if (lists && lists?.length > 0) {
       const listHeight = (lists[0] as HTMLElement).offsetHeight
-      if (container.current)
-        container.current.style.height = `${listHeight}px`
+      if (container.current) container.current.style.height = `${listHeight}px`
     }
-    
+
     lists?.forEach((ul) => {
       if (ul) {
         const list = ul.querySelectorAll('.list__item') || []
@@ -121,6 +122,7 @@ export function List({
   return (
     <div className="list-container" ref={container}>
       <div
+        style={{ '--list-animation-duration': animationDuration }}
         className={componentStyles({
           class: className,
           type: listType,
@@ -130,7 +132,7 @@ export function List({
         {enableAnimation ? (
           <>
             {renderAnimatedListItem(groupedItems, 'animated-list-1')}
-            {renderAnimatedListItem(groupedItems, 'animated-list-2')}                      
+            {renderAnimatedListItem(groupedItems, 'animated-list-2')}
           </>
         ) : (
           <ul className="list__list">
@@ -142,7 +144,7 @@ export function List({
           </ul>
         )}
       </div>
-      {(enableAnimation && enableFadeEffect) && <div className="fade-bottom"/>}
+      {enableAnimation && enableFadeEffect && <div className="fade-bottom" />}
     </div>
   )
 }

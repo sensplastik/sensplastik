@@ -128,6 +128,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
         listType="services"
         enableAnimation={true}
         enableFadeEffect={true}
+        animationDuration='12s'        
         items={[
           { title: 'Brand Design' },
           { title: 'Visual Identity' },

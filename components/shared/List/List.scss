@@ -38,10 +38,9 @@
     }
   }
 
-  $animation-list-duration: 25s;
   &--animated {
     animation: scrollList;
-    animation-duration: $animation-list-duration;
+    animation-duration: var(--list-animation-duration, 20s);
     animation-timing-function: linear;
     animation-iteration-count: infinite;
     animation-fill-mode: forwards;
