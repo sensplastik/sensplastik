@@ -33,6 +33,7 @@ export default defineType({
       name: 'title',
       title: 'Title',
       description: 'This field is the title of your page.',
+      group:'content',
       validation: (rule) => rule.required(),
     }),
 
@@ -43,6 +44,7 @@ export default defineType({
       options: {
         source: 'title',
       },
+      group:'content',
       validation: (rule) => rule.required(),
     }),
     
@@ -52,6 +54,7 @@ export default defineType({
         'Used both for the <meta> description tag for SEO, and the website subheader.',
       title: 'Overview',
       type: 'array',
+      group:'content',
       of: [
         // Paragraphs
         defineArrayMember({

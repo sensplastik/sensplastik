@@ -43,39 +43,109 @@ export function PlaceHolder({
 
   let imageUrl: string | undefined
 
-  // Manual switch to the dark image if set in the static props mode
-  if (darkSrc) {
-    if (forcedTheme) {
-      if (forcedTheme === 'dark') {
+  // Forced theme mode
+  if (forcedTheme) {
+    // Forced dark mode
+    if (forcedTheme === 'dark') {
+      // Normale string url in forced dark mode
+      if (darkSrc && typeof darkSrc === 'string') {
         imageUrl = darkSrc
       }
-    } else if (resolvedTheme === 'dark') {
+      // fallback to default image if exists
+      else if (src && typeof src === 'string') {
+        imageUrl = src
+      }
+
+      // Sanity image object in forced dark mode
+      else if (
+        src &&
+        typeof src === 'object' &&
+        src?._type === 'image' &&
+        src?.asset
+      ) {
+        imageUrl = urlForImage(src)?.url()
+      }
+
+      // Custom picture object in forced dark mode
+      else if (src && typeof src === 'object' && src?.dark) {
+        imageUrl = urlForImage(src.dark)?.url()
+      }
+
+      // Forced default light  mode
+    } else {
+      // Normale string url in forced light mode
+      if (src && typeof src === 'string') {
+        imageUrl = src
+      }
+
+      // Sanity image object in forced light mode
+      else if (
+        src &&
+        typeof src === 'object' &&
+        src?._type === 'image' &&
+        src?.asset
+      ) {
+        imageUrl = urlForImage(src)?.url()
+      }
+
+      // Custom picture object in forced light mode
+      else if (src && typeof src === 'object' && src?.default) {
+        imageUrl = urlForImage(src.default)?.url()
+      }
+    }
+  }
+
+  // Global dark mode
+  else if (resolvedTheme === 'dark') {
+    // Normale string url in global dark mode
+    if (darkSrc && typeof darkSrc === 'string') {
       imageUrl = darkSrc
     }
-  }
-
-  // Normal Sanity image object mode
-  if (typeof src === 'object' && src?._type === 'image' && src?.asset) {
-    imageUrl = src && urlForImage(src)?.url()
-  }
-
-  // Custom picture Sanity object mode
-  else if (typeof src === 'object') {
-    // Determine image URL based on theme and forced theme
-    if (forcedTheme) {
-      imageUrl =
-        forcedTheme === 'dark' && src.dark
-          ? urlForImage(src.dark)?.url()
-          : urlForImage(src.default)?.url()
-    } else {
-      imageUrl =
-        resolvedTheme === 'dark' && src.dark
-          ? urlForImage(src.dark)?.url()
-          : urlForImage(src.default)?.url()
+    // fallback to default image if exists
+    else if (src && typeof src === 'string') {
+      imageUrl = src
     }
 
-    // TODO: Add Mobile and Dark mobile mode support
+    // Sanity image object in global dark mode
+    else if (
+      src &&
+      typeof src === 'object' &&
+      src?._type === 'image' &&
+      src?.asset
+    ) {
+      imageUrl = urlForImage(src)?.url()
+    }
+
+    // Custom picture object in global dark mode
+    else if (src && typeof src === 'object' && src?.dark) {
+      imageUrl = urlForImage(src.dark)?.url()
+    }
+
+    // Default light mode
+  } else {
+    // Normale string url in default light mode
+    if (src && typeof src === 'string') {
+      imageUrl = src
+    }
+
+    // Sanity image object in default light mode
+    else if (
+      src &&
+      typeof src === 'object' &&
+      src?._type === 'image' &&
+      src?.asset
+    ) {
+      imageUrl = urlForImage(src)?.url()
+    }
+
+    // Custom picture object in default light mode
+    else if (src && typeof src === 'object' && src?.default) {
+      imageUrl = urlForImage(src.default)?.url()
+    }
   }
+
+  console.log({ resolvedTheme, src, darkSrc, imageUrl })
+  // TODO: Add Mobile and Dark mobile mode support
 
   return (
     <div className={componentStyles({ class: className })}>
