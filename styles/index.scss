@@ -22,12 +22,14 @@
 html,
 body {
   height: 100%; // Set the height to 100% for both html and body
+  transition: background .6s ease;
 }
 
-body {
+body > .page {
+  height: 100%;
   display: flex; // Use flexbox for layout
   flex-direction: column; // Arrange children in a column
-  transition: background 1s ease; // Add a transition effect for background changes
+   // Add a transition effect for background changes
 
   > main {
     flex: 1 0 auto; // Allow main content to grow and shrink as needed

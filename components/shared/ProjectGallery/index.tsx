@@ -27,7 +27,7 @@ export function ProjectGallery(props: ProjectGalleryProps) {
             <ul className="project-gallery__list">
               {items.map((item, index) => {
                 const { reference, title, image, gridWidth, isEmpty } = item
-
+                
                 return (
                   <ProjectGalleryItem
                     key={index}
@@ -35,7 +35,7 @@ export function ProjectGallery(props: ProjectGalleryProps) {
                     reference={reference}
                     title={title}
                     image={image}
-                    gridWidth={gridWidth}
+                    gridWidth={gridWidth || 'default'}
                     isEmpty={isEmpty}
                   />
                 )

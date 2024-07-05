@@ -38,7 +38,7 @@ export function ProjectGalleryItem(props: ProjectGalleryItem) {
   } = props
 
   return (
-    <li className={`${componentStyles({ gridWidth })} ${className}`}>
+    <li className={`${className} ${componentStyles({ gridWidth })}`}>
       {!isEmpty && (
         <>
           {image && <Picture src={image} />}

@@ -8,6 +8,7 @@ import { ProjectDeliverable, ProjectTechnology } from '@/types'
 import { sanitizeContent } from '@/utils/sanitizeContent'
 
 import ExternalLinkIcon from './ExternalLinkIcon.svg'
+import { CustomPortableText } from '../CustomPortableText'
 
 const componentStyles = cva('project-info')
 
@@ -102,21 +103,28 @@ export function ProjectInfo(props: ProjectInfoProps) {
             {/* Headline */}
             {headline && <h2 className="project-info__headline">{headline}</h2>}
 
-          <div className="project-info__body">
-            {/* Content */}
-            {hasContent && (
-              <div
-                className="project-info__content"
-                dangerouslySetInnerHTML={{ __html: sanitizedContent }}
-              />
-            )}
-
-            {/* Website */}
-            {website && (
-              <Link className="project-info__website" target="_blank" href={website}>
-                <span>{getHostname(website)}</span> <ExternalLinkIcon />
-              </Link>
-            )}
+            <div className="project-info__body">
+              {/* Content */}
+              {hasContent && typeof content === 'string' ? (
+                <div
+                  className="project-info__content"
+                  dangerouslySetInnerHTML={{ __html: sanitizedContent }}
+                />
+              ) : (
+                <div className="project-info__content">
+                <CustomPortableText value={content} />
+                </div>
+              )}
+              {/* Website */}
+              {website && (
+                <Link
+                  className="project-info__website"
+                  target="_blank"
+                  href={website}
+                >
+                  <span>{getHostname(website)}</span> <ExternalLinkIcon />
+                </Link>
+              )}
             </div>
           </article>
         </div>

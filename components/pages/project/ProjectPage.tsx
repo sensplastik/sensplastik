@@ -40,14 +40,12 @@ export function ProjectPage({ data, encodeDataAttribute }: ProjectPageProps) {
   return (
     <>
       {/* Project Header*/}
-      {(message?.title || message?.content) && (
-        <ProjectHeader
-          title={title}
-          coverImage={coverImage}
-          messageTitle={message?.title}
-          messageContent={message?.content}
-        />
-      )}
+      <ProjectHeader
+        title={title}
+        coverImage={coverImage}
+        messageTitle={message?.title}
+        messageContent={message?.content}
+      />
 
       {/* Project Details */}
       <div className="project-page-details">

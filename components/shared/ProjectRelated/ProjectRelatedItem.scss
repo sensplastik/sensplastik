@@ -23,7 +23,7 @@
 
   &__deliverables {
     grid-column-start: 7; // Start at column 7
-    grid-column-end: span 3; // Span 3 columns
+    grid-column-end: span 4; // Span 3 columns
   }
 
   &__icon {
@@ -31,6 +31,7 @@
     grid-column-end: span 1; // Span 1 column
     display: flex; // Flex container
     justify-content: flex-end; // Align icon to the end
+    align-items: center;
   }
 
   .arrow-icon {

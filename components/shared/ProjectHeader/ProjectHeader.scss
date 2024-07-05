@@ -26,6 +26,10 @@
 
     .picture__img {
       border-radius: 0; // Remove border-radius from the cover image
+      
+      height: 100vh;
+      width: 100vw;
+      object-fit: cover;
     }
   }
 

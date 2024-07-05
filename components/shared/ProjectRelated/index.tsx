@@ -31,7 +31,7 @@ export function ProjectRelated(props: ProjectRelatedProps) {
                 return (
                   <ProjectRelatedItem
                     key={index}
-                    index={index +1 }
+                    index={index + 1}
                     slug={slug}
                     title={title}
                     deliverables={deliverables}

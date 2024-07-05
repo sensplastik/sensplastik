@@ -81,6 +81,7 @@ export interface ProjectPayload {
   slug: string
   tags?: string[]
   title?: string
+  theme?:any,  
 }
 
 export interface FooterSettings{

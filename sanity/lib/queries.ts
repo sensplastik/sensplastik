@@ -35,6 +35,7 @@ export const projectBySlugQuery = groq`
     coverImage,
     description,    
     overview,
+    theme,
     headline,
     website,
     deliverables[]->{title},
@@ -43,7 +44,8 @@ export const projectBySlugQuery = groq`
     "slug": slug.current,
     tags,
     title,
-    message->{title,content},    
+    related[]->{title,"slug": slug.current, deliverables[]->{title}},
+    message{title,content},    
   }
 `
 
