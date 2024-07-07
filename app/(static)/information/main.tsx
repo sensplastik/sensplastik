@@ -61,35 +61,41 @@ export default function MainContent() {
       </Section>
 
       {/* Spacer default */}
-      <Spacer />
+      <Spacer paddingBottom={{default: '0'}} />
 
       {/* Horizontal Menu */}
-      <Section>
+      <Section className='section--horizontal-menu '>
         <HorizontalMenu
           items={[
             {
               index: 1,
               title: 'Introduction',
+              url:"#introduction"
             },
             {
               index: 2,
               title: 'Our Capabilities',
+              url:"#capabilities"
             },
             {
               index: 3,
-              title: 'What We Sets Us Apart',
+              title: 'What Sets Us Apart',
+              url:"#what-sets-us-apart"
             },
             {
               index: 4,
               title: 'Transparency',
+              url:"#transparency"
             },
             {
               index: 5,
               title: 'Guiding Principles',
+              url:"#guiding-principles"
             },
             {
               index: 6,
               title: 'Key Clients',
+              url:"#key-clients"
             },
           ]}
         />
@@ -101,7 +107,7 @@ export default function MainContent() {
           default: '0',
         }}
         paddingTop={{
-          default: '120px',
+          default: '110px',
         }}
         paddingBottom={{
           default: '0',
@@ -117,7 +123,7 @@ export default function MainContent() {
       <Spacer lineColor="#8e8d86" />
 
       {/* Content */}
-      <Section>
+      <Section id="introduction">
         <Content
           title="We are Sensplastik®"
           titleGridWidth={3}
@@ -148,7 +154,7 @@ export default function MainContent() {
       />
 
       {/* Content */}
-      <Section>
+      <Section id="capabilities">
         <Content
           title="Our Capabilities"
           titleLevel={3}
@@ -250,7 +256,7 @@ export default function MainContent() {
       <Spacer />
 
       {/* Content */}
-      <Section>
+      <Section id="what-sets-us-apart">
         <Content title="What Sets Us Apart" titleGridWidth={3} />
       </Section>
 
@@ -289,7 +295,7 @@ export default function MainContent() {
       <Spacer />
 
       {/* Content */}
-      <Section>
+      <Section id="transparency">
         <Content title="Transparency & Accountability" />
       </Section>
 
@@ -340,7 +346,7 @@ export default function MainContent() {
       <Spacer />
 
       {/* Content */}
-      <Section>
+      <Section id="guiding-principles">
         <Content title="Guiding Principles" titleGridWidth={3} />
       </Section>
 
@@ -439,7 +445,7 @@ export default function MainContent() {
       <Spacer />
 
       {/* Content */}
-      <Section>
+      <Section id="key-clients">
         <Content
           title="Key Clients"
           content="<p>Over the years, we have collaborated with clients of all sizes, spanning various sectors and industries, both internationally and locally. Guided by a shared set of values and a vision for a better future through design, we take pride in presenting a selection of our esteemed clients and the impactful work we've accomplished together.</p>"

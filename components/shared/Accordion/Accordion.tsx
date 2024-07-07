@@ -6,6 +6,7 @@ import { useGSAP } from '@gsap/react'
 import * as ReactAccordion from '@radix-ui/react-accordion'
 import { cva } from 'cva'
 import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Suspense, useEffect, useRef, useState } from 'react'
 
 import { sanitizeContent } from '@/utils/sanitizeContent'
@@ -13,7 +14,7 @@ import { sanitizeContent } from '@/utils/sanitizeContent'
 import { AccordionCard, AccordionCardProps } from './AccordionCard'
 import ArrowIcon from './ArrowIcon.svg'
 
-gsap.registerPlugin(useGSAP)
+gsap.registerPlugin(useGSAP, ScrollTrigger)
 
 const componentStyles = cva('accordion')
 
@@ -68,8 +69,18 @@ export function Accordion({
   const { contextSafe } = useGSAP({ scope: container })
 
   const openAccordionItem = contextSafe((container) => {
-    gsap.to('.accordion__content[data-state="closed"]', { height: 0 })
-    gsap.to('.accordion__content[data-state="open"]', { height: 'auto' })
+    gsap.to('.accordion__content[data-state="closed"]', {
+      height: 0,
+      onComplete: () => {
+        ScrollTrigger.refresh()
+      },
+    })
+    gsap.to('.accordion__content[data-state="open"]', {
+      height: 'auto',
+      onComplete: () => {
+        ScrollTrigger.refresh()
+      },
+    })
   })
 
   useEffect(() => {
@@ -78,74 +89,71 @@ export function Accordion({
   }, [container, accordionValue, openAccordionItem])
 
   return (
-      <div className={componentStyles({ class: className })} ref={container}>
-        <ReactAccordion.Root
-          type="single"
-          collapsible          
-          onValueChange={setAccordionValue}
-        >
-          {items.map((item, index) => {
-            // Ensure content exists and sanitize it
-            const sanitizedContent = item?.content
-              ? sanitizeContent(item.content)
-              : ''
+    <div className={componentStyles({ class: className })} ref={container}>
+      <ReactAccordion.Root
+        type="single"
+        collapsible
+        onValueChange={setAccordionValue}
+      >
+        {items.map((item, index) => {
+          // Ensure content exists and sanitize it
+          const sanitizedContent = item?.content
+            ? sanitizeContent(item.content)
+            : ''
 
-            return (
-              <ReactAccordion.Item
-                key={index}
-                value={`item-${index}`}
-                className="accordion__item"
+          return (
+            <ReactAccordion.Item
+              key={index}
+              value={`item-${index}`}
+              className="accordion__item"
+            >
+              <ReactAccordion.Header className="accordion__header">
+                <ReactAccordion.Trigger className="accordion__trigger">
+                  <span className="accordion__index">{item.index}</span>
+                  <span className="accordion__title">{item.title}</span>
+                  <span className="accordion__icon">
+                    <ArrowIcon />
+                  </span>
+                </ReactAccordion.Trigger>
+              </ReactAccordion.Header>
+              <ReactAccordion.Content
+                forceMount={true}
+                className="accordion__content"
+                data-accordion-value={`item-${index}`}
               >
-                <ReactAccordion.Header className="accordion__header">
-                  <ReactAccordion.Trigger className="accordion__trigger">
-                    <span className="accordion__index">{item.index}</span>
-                    <span className="accordion__title">{item.title}</span>
-                    <span className="accordion__icon">
-                      <ArrowIcon />
-                    </span>
-                  </ReactAccordion.Trigger>
-                </ReactAccordion.Header>
-                <ReactAccordion.Content
-                  forceMount={true}
-                  className="accordion__content"
-                  data-accordion-value={`item-${index}`}
-                >
-                  {/* Content text*/}
-                  {sanitizedContent ? (
-                    <article
-                      className="accordion__article"
-                      dangerouslySetInnerHTML={{ __html: sanitizedContent }}
-                    />
-                  ) : (
-                    <span>&nbsp;</span>
-                  )}
+                {/* Content text*/}
+                {sanitizedContent ? (
+                  <article
+                    className="accordion__article"
+                    dangerouslySetInnerHTML={{ __html: sanitizedContent }}
+                  />
+                ) : (
+                  <span>&nbsp;</span>
+                )}
 
-                  {/* Cards */}
-                  <div className="accordion__cards">
-                    <h6 className="accordion__list-title">{item.listTitle}</h6>
-                    <ul className="accordion__list">
-                      {item.listItems &&
-                        item.listItems.map((listItem, listIndex) => {
-                          return (
-                            <li
-                              className="accordion__list-item"
-                              key={listIndex}
-                            >
-                              <AccordionCard
-                                title={listItem.title}
-                                image={listItem.image}
-                                url={listItem.url}
-                              />
-                            </li>
-                          )
-                        })}
-                    </ul>
-                  </div>
-                </ReactAccordion.Content>
-              </ReactAccordion.Item>
-            )
-          })}
-        </ReactAccordion.Root>
-      </div>
+                {/* Cards */}
+                <div className="accordion__cards">
+                  <h6 className="accordion__list-title">{item.listTitle}</h6>
+                  <ul className="accordion__list">
+                    {item.listItems &&
+                      item.listItems.map((listItem, listIndex) => {
+                        return (
+                          <li className="accordion__list-item" key={listIndex}>
+                            <AccordionCard
+                              title={listItem.title}
+                              image={listItem.image}
+                              url={listItem.url}
+                            />
+                          </li>
+                        )
+                      })}
+                  </ul>
+                </div>
+              </ReactAccordion.Content>
+            </ReactAccordion.Item>
+          )
+        })}
+      </ReactAccordion.Root>
+    </div>
   )
 }

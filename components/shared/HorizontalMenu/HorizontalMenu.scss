@@ -1,6 +1,18 @@
 @import "@/styles/variables";
 
+.section--horizontal-menu {  
+  position: sticky; 
+  top: 0;
+  z-index:99;
+  padding-top:$space-1;
+  padding-bottom:$space-1;
+  background-color: $color-background;
+}
+
 .horizontal-menu {
+
+  position: sticky;
+  top:0;
   // Styling for the list within the horizontal menu
   &__list {
     @include grid;

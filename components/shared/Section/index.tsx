@@ -16,14 +16,15 @@ const sectionStyles = cva("section", {
 
 interface SectionProps {
   className?: string
+  id?:string
   children?: any
   fullWidth?: boolean
   hasGrid? :boolean
 }
 
-export function Section ({ className = "", fullWidth = false, hasGrid=false, children } :SectionProps ) {
+export function Section ({ className = "", id="",  fullWidth = false, hasGrid=false, children } :SectionProps ) {
   return (
-    <section className={sectionStyles({ class: className, fullWidth , hasGrid })}>
+    <section id={id} className={sectionStyles({ class: className, fullWidth , hasGrid })}>
       <div className="section__container">
         {children}
       </div>

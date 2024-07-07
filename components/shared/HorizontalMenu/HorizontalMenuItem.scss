@@ -34,4 +34,8 @@ $dot-line-height: 0.825rem;
   &__link {
     color: $color-third; // Set link color
   }
+
+  &--active *{
+    color:red;
+  }
 }
