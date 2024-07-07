@@ -1,15 +1,16 @@
-@import "@/styles/variables";
+@import '@/styles/variables';
 
 // Define the line height for dots
 $dot-line-height: 0.825rem;
 
 .horizontal-menu-item {
-
   display: flex; // Use flexbox for layout
 
   @include font-style-2; // Apply font styles
 
   font-weight: $font-weight-regular; // Set font weight
+
+  margin-left: -13px;
 
   &__dot {
     margin-right: 5px; // Space between dot and text
@@ -22,20 +23,32 @@ $dot-line-height: 0.825rem;
     flex-direction: column; // Align dot vertically
 
     &:before {
-      content: ""; // Add an empty content before element
+      content: ''; // Add an empty content before element
       display: block; // Make sure it behaves as a block element
       background-color: $color-third; // Set dot color
-      width: 6px; // Dot width
-      height: 6px; // Dot height
+      width: 8px; // Dot width
+      height: 8px; // Dot height
       border-radius: 100%; // Make it a circle
-    }   
+      // Animation
+      transform: scale(0);
+      transition: transform 0.3s 0.3s;
+    }
   }
 
   &__link {
     color: $color-third; // Set link color
+    transition: color 0.3s;
   }
 
-  &--active *{
-    color:red;
+  &--active {
+    .horizontal-menu-item {
+      &__dot:before {
+        background-color: $color-primary;
+        transform: scale(1);
+      }
+      &__link {
+        color: $color-primary;
+      }
+    }
   }
 }
