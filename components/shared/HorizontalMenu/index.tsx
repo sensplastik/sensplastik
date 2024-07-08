@@ -113,7 +113,7 @@ export function HorizontalMenu({
       gsap.to(window, {
         scrollTo: {
           y: sectionWrapper,
-          offsetY: menuHeight + 40, // Adjust offsetY according to your nav height
+          offsetY: menuHeight + navHeight + 50, // Adjust offsetY according to your nav height
         },
         duration: 1.5,
         ease: 'expo.inOut',
