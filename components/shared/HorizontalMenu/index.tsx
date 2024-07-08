@@ -92,7 +92,7 @@ export function HorizontalMenu({
           })
 
           // Add click handler here
-          menuLink?.addEventListener('click', handleClick)
+          menuLink?.addEventListener('click', (event) => handleClick(event as MouseEvent, index))
         }
       }
     })
@@ -106,7 +106,7 @@ export function HorizontalMenu({
     }
   }, [menuHeight, items])
 
-  const handleClick = (event: MouseEvent) => {
+  const handleClick = (event: MouseEvent, index: number) => {
     event.preventDefault()
     const target = event.currentTarget as HTMLAnchorElement
     const sectionWrapper = document.querySelector(
@@ -117,7 +117,7 @@ export function HorizontalMenu({
       gsap.to(window, {
         scrollTo: {
           y: sectionWrapper,
-          offsetY: menuHeight + navHeight + 50, // Adjust offsetY according to your nav height
+          offsetY:  menuHeight + navHeight  +  (index === 0 ? 0 :  20),
         },
         duration: 1.5,
         ease: 'expo.inOut',
