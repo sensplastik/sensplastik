@@ -77,10 +77,14 @@
 
   // Navigation Item
   &__item {
-    color: $color-white; // Set font color
+    color: $color-menu-link; // Set font color
 
+    transition: color .5s ease-out;
+    &:hover{
+      color: $color-menu-link-hover; // Set color for hovered item
+    }
     &--active {
-      color: $color-secondary; // Set color for active item
+      color: $color-menu-link-active; // Set color for active item
     }
 
     &:not(:last-child) {

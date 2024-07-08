@@ -8,14 +8,19 @@
 
 // Footer Content Styles
 .footer {
-    @include grid; // Apply grid layout
-    @include font-style-2; // Apply font style 2
 
     padding-top: 220px; // Add top margin
-    font-weight: $font-weight-medium; // Set font weight
-    color: $color-primary; // Set text color
     padding-bottom: $space-2; // Add bottom padding
 
+    @include font-style-2; // Apply font style 2
+    font-weight: $font-weight-medium; // Set font weight
+
+    color: $color-primary; // Set text color
+    overflow: hidden;
+      
+    &__inner{
+        @include grid; // Apply grid layout   
+    }
     // Brand Section
     &__brand {
         grid-column: span 2; // Span 2 columns in the grid
