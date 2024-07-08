@@ -5,9 +5,10 @@ import gsap from 'gsap'
 import { ScrollToPlugin, ScrollTrigger } from 'gsap/all'
 import Link from 'next/link'
 import { useRef } from 'react'
-
+import { usePathname } from 'next/navigation'
 import { CustomPortableText } from '@/components/shared/CustomPortableText'
 import { useSettings } from '@/context/SettingsContext'
+import { useEffect, useState } from 'react'
 
 gsap.registerPlugin(useGSAP, ScrollTrigger, ScrollToPlugin)
 
@@ -28,10 +29,18 @@ export default function Footer() {
 
   const container = useRef<HTMLDivElement>(null)
 
+  const pathname = usePathname()
+
+  useEffect(() => {
+    ScrollTrigger.refresh()   
+  }, [pathname])
+
   useGSAP(
     () => {
       if (container.current) {
-        const footer = container.current.querySelector('.footer__inner') as HTMLDivElement
+        const footer = container.current.querySelector(
+          '.footer__inner',
+        ) as HTMLDivElement
         //const section = footer.closest('.section--footer') as HTMLDivElement
 
         if (footer) {
