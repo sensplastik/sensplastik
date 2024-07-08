@@ -42,10 +42,11 @@ export default function Footer() {
           '.footer__inner',
         ) as HTMLDivElement
         //const section = footer.closest('.section--footer') as HTMLDivElement
+        const footerItems = footer.querySelectorAll('.footer__name, .footer__copyright, .footer__content, .footer__address, .footer__follow .footer__label, .footer__follow .footer__link,  .footer__talk .footer__label, .footer__talk .footer__link');
 
-        if (footer) {
+        if (footerItems) {
           gsap.fromTo(
-            footer,
+            footerItems,
             {
               opacity: 0,
               y: '100%',
@@ -53,9 +54,10 @@ export default function Footer() {
             {
               opacity: 1,
               y: 0,
-              delay: 0.3,
+              //delay: 0.2,
+              stagger:.05,
               scrollTrigger: {
-                trigger: footer,
+                trigger: footerItems,
                 //markers: true,
                 toggleActions: 'play reverse play reset',
               },
