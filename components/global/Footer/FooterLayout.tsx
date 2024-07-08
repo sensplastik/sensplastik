@@ -47,7 +47,7 @@ export default function Footer() {
               delay: 0.3,
               scrollTrigger: {
                 trigger: footer,
-                markers: true,
+                //markers: true,
                 toggleActions: 'play reverse play reset',
               },
             },
