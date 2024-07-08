@@ -38,7 +38,9 @@ export function HorizontalMenu({
 
   useLayoutEffect(() => {
     if (container.current) {
-      setMenuHeight(container.current.offsetHeight)
+      const menuSection = container.current.closest('.section--horizontal-menu') as HTMLElement
+      if (menuSection)
+        setMenuHeight(menuSection.offsetHeight)
       //
       const nav = document.querySelector('.section--navbar') as HTMLElement
       if (nav) {
@@ -67,12 +69,14 @@ export function HorizontalMenu({
         const menuLink = container.current?.querySelector(`[href="${link}"]`)
         const menuItem = menuLink?.closest('.horizontal-menu-item')
         const sectionWrapper = document.querySelector(anchorId)
+        const offsetHeight = menuHeight + navHeight
+        console.log({offsetHeight, menuHeight, navHeight})
 
         if (sectionWrapper) {
           ScrollTrigger.create({
             trigger: sectionWrapper,
-            start: index === 0 ? 'top bottom' : `top+=${menuHeight} center`, // Adjust for nav height
-            end: `bottom+=${menuHeight} center`, // Adjust for nav height
+            start: index === 0 ? 'top bottom' : `top-=${offsetHeight}px center`, // Adjust for nav height
+            end: `bottom-=${offsetHeight}px center`, // Adjust for nav height
             onEnter: function () {
               menuItem?.classList.add('horizontal-menu-item--active')
             },
