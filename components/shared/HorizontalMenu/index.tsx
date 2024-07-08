@@ -3,7 +3,7 @@ import './HorizontalMenu.scss'
 import { useGSAP } from '@gsap/react'
 import { cva } from 'cva'
 import gsap from 'gsap'
-import { ScrollToPlugin,ScrollTrigger } from 'gsap/all' // Import ScrollToPlugin
+import { ScrollToPlugin, ScrollTrigger } from 'gsap/all' // Import ScrollToPlugin
 import React, { useLayoutEffect, useRef, useState } from 'react'
 
 import {
@@ -48,7 +48,7 @@ export function HorizontalMenu({
           '.section--horizontal-menu',
         ) as HTMLElement
         if (horizontalMenu) horizontalMenu.style.top = `${navHeight}px`
-      }      
+      }
     }
   }, [navHeight])
 
@@ -61,7 +61,7 @@ export function HorizontalMenu({
       menuLink?.removeEventListener('click', handleClick)
     })
 
-    links.forEach((link) => {
+    links.forEach((link, index) => {
       if (link?.startsWith('#')) {
         const anchorId = link
         const menuLink = container.current?.querySelector(`[href="${link}"]`)
@@ -71,7 +71,7 @@ export function HorizontalMenu({
         if (sectionWrapper) {
           ScrollTrigger.create({
             trigger: sectionWrapper,
-            start: `top+=${menuHeight} center`, // Adjust for nav height
+            start: index === 0 ? 'top bottom' : `top+=${menuHeight} center`, // Adjust for nav height
             end: `bottom+=${menuHeight} center`, // Adjust for nav height
             onEnter: function () {
               menuItem?.classList.add('horizontal-menu-item--active')

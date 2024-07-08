@@ -17,11 +17,11 @@ import { Preface } from '@/components/shared/Preface'
 import { Section } from '@/components/shared/Section'
 import { Spacer } from '@/components/shared/Spacer'
 import { Title } from '@/components/shared/Title'
+import { Wrapper } from '@/components/shared/Wrapper'
 import {
   getRootPageElement,
   updateBackgroundColor,
 } from '@/utils/updateBackground'
-import { Wrapper } from '@/components/shared/Wrapper'
 
 // Replace with your desired background color
 const pageBackgroundColor = 'var(--color-background)'
@@ -101,30 +101,31 @@ export default function MainContent() {
           ]}
         />
       </Section>
-
-      {/* Spacer 120px */}
-      <Spacer
-        lineSize={{
-          default: '0',
-        }}
-        paddingTop={{
-          default: '110px',
-        }}
-        paddingBottom={{
-          default: '0',
-        }}
-      />
-
-      {/* Preface */}
-      <Section>
-        <Preface content="<p>We are committed to addressing global brand challenges and providing innovative, long-term solutions. We work worldwide, creating engaging brand experiences and digital designs that are visually captivating, purpose-driven, and practical.</p>" />
-      </Section>
-
-      {/* Spacer default */}
-      <Spacer lineColor="#8e8d86" />
-
-      {/* We are Sensplastik® Content*/}
+      
+      {/* Intro */}
       <Wrapper id="introduction">
+        {/* Spacer 120px */}
+        <Spacer
+          lineSize={{
+            default: '0',
+          }}
+          paddingTop={{
+            default: '110px',
+          }}
+          paddingBottom={{
+            default: '0',
+          }}
+        />
+
+        {/* Preface */}
+        <Section>
+          <Preface content="<p>We are committed to addressing global brand challenges and providing innovative, long-term solutions. We work worldwide, creating engaging brand experiences and digital designs that are visually captivating, purpose-driven, and practical.</p>" />
+        </Section>
+
+        {/* Spacer default */}
+        <Spacer lineColor="#8e8d86" />
+
+        {/* We are Sensplastik® Content*/}
         <Section>
           <Content
             title="We are Sensplastik®"
