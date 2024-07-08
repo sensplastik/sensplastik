@@ -51,10 +51,18 @@
     }
   }
 
-  // Hamburger Menu Lines
-  .hamburger {
-    &__line {
-      stroke: $color-primary; // Set stroke color for lines
-    }
+  &__hamburger{
+    height:100%;
+  }
+
+  &__menu{
+    position: fixed; 
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 999;
+    visibility: hidden;
+    opacity: 0;
   }
 }

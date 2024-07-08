@@ -5,9 +5,12 @@
 // Navbar Section
 // Styles specific to the navbar section.
 .section--navbar {  
-  position: relative; // Ensure the navbar is positioned relative to its normal position
-  z-index: 1; // Set the stacking order
+  // position: relative; // Ensure the navbar is positioned relative to its normal position
+  z-index: 998; // Set the stacking order
   border-bottom: 1px solid $color-lines; // Add a bottom border using the color-lines variable
+  position: sticky;
+  top:0;
+  background-color: $color-background;
 }
 
 // Footer Section

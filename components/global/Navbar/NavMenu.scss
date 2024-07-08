@@ -38,15 +38,28 @@
     }
   }
 
-  // Close Button
   &__close {
     grid-column-start: 12; // Position in the grid
     display: flex; // Use flexbox layout
     justify-content: flex-end; // Align items to the end
     align-items: flex-start; // Align items to the start
     margin-top: $space-2; // Add top margin
-  }
+    > span {
+      cursor: pointer;
+    }
+    button {
+      transform: scale(0);
+      transform-origin: center center;
+      animation: hideCloseButton 0.3s forwards;
+    }
 
+    &--show {
+      button {
+        pointer-events: all; // Enable pointer events when shown
+        animation: showCloseButton 0.3s forwards;
+      }
+    }
+  }
   // Navigation Container
   &__nav {
     grid-column: span 12; // Span 12 columns
@@ -116,5 +129,23 @@
     &__line {
       stroke: $color-secondary; // Set stroke color
     }
+  }
+}
+
+@keyframes showCloseButton {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes hideCloseButton {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0);
   }
 }

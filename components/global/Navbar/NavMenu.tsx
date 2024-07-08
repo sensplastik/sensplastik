@@ -1,4 +1,4 @@
-"use client"
+'use client'
 import './NavMenu.scss'
 
 import { cva } from 'cva'
@@ -44,9 +44,11 @@ export function NavMenu(props: NavMenuProps) {
           </div>
           {/* Menu Close */}
           <div className="nav-menu__close">
-            <button onClick={onClose}>
-              <Close />
-            </button>
+            <span>
+              <button onClick={onClose}>
+                <Close />
+              </button>
+            </span>
           </div>
           {/* Navigation */}
           <nav className="nav-menu__nav">
