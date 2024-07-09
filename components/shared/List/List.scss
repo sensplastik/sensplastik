@@ -8,7 +8,7 @@
 
   &__list {
     @include grid; // Apply grid layout
-    row-gap: $space-1; // Set row gap
+    row-gap: 0; // Set row gap
   }
 
   &__item {
@@ -38,11 +38,8 @@
     }
   }
 
-  &--animated {
-    animation: scrollList;
-    animation-duration: var(--list-animation-duration, 20s);
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
+  &--animated {    
+    animation: scrollList var(--list-animation-duration, 20s) linear infinite;   
     animation-fill-mode: forwards;
 
     .list__item {
@@ -103,10 +100,10 @@
   }
   30%,
   60% {
-    transform: translateY(-35%);
+    transform: translateY(calc(-100% * (1 / 3)));
   }
   70%,
   100% {
-    transform: translateY(-67%);
+    transform: translateY(calc(-100% * (2 / 3 )));
   }
 }

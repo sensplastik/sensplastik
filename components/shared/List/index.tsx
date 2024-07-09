@@ -2,8 +2,9 @@
 import './List.scss'
 
 import { cva } from 'cva'
-import gsap from 'gsap'
 import React, { useEffect, useRef } from 'react'
+
+import useResizeObserver, {Size} from '@/utils/hooks/useResizeObserver'
 
 const componentStyles = cva('list', {
   variants: {
@@ -53,37 +54,12 @@ export function List({
 }: BrandsProps) {
   const container = useRef<HTMLDivElement>(null)
 
-  const updateItemHeights = () => {
-    const lists = container.current?.querySelectorAll('.list__list')
-
-    if (lists && lists?.length > 0) {
-      const listHeight = (lists[0] as HTMLElement).offsetHeight
-      if (container.current) container.current.style.height = `${listHeight}px`
-    }
-
-    lists?.forEach((ul) => {
-      if (ul) {
-        const list = ul.querySelectorAll('.list__item') || []
-        list.forEach((li) => {
-          const div = li.querySelector('.list__group > div')
-          if (div) {
-            const divHeight = (div as HTMLElement)?.offsetHeight
-            if (divHeight) {
-              ;(li as HTMLElement).style.height = `${divHeight}px`
-            }
-          }
-        })
-      }
-    })
-  }
-
+  const [size, listRef] = useResizeObserver();
+  
   useEffect(() => {
-    updateItemHeights()
-    window.addEventListener('resize', updateItemHeights)
-    return () => {
-      window.removeEventListener('resize', updateItemHeights)
-    }
-  }, [items])
+     if (container.current) container.current.style.height = `${size?.height}px`
+     console.log(size)
+  }, [size])
 
   const getGroupedItems = (items) => {
     const groups = []
@@ -105,8 +81,8 @@ export function List({
 
   const groupedItems = getGroupedItems(items)
 
-  const renderAnimatedListItem = (items, keyPrefix) => (
-    <ul className="list__list">
+  const renderAnimatedListItem = (items, keyPrefix, ref?) => (
+    <ul className="list__list" ref={ref ? ref : undefined}>
       {items.map((group, groupIndex) => (
         <li className="list__item" key={`${keyPrefix}-${groupIndex}`}>
           <div className="list__group">
@@ -131,7 +107,7 @@ export function List({
       >
         {enableAnimation ? (
           <>
-            {renderAnimatedListItem(groupedItems, 'animated-list-1')}
+            {renderAnimatedListItem(groupedItems, 'animated-list-1', listRef)}
             {renderAnimatedListItem(groupedItems, 'animated-list-2')}
           </>
         ) : (

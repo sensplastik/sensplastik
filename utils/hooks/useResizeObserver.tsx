@@ -2,7 +2,12 @@ import debounce from 'lodash.debounce'; // You can use lodash.debounce or write 
 import { useEffect,useRef, useState } from 'react';
 //import ResizeObserver from 'resize-observer-polyfill';
 
-const useResizeObserver = (initialSize = { width: 0, height: 0 }) => {
+export interface Size {
+  width: number 
+  height: number
+}
+
+const useResizeObserver = (initialSize = { width: 0, height: 0 } as Size) => {
   const [size, setSize] = useState(initialSize);
   const elementRef = useRef(null);
 
