@@ -46,3 +46,18 @@
     }
   }
 }
+
+
+@mixin sliding-text-gradient($initial-color, $hover-color) {
+  color: transparent; // Make the text itself transparent
+  background-image: linear-gradient(to right, $initial-color 50%, $hover-color 50%); // Initial color and hover color
+  background-clip: text; // Use the background as the text color
+  -webkit-background-clip: text; // Required for Safari
+  transition: background-position 0.5s ease-in-out;
+  background-size: 200% 100%; // Allow room for the background to shift
+  background-position: 0% 0%;
+
+  &:hover {
+    background-position: 100% 0%;
+  }
+}

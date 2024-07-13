@@ -3,12 +3,12 @@
 
 // Navigation Menu Styles
 .nav-menu {
-  position: fixed; // Fix the menu to the viewport
+  position: absolute; // Fix the menu to the viewport
   top: 0;
   right: 0;
   left: 0;
   bottom: 0;
-  z-index: 998; // Ensure it appears above other elements
+  z-index: 999; // Ensure it appears above other elements
 
   background-color: $color-background-menu; // Set background color
 
@@ -38,28 +38,6 @@
     }
   }
 
-  &__close {
-    grid-column-start: 12; // Position in the grid
-    display: flex; // Use flexbox layout
-    justify-content: flex-end; // Align items to the end
-    align-items: flex-start; // Align items to the start
-    margin-top: $space-2; // Add top margin
-    > span {
-      cursor: pointer;
-    }
-    button {
-      transform: scale(0);
-      transform-origin: center center;
-      animation: hideCloseButton 0.3s forwards;
-    }
-
-    &--show {
-      button {
-        pointer-events: all; // Enable pointer events when shown
-        animation: showCloseButton 0.3s forwards;
-      }
-    }
-  }
   // Navigation Container
   &__nav {
     grid-column: span 12; // Span 12 columns
@@ -77,19 +55,32 @@
 
   // Navigation Item
   &__item {
+  
     color: $color-menu-link; // Set font color
-
-    transition: color .5s ease-out;
+    transition: transform .3s ease-in-out;
+    overflow: hidden;
+    position:relative;
     &:hover{
-      color: $color-menu-link-hover; // Set color for hovered item
+      // color: $color-menu-link-hover; // Set color for hovered item
+      transform: translateX(-20px);
+      transition: transform .5s ease-out-in;
     }
-    &--active {
+    /*&--active {
       color: $color-menu-link-active; // Set color for active item
-    }
+    }*/
 
     &:not(:last-child) {
       margin-bottom: $space-1; // Add bottom margin to non-last items
     }
+
+    > a {
+      display:block;
+      @include sliding-text-gradient($color-menu-link, $color-menu-link-hover);
+    }
+
+    
+
+    
   }
 
   // Social Media Section

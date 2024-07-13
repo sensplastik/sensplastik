@@ -3,12 +3,15 @@
 
 // Navbar Styles
 .navbar {
+  
+  @include grid; // Apply grid layout
+
   height: $navbar-height; // Set the height of the navbar
   justify-content: space-between; // Space items evenly with space between
   align-items: center; // Align items vertically centered
   color: $color-primary; // Set text color
+  
 
-  @include grid; // Apply grid layout
 
   // Navigation Container
   &__nav {
@@ -53,6 +56,8 @@
 
   &__hamburger{
     height:100%;
+    position: relative; 
+    z-index:999;
   }
 
   &__menu{
@@ -61,8 +66,7 @@
     right: 0;
     left: 0;
     bottom: 0;
-    z-index: 999;
-    visibility: hidden;
-    opacity: 0;
+    z-index: 998;
+    transform: translateY(100%);    
   }
 }

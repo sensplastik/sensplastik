@@ -13,6 +13,7 @@ import { Section } from '@/components/shared/Section'
 import { SettingsProvider } from '@/context/SettingsContext'
 import { urlForOpenGraphImage } from '@/sanity/lib/utils'
 import { loadHomePage, loadSettings } from '@/sanity/loader/loadQuery'
+import { TransitionProvider } from '@/context/TransitionContext'
 
 const LiveVisualEditing = dynamic(
   () => import('@/sanity/loader/LiveVisualEditing'),
@@ -83,7 +84,9 @@ export default async function IndexRoute({
           <main>
             <Suspense>
               <Section className="section--navbar">
-                <Navbar />
+                <TransitionProvider>
+                  <Navbar />
+                </TransitionProvider>
               </Section>
             </Suspense>
             <Suspense>{children}</Suspense>

@@ -41,15 +41,7 @@ export function NavMenu(props: NavMenuProps) {
             <Link className="nav-menu__toggle-link" href="javascript:void(0)">
               Menu
             </Link>
-          </div>
-          {/* Menu Close */}
-          <div className="nav-menu__close">
-            <span>
-              <button onClick={onClose}>
-                <Close />
-              </button>
-            </span>
-          </div>
+          </div>          
           {/* Navigation */}
           <nav className="nav-menu__nav">
             {menuItems && (

@@ -79,6 +79,14 @@ $hamburger-height: 8px;
     }
   }
 
+  &--close {
+    .hamburger {
+      &__line {
+        animation: showHamburger 0.3s forwards;
+      }
+    }
+  }
+
   &--show {
     .hamburger {
       &__line {

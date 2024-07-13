@@ -11,8 +11,9 @@ import { Footer } from '@/components/global/Footer'
 import { Navbar } from '@/components/global/Navbar'
 import { Section } from '@/components/shared/Section'
 import { SettingsProvider } from '@/context/SettingsContext'
+import { TransitionProvider } from '@/context/TransitionContext'
 import { urlForOpenGraphImage } from '@/sanity/lib/utils'
-import { loadHomePage, loadSettings } from '@/sanity/loader/loadQuery'
+import { loadSettings } from '@/sanity/loader/loadQuery'
 
 const LiveVisualEditing = dynamic(
   () => import('@/sanity/loader/LiveVisualEditing'),
@@ -82,7 +83,9 @@ export default async function IndexRoute({
           <main>
             <Suspense>
               <Section className="section--navbar">
-                <Navbar />
+                <TransitionProvider>
+                  <Navbar />
+                </TransitionProvider>
               </Section>
             </Suspense>
             <Suspense>{children}</Suspense>

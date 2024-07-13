@@ -7,6 +7,7 @@ const componentStyles = cva('hamburger', {
   variants: {
     intent: {
       open: 'hamburger--open',
+      close: 'hamburger--close',
       hide: 'hamburger--hide',
       show: 'hamburger--show'
     },
@@ -14,14 +15,12 @@ const componentStyles = cva('hamburger', {
 });
 
 interface HamburgerProps {
-  open?: boolean; // open with effects (x)
-  hide?: boolean; // hide with effects
-  show?: boolean; // show with effects
+  state?:string
 }
 
-function Hamburger({ open = false, hide = false , show = true}: HamburgerProps) {
+function Hamburger({state = 'show'}: HamburgerProps) {
   return (
-    <div className={componentStyles({ intent: open ? 'open' : hide ? 'hide' : show ? 'show' : undefined  })}>
+    <div className={componentStyles({ intent: state  })}>
       <div className="hamburger__line"></div>
       <div className="hamburger__line"></div>
     </div>
