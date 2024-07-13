@@ -1,15 +1,12 @@
 @import '@/styles/variables';
 
-.navbar__hamburger {
-  &:hover .hamburger--show {
-    .hamburger__line {
-      transition: all 0.2s ease-in-out !important;
-      &:first-child {
-        transform: translateX(-3px) !important;
-      }
-      &:last-child {
-        transform: translateX(3px) !important;
-      }
+.navbar__hamburger:hover .hamburger:not(.hamburger--open) {
+  .hamburger__line {
+    &:first-child {
+      transform: translateX(-3px) !important;
+    }
+    &:last-child {
+      transform: translateX(3px) !important;
     }
   }
 }
@@ -17,6 +14,7 @@
 // Hamburger Menu Lines
 $hamburger-width: 40px;
 $hamburger-height: 8px;
+
 .hamburger {
   width: $hamburger-width;
   height: $hamburger-height;
@@ -26,16 +24,18 @@ $hamburger-height: 8px;
 
   &__line {
     width: $hamburger-width;
-    height: 1px; // Adjust thickness as needed
-    background-color: $color-primary; // Set color for lines
+    height: 1px;
+    background-color: $color-primary;
     position: absolute;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
-    //transform: scaleX(0);
+    transition: all 0.3s ease;
+
     &:first-child {
       top: 0;
       left: 0;
     }
+
     &:last-child {
       bottom: 0;
       left: 0;
@@ -43,6 +43,7 @@ $hamburger-height: 8px;
   }
 
   &--open {
+    margin-top: $hamburger-height;
     .hamburger {
       &__line {
         &:first-child {
@@ -56,63 +57,4 @@ $hamburger-height: 8px;
       }
     }
   }
-
-  &--hide,
-  &--show {
-    .hamburger {
-      &__line {
-        &:first-child {
-          transform-origin: left;
-        }
-        &:last-child {
-          transform-origin: right;
-        }
-      }
-    }
-  }
-
-  &--hide {
-    .hamburger {
-      &__line {
-        animation: hideHamburger 0.3s forwards;
-      }
-    }
-  }
-
-  &--close {
-    .hamburger {
-      &__line {
-        animation: showHamburger 0.3s forwards;
-      }
-    }
-  }
-
-  &--show {
-    .hamburger {
-      &__line {
-        animation: showHamburger 0.3s forwards;
-      }
-    }
-  }
-}
-
-@keyframes showHamburger {
-  from {
-    transform: scaleX(0);
-  }
-  to {
-    transform: scaleX(1);
-  }
-}
-
-@keyframes hideHamburger {
-  from {
-    transform: scaleX(1);
-  }
-  to {
-    transform: scaleX(0);
-  }
-}
-
-@keyframes skewHamburger {
 }
