@@ -47,7 +47,7 @@ export function HorizontalMenu({
       if (menuSection) setMenuHeight(menuSection.offsetHeight)
 
       // Calculate and set the height of the navigation bar
-      const nav = document.querySelector('.section--navbar') as HTMLElement
+      const nav = document.querySelector('.page__nav') as HTMLElement
       if (nav) {
         setNavHeight(nav.offsetHeight)
         // Adjust the top position of the horizontal menu based on the navigation bar height

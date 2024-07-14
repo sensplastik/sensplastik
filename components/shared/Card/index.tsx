@@ -7,6 +7,8 @@ import React from 'react'
 import { Picture } from '@/components/shared/Picture'
 import { sanitizeContent } from '@/utils/sanitizeContent'
 
+import LinkTransition from '../LinkTransition'
+
 const componentStyles = cva('card')
 
 interface Service {
@@ -62,7 +64,7 @@ export function Card({
       className={componentStyles({ class: className })}
       style={gridStyle} // Apply the grid style object
     >
-      <Link href={link}>
+      <LinkTransition href={link}>
       <Picture
         className="card__picture"
         src={image}
@@ -91,7 +93,7 @@ export function Card({
           )}
         </div>
       )}
-       </Link>
+       </LinkTransition>
     </article>
    
   )

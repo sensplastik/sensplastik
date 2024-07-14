@@ -1,0 +1,44 @@
+.page__nav {
+  view-transition-name: page-nav;
+}
+.page__content {
+  view-transition-name: page-content;
+}
+
+.page__footer {
+  view-transition-name: page-footer;
+}
+
+.card {
+    view-transition-name: card;
+    contain: layout;
+    width: fit-content;
+}
+
+.project-header__cover {
+    view-transition-name: card;
+    contain: layout;
+
+}
+
+::view-transition-old(page-nav),
+::view-transition-new(page-nav),
+::view-transition-old(page-footer) ,
+::view-transition-new(page-footer){
+    animation: none;
+}
+
+
+::view-transition-old(card),
+::view-transition-new(card){
+    animation: none;
+    mix-blend-mode: normal;
+}
+
+::view-transition-old(page-content) {
+  
+}
+
+::view-transition-new(page-content) {
+  
+}

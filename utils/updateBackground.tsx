@@ -6,8 +6,8 @@
 export const getRootPageElement = () => {
   const page = document.querySelector('body>.page')
   const main = document.querySelector('body>.page> main')
-  const nav  = document.querySelector('.section--navbar')
-  const footer = document.querySelector('.page > .section--footer')
+  const nav  = document.querySelector('.page__nav')
+  const footer = document.querySelector('.page > .page__footer')
   return { page, nav, main , footer }
 }
 

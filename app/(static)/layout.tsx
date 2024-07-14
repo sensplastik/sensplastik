@@ -82,16 +82,16 @@ export default async function IndexRoute({
         <SettingsProvider settings={settings}>
           <main>
             <Suspense>
-              <Section className="section--navbar">
+              <Section className="page__nav">
                 <TransitionProvider>
                   <Navbar />
                 </TransitionProvider>
               </Section>
             </Suspense>
-            <Suspense>{children}</Suspense>
+            <Suspense><div className='page__content'>{children}</div></Suspense>
           </main>
           <Suspense>
-            <Section className="section--footer">
+            <Section className="page__footer">
               <Footer />
             </Section>
           </Suspense>

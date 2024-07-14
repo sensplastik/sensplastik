@@ -3,12 +3,13 @@
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import Link from 'next/link'
-import { useEffect, useRef, useState } from 'react'
+import { memo, useEffect, useRef, useState } from 'react'
 
 import { useTransitionContext } from '@/context/TransitionContext'
 import { resolveHref } from '@/sanity/lib/utils'
 import type { MenuItem, SettingsPayload } from '@/types'
 
+import LinkTransition from '../../shared/LinkTransition'
 import { LogoFull } from '../Logo/Full'
 import Hamburger from './Hamburger'
 import { NavMenu } from './NavMenu'
@@ -19,12 +20,12 @@ interface NavbarProps {
   data: SettingsPayload
 }
 
-export default function Navbar(props: NavbarProps) {
+function Navbar(props: NavbarProps) {
   const { data } = props
   const menuItems = data?.menuItems || ([] as MenuItem[])
 
   const [isNavMenuVisible, setIsNavMenuVisible] = useState(false)
-  const [hamburgerState, setHamburgerState] = useState('show')
+  const [hamburgerState, setHamburgerState] = useState(undefined)
 
   const container = useRef<HTMLDivElement>(null)
   const navMenuRef = useRef<HTMLDivElement>(null)
@@ -46,7 +47,7 @@ export default function Navbar(props: NavbarProps) {
           },
           {
             y: '0%',
-            overwrite:true,
+            overwrite: true,
 
             onComplete: () => {
               //
@@ -99,7 +100,7 @@ export default function Navbar(props: NavbarProps) {
               }
               return (
                 <li className="navbar__item" key={key}>
-                  <Link href={href}>{menuItem.title}</Link>
+                  <LinkTransition href={href}>{menuItem.title}</LinkTransition>
                 </li>
               )
             })}
@@ -114,3 +115,5 @@ export default function Navbar(props: NavbarProps) {
     </div>
   )
 }
+
+export default memo(Navbar);

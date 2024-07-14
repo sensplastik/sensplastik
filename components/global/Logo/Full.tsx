@@ -3,6 +3,7 @@ import './Logo.scss'
 import { cva } from 'cva'
 import Link from 'next/link'
 
+import LinkTransition from '../../shared/LinkTransition'
 import { Logo } from './index'
 
 const componentStyles = cva('logo')
@@ -19,12 +20,12 @@ export function LogoFull({
   link = '/',
 }: LogoFullProps) {
   return (
-    <Link href={link} className={componentStyles({ class: className })}>
+    <LinkTransition href={link} className={componentStyles({ class: className })}>
       <Logo color={color} />
       <p className="slogan">
         Corporate made Beautiful with <br />
         Purpose and Simplicity.
       </p>
-    </Link>
+    </LinkTransition>
   )
 }

@@ -41,7 +41,7 @@ export default function Footer() {
         const footer = container.current.querySelector(
           '.footer__inner',
         ) as HTMLDivElement
-        //const section = footer.closest('.section--footer') as HTMLDivElement
+        //const section = footer.closest('.page__footer') as HTMLDivElement
         const footerItems = footer.querySelectorAll('.footer__name, .footer__copyright, .footer__content, .footer__address, .footer__follow .footer__label, .footer__follow .footer__link,  .footer__talk .footer__label, .footer__talk .footer__link');
 
         if (footerItems) {
