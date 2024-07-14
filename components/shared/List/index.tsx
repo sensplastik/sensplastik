@@ -4,7 +4,7 @@ import './List.scss'
 import { cva } from 'cva'
 import React, { useEffect, useRef } from 'react'
 
-import useResizeObserver, {Size} from '@/utils/hooks/useResizeObserver'
+import useResizeObserver, {Size} from '@/hooks/useResizeObserver'
 
 const componentStyles = cva('list', {
   variants: {
