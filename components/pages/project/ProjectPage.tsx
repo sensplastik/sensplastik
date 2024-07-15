@@ -3,7 +3,7 @@ import './ProjectPage.scss'
 import type { EncodeDataAttributeCallback } from '@sanity/react-loader'
 
 import { ProjectGallery } from '@/components/shared/ProjectGallery'
-import { ProjectHeader } from '@/components/shared/ProjectHeader'
+import  ProjectHeader  from '@/components/shared/ProjectHeader'
 import { ProjectInfo } from '@/components/shared/ProjectInfo'
 import { ProjectRelated } from '@/components/shared/ProjectRelated'
 import { Section } from '@/components/shared/Section'

@@ -8,7 +8,7 @@
 html,
 body {
   height: 100%; // Set the height to 100% for both html and body
-  transition: background 0.6s ease;
+  @include transition-background;
 }
 
 body > .page {
@@ -35,6 +35,8 @@ body > .page {
   position: sticky;
   top: 0;
   background-color: $color-background;
+
+  //@include transition-background;
 }
 
 // Footer Section

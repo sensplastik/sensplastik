@@ -1,10 +1,13 @@
 'use client'
 
+import gsap from 'gsap'
+import { Flip } from 'gsap/all'
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
 
 import { transitionHelper } from '@/utils/transitionHelper'
 
+gsap.registerPlugin(Flip)
 function LinkTransition(props) {
   const router = useRouter()
 
@@ -13,45 +16,35 @@ function LinkTransition(props) {
 
   //
   const homePath = '/'
-  const projectsPath = '/projects/'
-
-  //
-  function getNavigationType() {
-    if (currentPath === homePath && nextPath === projectsPath) {
-      return 'home-to-project-page'
-    } else if (currentPath === projectsPath && nextPath === homePath) {
-      return 'home-to-project-page'
-    }
-
-    return 'other'
-  }
+  const projectsPath = '/projects'
 
   const handleClick = async (e) => {
-    const navigationType = getNavigationType()
+    const target = e.target
 
-    if (navigationType === 'home-to-project-page') {
-      e.target.style.viewTransitionName = 'card'
-    }
+    const card = target.closest('.card')
 
-    const transition = transitionHelper({
-      updateDOM() {
-        // This is a pretty heavy-handed way to update page content.
-        // In production, you'd likely be modifying DOM elements directly,
-        // or using a framework.
-        // innerHTML is used here just to keep the DOM update super simple.
+    // Clicking on a card that send us to the project page
+    if (card && nextPath.toString().startsWith(projectsPath)) {
+      e.preventDefault()
+ 
+      const cardState = Flip.getState(card);
+      const cardBody =  card.querySelector('.card__body')
+      gsap.set(cardBody, {
+        autoAlpha:0,
+      })
+      gsap.set(card, {
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        position: 'fixed',
+        zIndex:997
+      })
 
+      Flip.from(cardState, {duration: .6, ease: "power2.out", onComplete:()=>{
         router.push(nextPath)
-
-        if (navigationType === 'project-page-to-home') {
-          e.target.style.viewTransitionName = 'card'
-        }
-      },
-    })
-
-    transition.finished.finally(() => {
-      // Clear the temporary tag
-      if (e.target) e.target.style.viewTransitionName = ''
-    })
+      }});
+    }
   }
 
   return (

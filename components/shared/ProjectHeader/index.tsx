@@ -1,8 +1,12 @@
 'use client'
 import './ProjectHeader.scss'
 
-import { useEffect, useRef, useState } from 'react'
+import { useGSAP } from '@gsap/react'
+import gsap from 'gsap'
+import { memo, useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { Image } from 'sanity'
+
+import useResizeObserver from '@/hooks/useResizeObserver'
 
 import { Message } from '../Message'
 import { Picture } from '../Picture'
@@ -16,52 +20,67 @@ interface ProjectHeaderProps {
   coverImage?: Image
 }
 
-export function ProjectHeader(props: ProjectHeaderProps) {
+gsap.registerPlugin(useGSAP)
+
+function ProjectHeader(props: ProjectHeaderProps) {
   const { messageTitle, messageContent, title, coverImage } = props
-  const [headerHeight, setHeaderHeight] = useState<number>(0)
-  const pictureRef = useRef<HTMLDivElement>(null)
 
-  const updateHeaderHeight = () => {
-    if (pictureRef.current) {
-      setHeaderHeight(pictureRef.current.clientHeight)
-    }
-  }
+  const container = useRef<HTMLDivElement>(null)
 
-  useEffect(() => {
-    // Initial height update
-    updateHeaderHeight()
+  useGSAP(
+    () => {
+      console.log('projectMessage')
+      //
+      const projectMessage = container.current?.querySelector(
+        '.project-header__message',
+      )
+      const projectTitle = container.current?.querySelector(
+        '.project-header__title',
+      )
 
-    // Update height on window resize
-    window.addEventListener('resize', updateHeaderHeight)
+      if (projectMessage) {
+        gsap.fromTo(
+          projectMessage,
+          { opacity: 0, x: 10 },
+          { opacity: 1, x: 0, duration: 0.8  },
+        )
+      }
 
-    // Cleanup event listener on unmount
-    return () => window.removeEventListener('resize', updateHeaderHeight)
-  }, [coverImage])
+      if (projectTitle) {
+        gsap.fromTo(
+          projectTitle,
+          { y: '200%', opacity: 0 },
+          { y: '0%', opacity: 1, duration: 0.8, delay: 0.1 },
+        )
+      }
+    },
+    { scope: container },
+  )
 
   if (!title) {
     return null
   }
 
   return (
-    <>
-      <div className="project-header" style={{ height: headerHeight }}>
-        {/* Project Message */}
-        {(messageTitle || messageContent) && (
-          <Section className="project-header__message">
-            <Message title={messageTitle} content={messageContent} />
-          </Section>
-        )}
-        
-        {/* Project Title */}
-        <Section hasGrid>          
-          <h1 className="project-header__title">{title}</h1>
+    <div className="project-header" ref={container}>
+      {/* Project Message */}
+      {(messageTitle || messageContent) && (
+        <Section className="project-header__message">
+          <Message title={messageTitle} content={messageContent} />
         </Section>
+      )}
 
-        {/* Project Cover */}
-        <div ref={pictureRef} className="project-header__cover">
-          <Picture src={coverImage} />
-        </div>
+      {/* Project Title */}
+      <Section hasGrid>
+        <h1 className="project-header__title">{title}</h1>
+      </Section>
+
+      {/* Project Cover */}
+      <div className="project-header__cover">
+        <Picture src={coverImage} />
       </div>
-    </>
+    </div>
   )
 }
+
+export default memo(ProjectHeader)
