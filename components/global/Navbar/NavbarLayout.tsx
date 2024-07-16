@@ -100,7 +100,7 @@ function Navbar(props: NavbarProps) {
               }
               return (
                 <li className="navbar__item" key={key}>
-                  <LinkTransition href={href}>{menuItem.title}</LinkTransition>
+                  <LinkTransition href={href}>{menuItem.title}</LinkTransition>{key  < menuItems.length-1 ?  ',': ''} 
                 </li>
               )
             })}
