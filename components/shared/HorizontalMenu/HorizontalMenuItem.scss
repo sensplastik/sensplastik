@@ -38,6 +38,10 @@ $dot-line-height: 0.825rem;
   &__link {
     color: $color-third; // Set link color
     transition: color 0.3s;
+
+    &:hover{
+      color: $color-secondary;
+    }
   }
 
   &--active {
