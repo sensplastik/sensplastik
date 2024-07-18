@@ -20,7 +20,7 @@ export function StatusBar() {
   useEffect(() => {
     const getCurrentTimeInParis = () => {
       const parisTimeZone = 'Europe/Paris'
-      const now = moment().tz(parisTimeZone).format('HH:mm A')
+      const now = moment().tz(parisTimeZone).format('hh:mm A')
       setParisTime(now)
     }
 

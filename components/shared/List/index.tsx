@@ -87,7 +87,7 @@ export function List({
         <li className="list__item" key={`${keyPrefix}-${groupIndex}`}>
           <div className="list__group">
             {group.map((item, index) => (
-              <div key={index}>{item.title}</div>
+              <div key={index}><span>{item.title}</span></div>
             ))}
           </div>
         </li>

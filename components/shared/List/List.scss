@@ -38,8 +38,8 @@
     }
   }
 
-  &--animated {    
-    animation: scrollList var(--list-animation-duration, 20s) linear infinite;   
+  &--animated {
+    //animation: scrollList var(--list-animation-duration, 20s) linear infinite;
     animation-fill-mode: forwards;
 
     .list__item {
@@ -77,7 +77,13 @@
       animation-delay: 1s;
 
       div {
-        line-height: normal;
+        overflow: hidden;
+
+        span {
+          overflow: hidden;
+          vertical-align: super;
+          display: inline-block;
+        }
       }
     }
   }
@@ -104,6 +110,6 @@
   }
   70%,
   100% {
-    transform: translateY(calc(-100% * (2 / 3 )));
+    transform: translateY(calc(-100% * (2 / 3)));
   }
 }
