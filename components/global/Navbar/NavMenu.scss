@@ -106,6 +106,9 @@
         @include font-style-5; // Apply font style 5
         font-weight: $font-weight-medium; // Set font weight
         color: $color-third; // Set font color
+        &:hover{
+          color: $color-secondary;
+        }
       }
     }
   }
