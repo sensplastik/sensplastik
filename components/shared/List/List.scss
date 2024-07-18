@@ -25,9 +25,10 @@
     font-weight: $font-weight-regular; // Set font weight
   }
 
-  &--brands {
-    .list__item {
-      // Additional styles for brand items can be added here
+  &--default {
+    .list__item:not(:last-child) {
+      margin-bottom: $space-1;
+      
     }
   }
 
@@ -39,7 +40,7 @@
   }
 
   &--animated {
-    //animation: scrollList var(--list-animation-duration, 20s) linear infinite;
+    animation: scrollList var(--list-animation-duration, 20s) linear infinite;
     animation-fill-mode: forwards;
 
     .list__item {

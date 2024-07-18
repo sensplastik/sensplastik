@@ -57,8 +57,7 @@ export function List({
   const [size, listRef] = useResizeObserver();
   
   useEffect(() => {
-     if (container.current) container.current.style.height = `${size?.height}px`
-     console.log(size)
+     if (container.current && size?.height > 0) container.current.style.height = `${size?.height}px`     
   }, [size])
 
   const getGroupedItems = (items) => {
@@ -111,7 +110,7 @@ export function List({
             {renderAnimatedListItem(groupedItems, 'animated-list-2')}
           </>
         ) : (
-          <ul className="list__list">
+          <ul className="list__list" ref={listRef}>
             {items.map((item, index) => (
               <li className="list__item" key={index}>
                 {item.title}
