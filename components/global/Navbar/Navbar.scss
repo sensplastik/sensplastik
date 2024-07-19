@@ -31,10 +31,11 @@
   &__item {
     @include font-style-3; // Apply font style 3
     font-weight: $font-weight-medium; // Set font weight
-
+    //transition: color 0.3s ease-in-out;
     a {
-      transition: color 0.3s ease-in-out;
+     // transition: color 0.3s ease-in-out;
       &:hover {
+        transition: color 0.3s ease-in-out;
         color: $color-secondary;
       }
     }
