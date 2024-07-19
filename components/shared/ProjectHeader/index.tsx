@@ -29,7 +29,6 @@ function ProjectHeader(props: ProjectHeaderProps) {
 
   useGSAP(
     () => {
-      console.log('projectMessage')
       //
       const projectMessage = container.current?.querySelector(
         '.project-header__message',

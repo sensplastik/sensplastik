@@ -3,7 +3,7 @@
 import { useGSAP } from '@gsap/react'
 import { cva } from 'cva'
 import gsap from 'gsap'
-import Link from 'next/link'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { usePathname } from 'next/navigation'
 import { memo, useEffect, useRef, useState } from 'react'
 
@@ -16,7 +16,7 @@ import { LogoFull } from '../Logo/Full'
 import Hamburger from './Hamburger'
 import { NavMenu } from './NavMenu'
 
-gsap.registerPlugin(useGSAP)
+gsap.registerPlugin(ScrollTrigger)
 
 const componentStyles = cva('navbar', {
   variants: { intent: { 'project-page': 'navbar--project' } },
@@ -32,6 +32,7 @@ function Navbar(props: NavbarProps) {
 
   const [isNavMenuVisible, setIsNavMenuVisible] = useState(false)
   const [hamburgerState, setHamburgerState] = useState(undefined)
+  const [isNavbarHitContent, setIsNavbarHitContent] = useState(false)
 
   const container = useRef<HTMLDivElement>(null)
   const navMenuRef = useRef<HTMLDivElement>(null)
@@ -39,7 +40,6 @@ function Navbar(props: NavbarProps) {
   const { timeline } = useTransitionContext()
 
   const pathname = usePathname()
-
   const isProjectPage = pathname.startsWith('/projects/')
 
   const toggleNavMenu = () => {
@@ -48,6 +48,8 @@ function Navbar(props: NavbarProps) {
 
   useGSAP(
     () => {
+      const scrollTriggers: ScrollTrigger[] = []
+
       if (navMenuRef.current) {
         // Animate Menu wrapper
         timeline.fromTo(
@@ -58,9 +60,8 @@ function Navbar(props: NavbarProps) {
           {
             y: '0%',
             overwrite: true,
-
             onComplete: () => {
-              //
+              // Custom onComplete logic
             },
           },
         )
@@ -80,8 +81,56 @@ function Navbar(props: NavbarProps) {
           )
         }
       }
+
+      const scrollTriggerId = 'navbar-project-scroll-trigger'
+
+      const pageNav = container.current?.closest('.page__nav')
+
+      if (isProjectPage) {
+        if (pageNav) {
+          ScrollTrigger.getById(scrollTriggerId)?.kill()
+
+          gsap.set(pageNav, { backgroundColor: 'transparent' })
+
+          const scrollTrigger = ScrollTrigger.create({
+            id: scrollTriggerId,
+            trigger: '.project-page-details',
+            start: `clamp(bottom top+=${container.current?.offsetHeight})`, // Adjust according to navbar height
+            end: `clamp(top bottom+=${container.current?.offsetHeight})`,
+            onEnter: () =>
+              
+              gsap.set(pageNav, {
+                backgroundColor: 'var(--color-background)',
+                onComplete: () => {
+                  container.current?.classList.add('navbar--reset')
+                  setIsNavbarHitContent(true)
+                },
+              }),
+            onLeaveBack: () =>
+              gsap.set(pageNav, {
+                backgroundColor: 'transparent',
+                onComplete: () => {
+                  container.current?.classList.remove('navbar--reset')
+                  setIsNavbarHitContent(false)
+                },
+              }),
+          })
+
+          scrollTriggers.push(scrollTrigger)
+        }
+      } else {
+        // Reset navbar for other pages
+        ScrollTrigger.getById(scrollTriggerId)?.kill()
+        container.current?.classList.remove('navbar--reset')
+        if (pageNav)
+          gsap.set(pageNav, { backgroundColor: 'var(--color-background)' })
+      }
+
+      return () => {
+        ScrollTrigger.getById(scrollTriggerId)?.kill()
+      }
     },
-    { scope: container },
+    { scope: container, dependencies: [isProjectPage] },
   )
 
   useEffect(() => {
@@ -95,17 +144,14 @@ function Navbar(props: NavbarProps) {
   }, [isNavMenuVisible, timeline])
 
   useEffect(() => {
-
     const pageNav = container.current?.closest('.page__nav')
 
-    if (isProjectPage && pageNav && container.current){
-        pageNav?.classList.add('page__nav--project')
-      
-    }else{
+    if (isProjectPage && pageNav && container.current) {
+      pageNav?.classList.add('page__nav--project')
+    } else {
       pageNav?.classList.remove('page__nav--project')
     }
-  
-  },[isProjectPage])
+  }, [isProjectPage])
 
   return (
     <div
@@ -114,7 +160,7 @@ function Navbar(props: NavbarProps) {
       })}
       ref={container}
     >
-      <LogoFull color={isProjectPage ? 'var(--color-background)' : ''} />
+      <LogoFull color={isProjectPage ? isNavbarHitContent ? 'var(--color-primary)' : 'var(--color-background)' : ''} />
       <nav className="navbar__nav">
         <ul className="navbar__list">
           {menuItems &&

@@ -7,7 +7,7 @@
 }
 
 .navbar--project {
-  color: $color-background!important;
+  color: $color-background;
 
   .navbar__hamburger {
     .hamburger__line {
@@ -15,6 +15,17 @@
     }
   }
 }
+
+.navbar--reset{
+  color: $color-primary!important; 
+  .navbar__hamburger {
+    .hamburger__line {
+      background-color: $color-primary!important;
+    }
+  }
+}
+
+
 
 // Project Page Details
 .project-page-details {

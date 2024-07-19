@@ -22,7 +22,7 @@ export default function Template({ children }: { children: React.ReactNode }): J
   // Define the themes for specific pages
   const pageThemes = [
     { path: '/contact', theme: 'light' },
-    { path: '/projects/*', theme: 'light' },
+   // { path: '/projects/*', theme: 'light' },
   ];
 
   /**
@@ -46,6 +46,13 @@ export default function Template({ children }: { children: React.ReactNode }): J
 
   // Find the theme that matches the current path name
   const matchedTheme = pageThemes.find((page) => matchPath(page.path, pathname))?.theme;
+
+  /*useEffect(() => {
+    if (!pathname.startsWith('/projects/')){
+     ScrollTrigger.getById('navbar-project-scroll-trigger')?.kill()
+    }
+  }, [pathname])*/
+
 
   return (
     // Provide the matched theme to the ThemeProvider
