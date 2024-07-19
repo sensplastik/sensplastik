@@ -95,15 +95,17 @@ function Navbar(props: NavbarProps) {
   }, [isNavMenuVisible, timeline])
 
   useEffect(() => {
-    const pageNav = container.current.closest('.page__nav')
-    if (container.current) {
-      pageNav?.classList.add('page__nav--project')
-    }
 
-    return () => {
-      if (container.current) pageNav?.classList.remove('page__nav--project')
+    const pageNav = container.current?.closest('.page__nav')
+
+    if (isProjectPage && pageNav && container.current){
+        pageNav?.classList.add('page__nav--project')
+      
+    }else{
+      pageNav?.classList.remove('page__nav--project')
     }
-  },[])
+  
+  },[isProjectPage])
 
   return (
     <div
