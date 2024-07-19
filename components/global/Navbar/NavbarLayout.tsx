@@ -16,7 +16,7 @@ import { LogoFull } from '../Logo/Full'
 import Hamburger from './Hamburger'
 import { NavMenu } from './NavMenu'
 
-gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(useGSAP,ScrollTrigger)
 
 const componentStyles = cva('navbar', {
   variants: { intent: { 'project-page': 'navbar--project' } },

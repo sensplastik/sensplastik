@@ -39,4 +39,14 @@
       fill: $color-primary; // Fill color for arrow icon path
     }
   }
+
+ &:hover {
+    color: $color-secondary;
+    transition: color 0.3s ease-in;
+    .arrow-icon {
+      &__path {
+        fill: $color-secondary; 
+      }
+    }
+  }
 }

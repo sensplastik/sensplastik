@@ -3,6 +3,7 @@ import './ProjectHeader.scss'
 
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/all'
 import { memo, useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { Image } from 'sanity'
 
@@ -20,7 +21,7 @@ interface ProjectHeaderProps {
   coverImage?: Image
 }
 
-gsap.registerPlugin(useGSAP)
+gsap.registerPlugin(useGSAP, ScrollTrigger)
 
 function ProjectHeader(props: ProjectHeaderProps) {
   const { messageTitle, messageContent, title, coverImage } = props
@@ -41,7 +42,7 @@ function ProjectHeader(props: ProjectHeaderProps) {
         gsap.fromTo(
           projectMessage,
           { opacity: 0, x: 10 },
-          { opacity: 1, x: 0, duration: 0.8  },
+          { opacity: 1, x: 0, duration: 0.8 },
         )
       }
 
@@ -51,6 +52,22 @@ function ProjectHeader(props: ProjectHeaderProps) {
           { y: '200%', opacity: 0 },
           { y: '0%', opacity: 1, duration: 0.8, delay: 0.1 },
         )
+      }
+
+      const scrollTriggerId = 'project-header-scroll-trigger'
+      ScrollTrigger.getById(scrollTriggerId)?.kill()
+      const coverPicture = container.current?.querySelector(
+        '.project-header__cover .picture',
+      )
+
+      if (coverPicture) {
+        gsap.fromTo(coverPicture, { y: 0 }, { y: '-50%' ,scrollTrigger:{
+          scrub:true,
+        }})
+      }
+
+      return () => {
+        ScrollTrigger.getById(scrollTriggerId)?.kill()
       }
     },
     { scope: container },

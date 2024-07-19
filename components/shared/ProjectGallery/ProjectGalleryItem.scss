@@ -14,13 +14,19 @@
   &--full {
     grid-column: span 12; // Full-width item
 
+
     .project-gallery-item__info {
       @include grid(12); // Grid layout for item info
+    }
+
+    .picture{
+      overflow: hidden;
     }
   }
 
   .picture__img {
     border-radius: 0; // Remove border-radius from images
+    object-fit: cover;
   }
 
   &:not(:last-child) {
