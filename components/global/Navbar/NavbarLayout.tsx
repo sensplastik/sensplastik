@@ -1,8 +1,10 @@
 'use client'
 
 import { useGSAP } from '@gsap/react'
+import { cva } from 'cva'
 import gsap from 'gsap'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { memo, useEffect, useRef, useState } from 'react'
 
 import { useTransitionContext } from '@/context/TransitionContext'
@@ -15,6 +17,10 @@ import Hamburger from './Hamburger'
 import { NavMenu } from './NavMenu'
 
 gsap.registerPlugin(useGSAP)
+
+const componentStyles = cva('navbar', {
+  variants: { intent: { 'project-page': 'navbar--project' } },
+})
 
 interface NavbarProps {
   data: SettingsPayload
@@ -31,6 +37,10 @@ function Navbar(props: NavbarProps) {
   const navMenuRef = useRef<HTMLDivElement>(null)
 
   const { timeline } = useTransitionContext()
+
+  const pathname = usePathname()
+
+  const isProjectPage = pathname.startsWith('/projects/')
 
   const toggleNavMenu = () => {
     setIsNavMenuVisible(!isNavMenuVisible)
@@ -84,9 +94,25 @@ function Navbar(props: NavbarProps) {
     }
   }, [isNavMenuVisible, timeline])
 
+  useEffect(() => {
+    const pageNav = container.current.closest('.page__nav')
+    if (container.current) {
+      pageNav?.classList.add('page__nav--project')
+    }
+
+    return () => {
+      if (container.current) pageNav?.classList.remove('page__nav--project')
+    }
+  },[])
+
   return (
-    <div className="navbar" ref={container}>
-      <LogoFull />
+    <div
+      className={componentStyles({
+        intent: isProjectPage ? 'project-page' : undefined,
+      })}
+      ref={container}
+    >
+      <LogoFull color={isProjectPage ? 'var(--color-background)' : ''} />
       <nav className="navbar__nav">
         <ul className="navbar__list">
           {menuItems &&
@@ -100,7 +126,8 @@ function Navbar(props: NavbarProps) {
               }
               return (
                 <li className="navbar__item" key={key}>
-                  <LinkTransition href={href}>{menuItem.title}</LinkTransition>{key  < menuItems.length-1 ?  ',': ''} 
+                  <LinkTransition href={href}>{menuItem.title}</LinkTransition>
+                  {key < menuItems.length - 1 ? ',' : ''}
                 </li>
               )
             })}
@@ -116,4 +143,4 @@ function Navbar(props: NavbarProps) {
   )
 }
 
-export default memo(Navbar);
+export default memo(Navbar)

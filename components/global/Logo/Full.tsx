@@ -22,7 +22,7 @@ export function LogoFull({
   return (
     <LinkTransition href={link} className={componentStyles({ class: className })}>
       <Logo color={color} />
-      <p className="slogan">
+      <p className="slogan" style={{color:color || undefined}}>
         Corporate made Beautiful with <br />
         Purpose and Simplicity.
       </p>

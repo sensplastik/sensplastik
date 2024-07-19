@@ -14,16 +14,20 @@ export function Logo({ color = '' }: LogoProps) {
   const [currentColor, setCurrentColor] = useState(color)
 
   useEffect(() => {
-    if (forcedTheme) {
-      forcedTheme === 'dark'
-        ? setCurrentColor(variables.darkLogoColor)
-        : setCurrentColor(variables.lightLogoColor)
-    } else {
-      resolvedTheme === 'light'
-        ? setCurrentColor(variables.lightLogoColor)
-        : setCurrentColor(variables.darkLogoColor)
+    if (!color)
+      if (forcedTheme) {
+        forcedTheme === 'dark'
+          ? setCurrentColor(variables.darkLogoColor)
+          : setCurrentColor(variables.lightLogoColor)
+      } else {
+        resolvedTheme === 'light'
+          ? setCurrentColor(variables.lightLogoColor)
+          : setCurrentColor(variables.darkLogoColor)
+      }
+    else {
+      setCurrentColor(color)
     }
-  }, [resolvedTheme, forcedTheme])
+  }, [resolvedTheme, forcedTheme, color])
 
   return (
     <>
