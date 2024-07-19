@@ -10,7 +10,6 @@ import { Section } from '@/components/shared/Section'
 import { Spacer } from '@/components/shared/Spacer'
 import { Title } from '@/components/shared/Title'
 import type { ProjectPayload } from '@/types'
-import { memo } from 'react'
 
 export interface ProjectPageProps {
   data: ProjectPayload | null
@@ -94,4 +93,4 @@ export function ProjectPage({ data, encodeDataAttribute }: ProjectPageProps) {
   )
 }
 
-export default memo(ProjectPage)
+export default ProjectPage
